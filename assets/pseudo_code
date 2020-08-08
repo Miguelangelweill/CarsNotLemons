@@ -1,0 +1,53 @@
+- Should we have a user login or possibly a type of form validation (https://www.elated.com/form-validation-with-javascript/)?
+
+Portion for comparing or checking a specific vehicle
+
+If they are comparing this should run:
+There should be either a form input or dropdown list giving the user the choice to select what kind of vehicle he wants to search 
+    - So here we need to have an if statement only sending the search through if both fields are chosen correctly. Try to add automaker logos as buttons.
+    **** discuss what would be more effective....dropdown list or a form??
+    
+
+Once user approves two choices and hits submit we should populate certain parameters with our AJAX object 
+
+Opinions here as to what should be populated as well as to what should be compared
+    - Starting MSRP or current price KBB (Compared?)
+    - Fuel Economy (Compared)
+    - Curb Weight (Compared)
+    - Ownership Cost (Compared)
+    - Consumer Rating 
+    - Engine Type
+    - Transmission
+    - Fuel Type
+    - Seating Capacity
+    - Pros & Cons list
+    - Insurance cost.
+
+*option of functions:
+
+* one function that excecute query
+*function ger car by vin number
+*function maker model year
+///////////////////////////////////////////////////
+* if user picks to compare :
+//we give them a drop down menu with the options of maker model and year
+//get the information from the api into the dropdown list.
+//display the carousel showing the images from the two vehicles.
+//under the carousel show de characteristic of the individual cars.
+//give the user the option to insert the milage of the vehicle in case its not a car from the dealership
+//we run the function that evaluates each car and tells the differences.
+//Pick the items that we are going to directly compare: ownership cost, fuel economy, market value, depreciasion and the insurance cost.
+//we give you a final result of what is more profitable vehicle.
+//we designate which is the lemon and which is the car to buy.
+
+* if user picks Check by VIN:
+//input the vin number of the car , if you wish you wish to compare two vins , get the information from the vehicles and display it on the carousel.
+#same process from line 35 down to line 41.
+
+//if they are only using one vin number give them a form where they can input the milage of the vehicle.
+//give back ownership cost, fuel economy, market value, depreciasion, the insurance cost. let the user know if the car will turn out to be a lemon or a car to buy .
+
+ 
+
+
+
