@@ -4,32 +4,32 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cars Not lemons</title>
+    <title>Cars Not Lemons</title>
     <!--this is the jquery-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!--this is the bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="./stlyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
-
 <!-- Start of Navbar -->
 <nav class="navbar sticky-top navbar-light">
     <a class="navbar-brand" href="#">Our image will go here</a>
     <ul>
-        <a href=""></a><li>Contact Info</li></a>
-        <a href=""></a><li>Other</li></a>
+        <a href="#bottom">
+            <li>Contact Info</li>
+        </a>
+        <a href="#bottom">
+            <li>Other</li>
+        </a>
     </ul>
 </nav>
-
-
-  <!-- End of NavBar -->
-  <!-- Start of the jumbo-img -->
+<!-- End of NavBar -->
+<!-- Start of the jumbo-img -->
 <div class="row">
     <div class="col-12">
-        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="2500">
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img class="jumbo-img"
@@ -50,41 +50,30 @@
         </div>
     </div>
 </div>
-
 <!-- The start of our comparison and auto comparison -->
-
-<div class="row bottom-boxes">
-
-    <div class="col-5">
-        <h5>
-            explaining their options on how they can check vehicles on our website by VIN:
-        </h5>
-        <button>Vin Check</button>
-        <h5>
-            explaining their options on how they can check vehicles on our website by car comparison:
-        </h5>
-        <button>car comparison</button>
-    </div>
-    <div class="col-5">
-        <h5>Our suggested comparisons</h5>
-    </div>
+<div id="UsersChoice" class="ui blue massive buttons">
+    <button class="ui button" id="checkVin">Check VIN Number</button>
+    <div class="or" id="compareTwo"></div>
+    <button class="ui button">Compare Two Vehicles</button>
 </div>
 <!-- End of user choice and of suggested comparison -->
-
 <!-- the next two or three elements should be hidden and only come up when user makes a choice -->
 <div class="vin-compare">
-
+    <form>
+        <label for="vin">Please insert VIN</label>
+        <br />
+        <input id="vinNumber" type="text" value="VIN number" />
+        <br />
+        <button>
+            Click here when ready
+        </button>
+    </form>
 </div>
 <div class="car-compare">
-
 </div>
 <div class="vin-check">
-
 </div>
-
-
-<footer>
-
+<footer id="bottom">
 </footer>
 
 <body>
@@ -99,6 +88,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
+    <script src="./marcos.js"></script>
 </body>
 
 </html>
