@@ -12,7 +12,7 @@ $(document).ready(function () {
             url: objecVin,
             type: "GET"
         }).then(function (response) {
-            response
+            responsefdasfas
         });
     }
 })
