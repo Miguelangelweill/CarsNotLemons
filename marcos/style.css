@@ -26,3 +26,7 @@ nav li{
     margin-right: 6%;
     margin-top: 5%;
 }
+
+.vin-compare{
+    display: none;
+}
