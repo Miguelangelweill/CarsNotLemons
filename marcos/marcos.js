@@ -4,6 +4,7 @@ $(document).ready(function () {
         console.log('it worked')
         //    $('#carouselExampleSlidesOnly').html('')
         $('.vin-compare').css('display', 'block')
+        userInputVin();
     })
     function userInputVin() {
         let userVinNumber = $('#vinNumber').val()
@@ -12,7 +13,7 @@ $(document).ready(function () {
             url: objecVin,
             type: "GET"
         }).then(function (response) {
-            response
+            console.log(response)
         });
     }
 })

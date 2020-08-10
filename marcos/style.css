@@ -18,6 +18,11 @@ nav li{
     height: 500px;
     margin: 20px 35px 0px 35px;
 }
+img{
+    max-height: 500px;
+    min-height: 300px;
+}
+
 #UsersChoice{
     text-align: center;
     display: flex;
