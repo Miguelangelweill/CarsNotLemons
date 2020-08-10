@@ -11,6 +11,11 @@ nav {
 	height: 60px;
 	background-color: #0e043a;
 }
+#logo{
+	padding-left: 0px;
+	margin-left: 0px;
+
+}
 nav li {
 	display: inline-block;
 	padding: 10px 10px;
