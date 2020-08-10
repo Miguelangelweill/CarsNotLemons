@@ -18,10 +18,13 @@ nav li{
     height: 500px;
     margin: 20px 35px 0px 35px;
 }
+<<<<<<< HEAD
 img{
     max-height: 500px;
     min-height: 300px;
 }
+=======
+>>>>>>> 29639d60f85ff633d5d1e9d4ef67b744122db87a
 
 #UsersChoice{
     text-align: center;
@@ -30,6 +33,10 @@ img{
     margin-right: 6%;
     margin-top: 5%;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 29639d60f85ff633d5d1e9d4ef67b744122db87a
 .vin-compare{
     display: none;
 }
