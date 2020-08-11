@@ -17,6 +17,7 @@ $(document).ready(function () {
         
 
         $.get(objectVin).then(function (response) {
+            $('#vinApiInput').empty();
             console.log(response)
             let price = response.attributes.manufacturer_suggested_retail_price;
             $('#vinApiInput').append(price);
