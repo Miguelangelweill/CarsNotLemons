@@ -29,7 +29,18 @@ img{
     margin-left: 6%;
     margin-right: 6%;
     margin-top: 5%;
-    min-width: 100pxa;
+    @media mobile {
+        display:inline-block
+    }
+   
+
+}
+#compareContainer1,#VinCheck{
+    margin: 5%;
+}
+#compareContainer2{
+    margin: 5%;
+    display: inline-block;
 }
 .vin-compare{
     display: none;
