@@ -11,10 +11,9 @@ nav {
 	height: 60px;
 	background-color: #0e043a;
 }
-#logo{
+#logo {
 	padding-left: 0px;
 	margin-left: 0px;
-
 }
 nav li {
 	display: inline-block;
@@ -33,19 +32,29 @@ nav li {
 	margin-left: 6%;
 	margin-right: 6%;
 	margin-top: 5%;
+	@media mobile {
+		display: inline-block;
+	}
 }
+
+#compareContainer1,
+#VinCheck {
+	margin: 5%;
+}
+
+#compareContainer2 {
+	margin: 5%;
+	display: inline-block;
+}
+
 .vin-compare {
 	display: none;
 }
 
 .footer {
-    padding: 30px;
-    clear: both;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    text-align: center;
+	padding: 30px;
+	clear: both;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+		'Lucida Sans', Arial, sans-serif;
+	text-align: center;
 }
-
-.footer h2 {
-    font-size: 20px;
-}
-
