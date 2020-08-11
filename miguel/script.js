@@ -12,7 +12,7 @@ $("#compareTwo").click(function(){
    
    console.log(maker1+model1+year1)
    //here i start the api for the first vehicle
-   var queryUrl = "http://marketvalue.vinaudit.com/getmarketvalue.php?key=0UCAOK5F1GEGDMD&format=json&period=90&mileage=average&year="+year1+"&make="+maker1+"&model="+model1+"";
+   var queryUrl = "https://specifications.vinaudit.com/v3/specifications?format=json&key=0UCAOK5F1GEGDMD&include=attributes,colors,equipment,recalls,warranties,photos&year=" + year1 + "&make=" + maker1 + "&model=" + model1 +"";
    
    console.log(queryUrl)
   //This is the information for the first vehicle
@@ -34,7 +34,7 @@ $("#compareTwo").click(function(){
 
    console.log(maker2 + model2 + year2)
    //here i start the api for the second vehicle
-   var SecondUrl = "http://marketvalue.vinaudit.com/getmarketvalue.php?key=0UCAOK5F1GEGDMD&format=json&period=90&mileage=average&year=" + year2 + "&make=" + maker2 + "&model=" + model2 + "";
+   var SecondUrl = "https://specifications.vinaudit.com/v3/specifications?format=json&key=0UCAOK5F1GEGDMD&include=attributes,colors,equipment,recalls,warranties,photos&year="+year2+"&make="+maker2+"&model="+model2+"";
 
    console.log(SecondUrl)
    //This is the information for the first vehicle
@@ -51,3 +51,12 @@ $("#compareTwo").click(function(){
    })
  })
 })
+
+//cost
+//engine size
+//miles per gallon
+//weight
+//over market value,under market value, market value;
+//transmition
+//fuel type
+//recalls
