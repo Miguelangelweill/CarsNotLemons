@@ -29,6 +29,7 @@ img{
     margin-left: 6%;
     margin-right: 6%;
     margin-top: 5%;
+    min-width: 100pxa;
 }
 .vin-compare{
     display: none;
