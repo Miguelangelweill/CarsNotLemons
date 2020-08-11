@@ -1,7 +1,7 @@
 $(document).ready(function () {
     console.log("ready!");
 
-    $('#checkVin').on('click', function (e) {
+    $('#UsersChoice').on('click', function (e) {
         e.preventDefault()
 
         $('#vinApiInput').css('display', 'block')
@@ -12,11 +12,33 @@ $(document).ready(function () {
         let userVinNumber = $('#vinNumber').val();
         e.preventDefault();
 
+        let ownershipCost = 'http://ownershipcost.vinaudit.com/getownershipcost.php?vin='+userVinNumber+'&key=0UCAOK5F1GEGDMD&state=WA'
+
+        $.get(ownershipCost).then(function(response){
+            console.log(response)
+            let depreciation = response.depreciation_cost;
+            console.log(depreciation);
+            let totalDepreciation = 0;
+            for(i = 0; i<depreciation.length;i++){
+            totalDepreciation += depreciation[i]
+            }
+            console.log(totalDepreciation)
+        })
+
+
+
+        let marketValue = 'http://marketvalue.vinaudit.com/getmarketvalue.php?key=0UCAOK5F1GEGDMD&vin='+userVinNumber+'&format=json&period=90&mileage=average'
+
+        $.get(marketValue).then(function(response){
+            console.log(response)
+            let meanPrice = response.mean;
+            console.log(meanPrice)
+        })
+        
         let objectVin = 'https://specifications.vinaudit.com/v3/specifications?key=0UCAOK5F1GEGDMD&format=json&include=attributes,equipment,colors,recalls,warranties,photos&vin=' + userVinNumber + '';
 
-        
-
         $.get(objectVin).then(function (response) {
+            $('#vinApiInput').empty();
             console.log(response)
             let price = response.attributes.manufacturer_suggested_retail_price;
             $('#vinApiInput').append(price);
