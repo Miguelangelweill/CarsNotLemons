@@ -18,7 +18,7 @@
 <body>
   <!-- Start of Navbar -->
   <nav class="navbar sticky-top navbar-light">
-    <a class="navbar-brand" href="#">Our image will go here</a>
+    <img class="navbar-brand" src="logo.ai"></img>
     <ul>
       <a href="#bottom">
         <li>Contact Info</li>
@@ -39,9 +39,78 @@
 
   <!-- End of NavBar -->
   <!-- Start of the jumbo-img -->
-  <div class="row">
-    <div class="col-12">
+  <div id="mainContainer" class="row">
+    <!--This is where the compare two vehicles starts-->
 
+      <div id='compareContainer1' class="ui card six wide">
+      <div class="ui slide masked reveal image">
+        <img id="firstImageCompare1" class="visible content">
+        <img id="firstImageCompare2" class="hidden content">
+      </div>
+      <div class="content">
+        <ul>
+          <li id="theCarEl1" class="header"></li>
+          <li id="theTrimEl1" class="meta"></li>
+          <li id="thePriceEl1" class="meta"></li>
+          <li id="theEngineEl1" class="meta"></li>
+          <li id="theCItyMlgEl1" class="meta"></li>
+          <li id="theHeighwayMlgEl1" class="meta"></li>
+          <li id="theWeightEl1" class="meta"></li>
+          <li id="theTransmissionEl1" class="meta"></li>
+          <li id="theFuelEl1" class="meta"></li>
+          <li id="theRecallEl1" class="meta"></li>
+        </ul>
+      </div>
+    </div>
+
+    
+    <div id='compareContainer2' class="ui card six wide">
+      <div class="ui slide masked reveal image">
+        <img id="secondImageCompare1"  class="visible content">
+        <img id="secondImageCompare2" class="hidden content">
+      </div>
+      <div class="content">
+            <ul>
+              <li id="theCarEl2" class="header"></li>
+              <li id="theTrimEl2" class="meta"></li>
+              <li id="thePriceEl2" class="meta"></li>
+              <li id="theEngineEl2" class="meta"></li>
+              <li id="theCItyMlgEl2" class="meta"></li>
+              <li id="theHeighwayMlgEl2" class="meta"></li>
+              <li id="theWeightEl2" class="meta"></li>
+              <li id="theTransmissionEl2" class="meta"></li>
+              <li id="theFuelEl2" class="meta"></li>
+              <li id="theRecallEl2" class="meta"></li>
+            </ul>
+      </div>
+    </div>
+
+        <div id='VinCheck' class="ui card six wide">
+          <div class="ui slide masked reveal image">
+            <img id="vinCheckImageCompare1" class="visible content">
+            <img id="vinCheckImageCompare2" class="hidden content">
+          </div>
+          <div class="content">
+            <ul>
+              <li id="theVinCarEl" class="header"></li>
+              <li id="theVinTrimEl" class="meta"></li>
+              <li id="theVinPriceEl" class="meta"></li>
+              <li id="theVinEngineEl" class="meta"></li>
+              <li id="theVinCItyMlgEl" class="meta"></li>
+              <li id="theVinHeighwayMlgEl" class="meta"></li>
+              <li id="theVinWeightEl" class="meta"></li>
+              <li id="theVinTransmissionEl" class="meta"></li>
+              <li id="theVinFuelEl" class="meta"></li>
+              <li id="theVinRecallEl" class="meta"></li>
+            </ul>
+          </div>
+        </div>
+
+
+  </div>
+    
+    <!--This is where the compare two vehicles html ends-->
+    <div class="col-12">
       <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="2500">
         <div class="carousel-inner">
           <div class="carousel-item active">
@@ -70,7 +139,19 @@
     <button id="compareTwo" class="ui button">Compare Two Vehicles</button>
   </div>
 <!-- End of user choice and of suggested comparison -->
+<!--this is the start of the form for the vin number-->
+<div id="vinApiInput" class="ui form">
+  <div class="inline fields">
+    <div class="six wide field">
+      <label>Check This VIN</label>
+      <input id="vinNumber" type="text" placeholder="Make">
+      <button id="checkOneVin" class="ui button">Ready to check</button>
+    </div>
 
+  </div>
+
+</div>
+<!--this is the end of the forn for the vin number-->
 <!--this is the start of the form for the compare two vehicles-->
 
 <!--this is the first vehicle form-->
@@ -86,7 +167,7 @@
         <div class="inline fields">
           <div class="nine wide field">
             <label>VIN #2</label>
-            <input id="SecondVehicle" type="text" placeholder="Vehicle number two">
+            <input id="secondVehicle" type="text" placeholder="Vehicle number two">
           </div>
         </div>
     <button id="readyCompare" class="ui button">Ready to compare</button>
