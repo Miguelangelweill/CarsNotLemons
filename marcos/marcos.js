@@ -1,7 +1,7 @@
 $(document).ready(function () {
     console.log("ready!");
 
-    $('#checkVin').on('click', function (e) {
+    $('#UsersChoice').on('click', function (e) {
         e.preventDefault()
 
         $('#vinApiInput').css('display', 'block')
