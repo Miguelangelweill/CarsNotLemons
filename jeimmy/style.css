@@ -5,10 +5,12 @@
 
 body {
 	background-image: linear-gradient(rgb(136, 182, 219), white);
+	background-repeat: no-repeat;
 }
 /* navbar css */
 .nav-link{
 	margin-right: 0px;
+	float: right;
 }
 
 #logo {
@@ -30,14 +32,34 @@ body {
 	margin-left: 6%;
 	margin-right: 6%;
 	margin-top: 5%;
-	@media mobile {
-		display: inline-block;
-	}
 }
 
+/*@media(max-width: 500px) {
+    .twocarsimg {
+		 /* css stuff! */
+ 		/*height: 80px;
+		width: 70px;
+		display: block; 
+		margin-left: auto; 
+		margin-right: auto;
+}
+}
+
+@media(max-width: 500px) {
+    .lemoncarimg {
+		 /* css stuff! */
+ 		/*height: 20px;
+		width: 30px;
+		display: block; 
+		margin-left: auto; 
+		margin-right: auto;
+       
+}
+} */
 #compareContainer1,
 #VinCheck {
 	margin: 5%;
+	
 }
 
 #compareContainer2 {
@@ -55,4 +77,10 @@ body {
 	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
 		'Lucida Sans', Arial, sans-serif;
 	text-align: center;
+}
+
+.content {
+    width: 75%;
+    display: inline-block;
+    margin-left: 20px;
 }
