@@ -1,11 +1,13 @@
 *{
     margin: 0;
     padding: 0;
+    
 }
 /* navbar css */
 
 body {
-	background-image: linear-gradient(rgb(136, 182, 219), white);
+    background: linear-gradient(rgb(136, 182, 219), white);
+    background-repeat: no-repeat;
 }
 /* navbar css */
 .nav-link{
@@ -35,11 +37,6 @@ img{
     margin-left: 6%;
     margin-right: 6%;
     margin-top: 5%; 
-    @media mobile {
-        display:inline-block
-    }
-   
-
 }
 #compareContainer1,#VinCheck{
     margin: 5%;
@@ -50,4 +47,17 @@ img{
 }
 .vin-compare{
     display: none;
+}
+
+.logoimage{
+    height: 100px;
+}
+
+/* footer portion */
+.footer {
+	padding: 30px;
+	clear: both;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+		'Lucida Sans', Arial, sans-serif;
+	text-align: center;
 }

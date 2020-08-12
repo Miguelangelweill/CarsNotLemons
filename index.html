@@ -134,20 +134,14 @@
     </div>
   </div>
   <!-- The start of our comparison and auto comparison -->
-  <div id="UsersChoice" class="ui blue massive buttons row no-gutters">
-    <div class="col-md-6">
-        <div class="mr-1">
-            <button class="ui button" id="checkVin" style="font-size: 30px; width: 100%;">Check VIN Number <img
-                    src="./assets/images/lemon.gif" alt="vs" class="row"
-                    style=" height: 50%; width: 30%; display: block; margin-left: auto; margin-right: auto;"></button>
-        </div>
-    </div>
-    <div class="col-md-6">
-        <button class="ui button row" style="font-size: 30px; width: 100%; ">Compare Two Vehicles <img
-                src="./assets/images/vs.gif" alt="vs" class="row"
-                style=" height: 100%; width: 70%; display: block; margin-left: auto; margin-right: auto;"></button>
-    </div>
-</div>
+  <div id="UsersChoice" class="ui blue massive buttons">
+    <button class="ui button" id="checkVin">Check VIN Number<img
+        src="./assets/images/lemon.gif" alt="vs" class="row logoimage"/></button>
+
+    <button id="compareTwo" class="ui button">Compare Two Vehicles<img
+        src="./assets/images/vs.gif" alt="vs" class="row logoimage"/></button>
+  </div>
+
 <!-- End of user choice and of suggested comparison -->
 <!--this is the start of the form for the vin number-->
 <div id="vinApiInput" class="ui form">
@@ -184,7 +178,15 @@
   </div>
 
   <!--this is the end of the form-->
+  <!-- Start of the footer -->
+  <footer class='footer' id="bottom">
 
+        <h2>Made with ❤️️ by CarsNotLemons</h2>
+        <p>
+            &copy; 2020 Cars not Lemons, Inc.
+        </p>
+
+</footer>
     <!--this is our personal js-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"

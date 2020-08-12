@@ -30,7 +30,38 @@ $(document).ready(function () {
       $("#VinCheck").show();
       let userVinNumber = $("#vinNumber").val();
       e.preventDefault();
-  
+        // ownershipCost AJAX
+      let ownershipCost = 'http://ownershipcost.vinaudit.com/getownershipcost.php?vin='+userVinNumber+'&key=0UCAOK5F1GEGDMD&state=WA'
+
+      $.get(ownershipCost).then(function(response){
+          console.log(response)
+          let depreciation = response.depreciation_cost;
+          console.log(depreciation);
+          let totalDepreciation = 0;
+          for(i = 0; i<depreciation.length;i++){
+          totalDepreciation += depreciation[i]
+          }
+          console.log(totalDepreciation)
+      })
+
+
+    //   Market Value AJAX
+      let marketValue = 'http://marketvalue.vinaudit.com/getmarketvalue.php?key=0UCAOK5F1GEGDMD&vin='+userVinNumber+'&format=json&period=90&mileage=average'
+
+      $.get(marketValue).then(function(response){
+          console.log(response)
+          let meanPrice = response.mean;
+          console.log(meanPrice)
+          thousands_separators(meanPrice)
+          function thousands_separators(num)
+  {
+    //   Market Value operator for comma
+    var num_parts = num.toString().split(".");
+    num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    console.log(num_parts.join("."))
+  }
+      })
+    
       let objectVin =
         "https://specifications.vinaudit.com/v3/specifications?key=0UCAOK5F1GEGDMD&format=json&include=attributes,equipment,colors,recalls,warranties,photos&vin=" +
         userVinNumber +
