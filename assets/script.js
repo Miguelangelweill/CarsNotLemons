@@ -18,8 +18,10 @@ $(document).ready(function () {
     }
     listenRezise()
     console.log("ready!");
+    //This is where we hide the card for the vin check only
     $("#VinCheck").hide();
     $("#vinApiInput").hide();
+    //This is the click event on the check only VIN
     $("#checkVin").on("click", function (e) {
       e.preventDefault();
       $("#vinApiInput").show();
@@ -27,10 +29,14 @@ $(document).ready(function () {
     });
     //This is marcos onclick on the check vin and his informaition
     $("#checkOneVin").on("click", function (e) {
-      $("#VinCheck").show();
+      $("#carouselExampleSlidesOnly").hide()
+      let onlyVinCheck=$("#VinCheck").show();
+      onlyVinCheck.addClass('one wide column');
+      $("#carouselContainer").append(onlyVinCheck);
+      //This is the input of the user 
       let userVinNumber = $("#vinNumber").val();
       e.preventDefault();
-        // ownershipCost AJAX
+        // OwnershipCost AJAX
       let ownershipCost = 'http://ownershipcost.vinaudit.com/getownershipcost.php?vin='+userVinNumber+'&key=0UCAOK5F1GEGDMD&state=WA'
 
       $.get(ownershipCost).then(function(response){
@@ -61,7 +67,8 @@ $(document).ready(function () {
     console.log(num_parts.join("."))
   }
       })
-    
+  
+      //This is the api for the first Vin only check starts
       let objectVin =
         "https://specifications.vinaudit.com/v3/specifications?key=0UCAOK5F1GEGDMD&format=json&include=attributes,equipment,colors,recalls,warranties,photos&vin=" +
         userVinNumber +
@@ -123,7 +130,8 @@ $(document).ready(function () {
         var checkVINrecallObject = response.recalls.length;
         console.log("Previous Recalls: " + checkVINrecallObject + " Total Recalls");
         $("#theVinRecallEl").text("Previous Recalls: " + checkVINrecallObject);
-  
+
+        //This is the api for the fuel cost 
         let ownershipCost = 'http://ownershipcost.vinaudit.com/getownershipcost.php?vin=' + userVinNumber + '&key=0UCAOK5F1GEGDMD&state=WA'
         $.get(ownershipCost).then(function (response) {
           console.log(response)
