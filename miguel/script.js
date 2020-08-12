@@ -273,11 +273,7 @@ $(document).ready(function () {
   
 });
 
-//cost
-//engine size
-//miles per gallon
-//weight
-//over market value,under market value, market value;
-//transmition
-//fuel type
-//recalls
+//fuel cost 
+// depreciation cost 
+// market value cost
+// insurance
