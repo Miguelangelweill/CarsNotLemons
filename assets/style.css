@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+/* navbar css */
+
+body {
+    background: linear-gradient(rgb(136, 182, 219), white);
+    background-repeat: no-repeat;
+}
+/* navbar css */
+.nav-link{
+	margin-right: 0px;
+}
+
+#logo {
+	padding-left: 0px;
+	margin-left: 0px;
+}
+
+/* jumbo image css */
+.jumbo-img{
+    display: block;
+    width: 95%;
+    height: 500px;
+    margin: 20px 35px 0px 35px;
+}
+img{
+    height: cover;
+
+}
+
+#UsersChoice{
+    text-align: center;
+    display: flex;
+    margin-left: 6%;
+    margin-right: 6%;
+    margin-top: 5%; 
+}
+#compareContainer1,#VinCheck{
+    margin: 5%;
+}
+#compareContainer2{
+    margin: 5%;
+    display: inline-block;
+}
+.vin-compare{
+    display: none;
+}
+
+.logoimage{
+    height: 100px;
+}
+
+/* footer portion */
+.footer {
+	padding: 30px;
+	clear: both;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+		'Lucida Sans', Arial, sans-serif;
+	text-align: center;
+}
