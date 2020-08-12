@@ -3,7 +3,6 @@
     padding: 0;
     
 }
-/* navbar css */
 
 body {
     background: linear-gradient(rgb(136, 182, 219), white);
@@ -12,6 +11,7 @@ body {
 /* navbar css */
 .nav-link{
 	margin-right: 0px;
+	float: right;
 }
 
 #logo {
@@ -26,6 +26,8 @@ body {
     height: 500px;
     margin: 20px 35px 0px 35px;
 }
+
+
 img{
     height: cover;
 
@@ -37,6 +39,9 @@ img{
     margin-left: 6%;
     margin-right: 6%;
     margin-top: 5%; 
+}
+#checkVin{
+    margin-right: 1%;
 }
 #compareContainer1,#VinCheck{
     margin: 5%;
@@ -60,4 +65,9 @@ img{
 	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
 		'Lucida Sans', Arial, sans-serif;
 	text-align: center;
+}
+.content {
+    width: 75%;
+    display: inline-block;
+    margin-left: 20px;
 }
