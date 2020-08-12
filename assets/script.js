@@ -23,18 +23,22 @@ $(document).ready(function () {
     $("#vinApiInput").hide();
     //This is the click event on the check only VIN
     $("#checkVin").on("click", function (e) {
+      $('#compareForm').hide();
       e.preventDefault();
       $("#vinApiInput").show();
       $("#vinApiInput").css("display", "block");
     });
     //This is marcos onclick on the check vin and his informaition
     $("#checkOneVin").on("click", function (e) {
+      let userVinNumber = $("#vinNumber").val();
+      $('#compareContainer1').hide();
+      $('#compareContainer2').hide();
       $("#carouselExampleSlidesOnly").hide()
       let onlyVinCheck=$("#VinCheck").show();
       onlyVinCheck.addClass('one wide column');
       $("#carouselContainer").append(onlyVinCheck);
       //This is the input of the user 
-      let userVinNumber = $("#vinNumber").val();
+
       e.preventDefault();
         // OwnershipCost AJAX
       let ownershipCost = 'http://ownershipcost.vinaudit.com/getownershipcost.php?vin='+userVinNumber+'&key=0UCAOK5F1GEGDMD&state=WA'
@@ -77,58 +81,44 @@ $(document).ready(function () {
       $.get(objectVin).then(function (response) {
         console.log(response);
         var checkVINimage1 = response.photos[0].url;
-        console.log(response.photos[0].url)
         $("#vinCheckImageCompare1").attr("src", checkVINimage1);
   
         var checkVINimage2 = response.photos[1].url;
-        console.log(response.photos[0].url)
         $("#vinCheckImageCompare2").attr("src", checkVINimage2);
   
         var checkVINmake = response.attributes.make;
-        console.log("Make: " + checkVINmake);
   
         var checkVINmodel = response.attributes.model;
-        console.log("Model: " + checkVINmodel);
   
         var checkVINyear = response.attributes.year;
-        console.log("Year: " + checkVINyear);
         $("#theVinCarEl").text(checkVINmake + " " + checkVINmodel + " " + checkVINyear);
   
         var checkVINtrim = response.attributes.trim;
-        console.log("Trim: " + checkVINtrim);
         $("#theVinTrimEl").text("Trim: " + checkVINtrim);
-  
+
         var checkVINprice =
           response.attributes.manufacturer_suggested_retail_price;
-        console.log("Price: " + checkVINprice);
         $("#theVinPriceEl").text("Price: " + checkVINprice)
   
         var checkVINengine = response.attributes.engine;
-        console.log("engine: " + checkVINengine);
         $("#theVinEngineEl").text("engine: " + checkVINengine)
   
         var checkVINcityMpg = response.attributes.city_mileage;
-        console.log("City mileage: " + checkVINcityMpg + " City");
         $("#theVinCItyMlgEl").text("City mileage: " + checkVINcityMpg)
   
         var checkVINhighwayMpg = response.attributes.highway_mileage;
-        console.log("Highway mileage: " + checkVINhighwayMpg + " Highway");
         $("#theVinHeighwayMlgEl").text("Highway mileage: " + checkVINhighwayMpg)
   
         var checkVINweight = response.attributes.curb_weight;
-        console.log("Weight: " + checkVINweight);
         $("#theVinWeightEl").text("Weight: " + checkVINweight)
   
         var checkVINtransmission = response.attributes.transmission;
-        console.log("Transmission: " + checkVINtransmission);
         $("#theVinTransmissionEl").text("Transmission: " + checkVINtransmission);
   
         var checkVINfuel = response.attributes.fuel_type;
-        console.log("Type of Fuel: " + checkVINfuel);
         $("#theVinFuelEl").text("Type of Fuel: " + checkVINfuel)
   
         var checkVINrecallObject = response.recalls.length;
-        console.log("Previous Recalls: " + checkVINrecallObject + " Total Recalls");
         $("#theVinRecallEl").text("Previous Recalls: " + checkVINrecallObject);
 
         //This is the api for the fuel cost 
@@ -155,9 +145,10 @@ $(document).ready(function () {
     //This is the click on the first compare
     $("#compareTwo").click(function () {
       $("#compareForm").show();
-      
-      //this is the click on the fready compare
+      $('#vinApiInput').hide();
+      //this is the click on the ready compare
       $("#readyCompare").click(function () {
+        $('.').hide();
         $("#carouselExampleSlidesOnly").hide()
         var firstContainerCompare=$("#compareContainer1").show()
         firstContainerCompare.addClass("six wide column");
