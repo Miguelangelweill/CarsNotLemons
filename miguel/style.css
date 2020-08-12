@@ -19,8 +19,10 @@ nav li{
     margin: 20px 35px 0px 35px;
 }
 img{
-    max-height: 500px;
-    min-height: 300px;
+    height: cover;
+    
+    /* max-height: 500px;
+    min-height: 300px; */
 }
 
 #UsersChoice{
@@ -29,10 +31,6 @@ img{
     margin-left: 6%;
     margin-right: 6%;
     margin-top: 5%;
-    @media mobile {
-        display:inline-block
-    }
-   
 
 }
 #compareContainer1,#VinCheck{

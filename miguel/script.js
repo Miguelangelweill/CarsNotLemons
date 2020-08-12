@@ -1,4 +1,22 @@
 $(document).ready(function () {
+
+  //this is for resizing the button
+  window.addEventListener("resize",function(){
+
+    listenRezise();
+  })
+  function listenRezise(){
+    var width = window.innerWidth;
+  if(width<576){
+    $("#UsersChoice").addClass("tiny");
+    $("#UsersChoice").removeClass("massive");
+  }else if(width>576){
+    $("#UsersChoice").addClass("massive");
+    $("#UsersChoice").removeClass("tiny");
+  }
+  console.log("rezise happened")
+  }
+  listenRezise()
   console.log("ready!");
   $("#VinCheck").hide();
   $("#vinApiInput").hide();
@@ -73,7 +91,21 @@ $(document).ready(function () {
 
       var checkVINrecallObject = response.recalls.length;
       console.log("Previous Recalls: " + checkVINrecallObject + " Total Recalls");
-      $("#theVinRecallEl").text("Previous Recalls: " + checkVINrecallObject)
+      $("#theVinRecallEl").text("Previous Recalls: " + checkVINrecallObject);
+
+      let ownershipCost = 'http://ownershipcost.vinaudit.com/getownershipcost.php?vin=' + userVinNumber + '&key=0UCAOK5F1GEGDMD&state=WA'
+      $.get(ownershipCost).then(function (response) {
+        console.log(response)
+        var fuelCostLibrary = response.fuel_cost;
+        for(var i=0; i<fuelCostLibrary.length;i++){
+          var fuelCostList = $("<ul>");
+          fuelCostList.attr("id","fuelCostVinCheck");
+          var yearlyFuel =$("<li>");
+          yearlyFuel.text(fuelCostLibrary[i]);
+          fuelCostList.append(yearlyFuel);
+          console.log(yearlyFuel)
+        }
+      })
     });
   });
   //This is Miguels inforation and his functions
@@ -87,8 +119,14 @@ $(document).ready(function () {
     
     //this is the click on the fready compare
     $("#readyCompare").click(function () {
-      $("#compareContainer1").show()
-      $("#compareContainer2").show()
+      $("#carouselExampleSlidesOnly").hide()
+      var firstContainerCompare=$("#compareContainer1").show()
+      firstContainerCompare.addClass("six wide column");
+      var secondContainerCompare=$("#compareContainer2").show()
+      secondContainerCompare.addClass("six wide column");
+      
+      $("#carouselContainer").append(firstContainerCompare, secondContainerCompare)
+      
       var firstVehicleVIN = $("#firstVehicle").val();
       var secondVehicleVIN = $("#secondVehicle").val();
 
@@ -165,6 +203,7 @@ $(document).ready(function () {
         "https://specifications.vinaudit.com/v3/specifications?key=0UCAOK5F1GEGDMD&format=json&include=attributes,equipment,colors,recalls,warranties,photos&vin=" +
         secondVehicleVIN +
         "";
+
 //duane vin JTHBA1D27G5004260
 //marcos vin 1vwcm7a34fc006570
       console.log(secondCarURL);
@@ -227,6 +266,8 @@ $(document).ready(function () {
         console.log("Previous Recalls: " + secondVINrecallObject + " Total Recalls");
         $("#theRecallEl2").text("Previous Recalls: " + secondVINrecallObject)
       });
+
+
     });
   });
   
