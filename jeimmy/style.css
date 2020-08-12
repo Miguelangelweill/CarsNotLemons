@@ -7,18 +7,16 @@ body {
 	background-image: linear-gradient(rgb(136, 182, 219), white);
 }
 /* navbar css */
-nav {
-	height: 60px;
-	background-color: #0e043a;
+.nav-link{
+	margin-right: 0px;
 }
+
 #logo {
 	padding-left: 0px;
 	margin-left: 0px;
 }
-nav li {
-	display: inline-block;
-	padding: 10px 10px;
-}
+
+
 /* jumbo image css */
 .jumbo-img {
 	display: block;
