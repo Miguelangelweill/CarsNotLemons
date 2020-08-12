@@ -148,7 +148,7 @@ $(document).ready(function () {
       $('#vinApiInput').hide();
       //this is the click on the ready compare
       $("#readyCompare").click(function () {
-        $('.').hide();
+        $('#VinCheck').hide();
         $("#carouselExampleSlidesOnly").hide()
         var firstContainerCompare=$("#compareContainer1").show()
         firstContainerCompare.addClass("six wide column");
