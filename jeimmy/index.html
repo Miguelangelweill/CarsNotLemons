@@ -26,27 +26,25 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#"
-                        style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 20px;"
-                        href="/#contact-info/">Contact
-                        Info | </a>
+                    <a class="nav-link" href="#contact-info"
+                        style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 20px;">
+                        Contact Info | </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"
-                        style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 20px; color: blanchedalmond;">Chat
+                    <a class="nav-link" href="#myForm"
+                        style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 20px; color: blanchedalmond">Chat
                         Live Now |</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#"
-                        style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 20px; color: blanchedalmond;">Abou
+                        style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 20px; color: blanchedalmond">About
                         Us |</a>
                 </li>
             </ul>
         </div>
     </nav>
-
-
     <!-- End of NavBar -->
+    
     <!-- Start of the jumbo-img -->
     <div id="mainContainer" class="row">
         <!--This is where the compare two vehicles starts-->
@@ -137,7 +135,7 @@
     </div>
     <!-- The start of our comparison and auto comparison -->
 
-    <div id="UsersChoice" class="ui blue massive buttons row no-gutters">
+    <div id="UsersChoice" class="ui blue small buttons row no-gutters">
         <div class="col-md-6">
             <div class="mr-1">
                 <button class="ui button" id="checkVin" style="font-size: 30px; width: 100%;">Check VIN Number <img
@@ -195,36 +193,65 @@
 
     <!--these are the links from navbar-->
     <section class="content">
-        <ul>
-            <li class="contact">
-                <img src="https://ca.slack-edge.com/T01540F8NMQ-U015U88QG8Z-eeb2b03f5dda-512" alt="Project Manager"
-                    width="50px" height="50px">
-                <p><a href="mailto:miguelangel.weill@gmail.com">Send email</a></p>
-            </li>
-            <br>
-            <li>
-                <img src="https://ca.slack-edge.com/T01540F8NMQ-U015LHFU542-g92f992cf857-512" alt="Back End Developer"
-                    width="50px" height="50px">
-                <p><a href="mailto:miamarine84@yahoo.com">Send email</a></p>
-            </li>
-            <br>
-            <li>
-                <img src="https://ca.slack-edge.com/T01540F8NMQ-U015SE2JQEQ-e1090ca8cbb4-512" alt="Front End Developer"
-                    width="50px" height="50px">
-                <p><a href="mailto:duanem33@gmail.com">Send email</a></p>
-            </li>
-            <br>
-            <li>
-                <img src="https://ca.slack-edge.com/T01540F8NMQ-U015B6PV7P0-82803a433c00-512" alt="Front End Developer"
-                    width="50px" height="50px">
-                <p><a href="mailto:jpah.deign@gmail.com">Send email</a></p>
-            </li>
+        <ul id="contact-info">
+            <div class="row">
+                <div class="column">
+                    <li>
+                        <img src="https://ca.slack-edge.com/T01540F8NMQ-U015U88QG8Z-eeb2b03f5dda-512"
+                            alt="Project Manager" width="50px" height="50px">
+                        <h4>Project Manager</h4>
+                        <p><a href="mailto:miguelangel.weill@gmail.com">Send email</a></p>
+                    </li>
+                </div>
+                <br>
+                <div class="column">
+                    <li>
+                        <img src="https://ca.slack-edge.com/T01540F8NMQ-U015LHFU542-g92f992cf857-512"
+                            alt="Back End Developer" width="50px" height="50px">
+                        <h4>Back End Developer</h4>
+                        <p><a href="mailto:miamarine84@yahoo.com">Send email</a></p>
+                    </li>
+                </div>
+                <br>
+                <div class="column">
+                    <li>
+                        <img src="https://ca.slack-edge.com/T01540F8NMQ-U015SE2JQEQ-e1090ca8cbb4-512"
+                            alt="Front End Developer" width="50px" height="50px">
+                        <h4>Front End Developer</h4>
+                        <p><a href="mailto:duanem33@gmail.com">Send email</a></p>
+                    </li>
+                </div>
+                <br>
+                <div class="column">
+                    <li>
+                        <img src="https://ca.slack-edge.com/T01540F8NMQ-U015B6PV7P0-82803a433c00-512"
+                            alt="Front End Developer" width="50px" height="50px">
+                        <h4>Front End Developer</h4>
+                        <p><a href="mailto:jpah.deign@gmail.com">Send email</a></p>
+                    </li>
+                </div>
+            </div>
+
         </ul>
 
 
 
     </section>
     <!--this is the end of the form-->
+
+    <!--this is the chat window-->
+    <div class="chat-popup" id="myForm">
+        <form action="/action_page.php" class="form-container">
+            <h1>Chat</h1>
+
+            <label for="msg"><b>Message</b></label>
+            <textarea placeholder="Type message.." name="msg" required></textarea>
+
+            <button type="submit" class="btn">Send</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+    </div>
+
 
     <hr style="height:1px;border-width:0;color:gray;background-color:navy">
     <!--this is the footer-->
