@@ -8,7 +8,7 @@ body {
 	background-repeat: no-repeat;
 }
 /* navbar css */
-.nav-link{
+.nav-link {
 	margin-right: 0px;
 	float: right;
 }
@@ -17,7 +17,6 @@ body {
 	padding-left: 0px;
 	margin-left: 0px;
 }
-
 
 /* jumbo image css */
 .jumbo-img {
@@ -33,11 +32,11 @@ body {
 	margin-right: 6%;
 	margin-top: 5%;
 }
-
+/*to make the blue buttons equal*/
 /*@media(max-width: 500px) {
     .twocarsimg {
 		 /* css stuff! */
- 		/*height: 80px;
+/*height: 80px;
 		width: 70px;
 		display: block; 
 		margin-left: auto; 
@@ -48,7 +47,7 @@ body {
 @media(max-width: 500px) {
     .lemoncarimg {
 		 /* css stuff! */
- 		/*height: 20px;
+/*height: 20px;
 		width: 30px;
 		display: block; 
 		margin-left: auto; 
@@ -59,7 +58,6 @@ body {
 #compareContainer1,
 #VinCheck {
 	margin: 5%;
-	
 }
 
 #compareContainer2 {
@@ -80,7 +78,84 @@ body {
 }
 
 .content {
-    width: 75%;
-    display: inline-block;
-    margin-left: 20px;
+	display: block;
+	padding: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 60%;
+	border: 3px solid blue;
+	padding: 20px;
 }
+
+
+
+/* Button used to open the chat form - fixed at the bottom of the page */
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+/* The popup chat - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width textarea */
+.form-container textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+  resize: none;
+  min-height: 200px;
+}
+
+/* When the textarea gets focus, do something */
+.form-container textarea:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
