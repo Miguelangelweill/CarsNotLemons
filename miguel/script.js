@@ -50,6 +50,8 @@ $(document).ready(function () {
         $(".incorrectVIN").show()
         $('#VinCheck').hide();
         $('#carouselExampleSlidesOnly').show();
+      }else{
+        $(".incorrectVIN").hide()
       }
       console.log(vinNumCheck)
       let depreciation = response.depreciation_cost;
@@ -182,6 +184,8 @@ $(document).ready(function () {
           $('#compareContainer1').hide();
           $('#compareContainer2').hide();
           $("#finalSaving").hide()
+        }else{
+          $(".incorrectVIN").hide()
         }
         //here are the variables for my first vehicle
         var firstVINimage1 = response1.photos[0].url;
