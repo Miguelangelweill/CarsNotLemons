@@ -39,6 +39,7 @@ img{
     margin-left: 6%;
     margin-right: 6%;
     margin-top: 5%; 
+    align-content: center;
 }
 #checkVin{
     margin-right: 1%;
@@ -50,6 +51,29 @@ img{
     margin: 5%;
     display: inline-block;
 }
+#compareForm{
+    float: right;
+    margin-right: 6%;
+    margin-top: 2%;
+    width: 45%;
+}
+#vinApiInput{
+    margin-left: 6%;
+    margin-top: 2%;
+}
+#readyCompare{
+    float: right;
+    margin-right: 4%;
+}
+#checkOneVin{
+    margin-left: 1%;
+}
+#firstVehicle,
+#secondVehicle{
+    width: 100%;
+}
+
+
 .vin-compare{
     display: none;
 }
@@ -70,4 +94,10 @@ img{
     width: 75%;
     display: inline-block;
     margin-left: 20px;
+}
+.icons{
+    margin-right: 3%;
+}
+p{
+    text-align: center;
 }

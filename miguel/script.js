@@ -33,7 +33,8 @@ $(document).ready(function () {
     let userVinNumber = $("#vinNumber").val();
     $('#compareContainer1').hide();
     $('#compareContainer2').hide();
-    $("#carouselExampleSlidesOnly").hide()
+    $("#carouselExampleSlidesOnly").hide();
+    $("#finalSaving").hide();
     let onlyVinCheck = $("#VinCheck").show();
     onlyVinCheck.addClass('one wide column');
     $("#carouselContainer").append(onlyVinCheck);
@@ -42,9 +43,14 @@ $(document).ready(function () {
     e.preventDefault();
     // OwnershipCost AJAX
     let ownershipCost = 'http://ownershipcost.vinaudit.com/getownershipcost.php?vin=' + userVinNumber + '&key=0UCAOK5F1GEGDMD&state=WA'
-
     $.get(ownershipCost).then(function (response) {
       console.log(response)
+      if (!response.success) {
+        alert('please put a valid Vin Number');
+        $('#VinCheck').hide();
+        $('#carouselExampleSlidesOnly').show();
+      }
+      console.log(vinNumCheck)
       let depreciation = response.depreciation_cost;
       console.log(depreciation);
       let totalDepreciation = 0;
@@ -125,14 +131,8 @@ $(document).ready(function () {
       $.get(ownershipCost).then(function (response) {
         console.log(response)
         var fuelCostLibrary = response.fuel_cost;
-        for (var i = 0; i < fuelCostLibrary.length; i++) {
-          var fuelCostList = $("<ul>");
-          fuelCostList.attr("id", "fuelCostVinCheck");
-          var yearlyFuel = $("<li>");
-          yearlyFuel.text(fuelCostLibrary[i]);
-          fuelCostList.append(yearlyFuel);
-          console.log(yearlyFuel)
-        }
+        var lastFuelCost = fuelCostLibrary.length-1;
+        console.log(lastFuelCost)
       })
     });
   });
@@ -174,6 +174,13 @@ $(document).ready(function () {
       //This is the information for the first vehicle
       $.get(firstCarURL).then(function (response1) {
         console.log(response1);
+        if(!response1.success){
+          alert('please put a valid Vin Number');
+          $('#compareContainer1').hide();
+          $('#compareContainer2').hide();
+          $("#finalSaving").hide()
+          $('#carouselExampleSlidesOnly').show();
+        }
         //here are the variables for my first vehicle
         var firstVINimage1 = response1.photos[0].url;
         console.log(response1.photos[0].url)
