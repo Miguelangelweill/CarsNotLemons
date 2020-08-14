@@ -21,6 +21,7 @@ $(document).ready(function () {
   //This is where we hide the card for the vin check only
   $("#VinCheck").hide();
   $("#vinApiInput").hide();
+  $(".incorrectVIN").hide()
   //This is the click event on the check only VIN
   $("#checkVin").on("click", function (e) {
     $('#compareForm').hide();
@@ -46,7 +47,7 @@ $(document).ready(function () {
     $.get(ownershipCost).then(function (response) {
       console.log(response)
       if (!response.success) {
-        alert('please put a valid Vin Number');
+        $(".incorrectVIN").show()
         $('#VinCheck').hide();
         $('#carouselExampleSlidesOnly').show();
       }
@@ -142,6 +143,7 @@ $(document).ready(function () {
   $("#compareContainer1").hide()
   $("#finalSaving").hide()
   $("#compareContainer2").hide()
+  $(".incorrectVIN").hide()
   
   //This is the click on the first compare
   $("#compareTwo").click(function () {
@@ -150,7 +152,7 @@ $(document).ready(function () {
     //this is the click on the ready compare
     $("#readyCompare").click(function () {
       $('#VinCheck').hide();
-      $("#carouselExampleSlidesOnly").hide()
+      $("#carouselExampleSlidesOnly").show()
       var firstContainerCompare = $("#compareContainer1").show()
       firstContainerCompare.addClass("six wide column");
       var finalSaving = $("#finalSaving").show();
@@ -174,12 +176,12 @@ $(document).ready(function () {
       //This is the information for the first vehicle
       $.get(firstCarURL).then(function (response1) {
         console.log(response1);
-        if(!response1.success){
-          alert('please put a valid Vin Number');
+       
+        if(!response1.success){ 
+          $(".incorrectVIN").show()
           $('#compareContainer1').hide();
           $('#compareContainer2').hide();
           $("#finalSaving").hide()
-          $('#carouselExampleSlidesOnly').show();
         }
         //here are the variables for my first vehicle
         var firstVINimage1 = response1.photos[0].url;
