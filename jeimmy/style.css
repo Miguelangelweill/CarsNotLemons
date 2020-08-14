@@ -62,7 +62,7 @@ body {
 	margin-left: auto;
 	margin-right: auto;
 	width: 80%;
-	border: 3px solid blue;
+	border: 3px solid navy;
 	padding: 20px;
 }
 
@@ -80,7 +80,8 @@ h4{
 	color: navy;
 }
 
-/* Button used to open the chat form - fixed at the bottom of the page 
+/* Button used to open the chat form - fixed at the bottom of the page */
+
 .open-button {
   background-color: #555;
   color: white;
@@ -94,7 +95,7 @@ h4{
   width: 280px;
 }
 
-/* The popup chat - hidden by default 
+/* The popup chat - hidden by default */
 .form-popup {
   display: none;
   position: fixed;
@@ -104,14 +105,14 @@ h4{
   z-index: 9;
 }
 
-/* Add styles to the form container 
+/* Add styles to the form container */
 .form-container {
   max-width: 300px;
   padding: 10px;
   background-color: white;
 }
 
-/* Full-width textarea 
+/* Full-width textarea */
 .form-container textarea {
   width: 100%;
   padding: 15px;
@@ -122,13 +123,13 @@ h4{
   min-height: 200px;
 }
 
-/* When the textarea gets focus, do something 
+/* When the textarea gets focus, do something */
 .form-container textarea:focus {
   background-color: #ddd;
   outline: none;
 }
 
-/* Set a style for the submit/login button 
+/* Set a style for the submit/login button */
 .form-container .btn {
   background-color: #4CAF50;
   color: white;
@@ -140,16 +141,16 @@ h4{
   opacity: 0.8;
 }
 
-/* Add a red background color to the cancel button 
+/* Add a red background color to the cancel button */
 .form-container .cancel {
   background-color: red;
 }
 
-/* Add some hover effects to buttons 
+/* Add some hover effects to buttons */
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
 }
-*/
+
 
 
 /*About us section*/

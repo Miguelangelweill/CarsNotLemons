@@ -12,6 +12,8 @@
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
 </head>
 
@@ -20,23 +22,27 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: navy;">
         <img class="navbar-brand" id="logo" src="logo.gif" width="190" height="50" alt="carsnotlemonslogo">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-           <li><a class="nav-link" href="#contact-info"
-                          style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 20px;"><span class="glyphicon glyphicon-user"></span> Contact Info |</a></li>
-                          <li><a class="nav-link" href="#myForm"
-                            style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 20px;"><span class="glyphicon glyphicon-user"></span> Chat
-                            Live Now |</a></li>
-                            <li><a class="nav-link" href="#about-us"
-                              style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 20px;"><span class="glyphicon glyphicon-user"></span> About
-                              Us |</a></li>
-          </ul>
+            <ul class="navbar-nav">
+                <li><a class="nav-link" href="#contact-info"
+                        style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 20px;"><span
+                            class="glyphicon glyphicon-user"></span> Contact Info |</a></li>
+                <li><a class="nav-link" href="#myForm"
+                        style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 20px;"><span
+                            class="glyphicon glyphicon-user"></span> Chat
+                        Live Now |</a></li>
+                <li><a class="nav-link" href="#about-us"
+                        style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 20px;"><span
+                            class="glyphicon glyphicon-user"></span> About
+                        Us |</a></li>
+            </ul>
         </div>
-      </nav>
-    
+    </nav>
+
     <!-- End of NavBar -->
 
     <!-- Start of the jumbo-img -->
@@ -132,7 +138,7 @@
     <div id="UsersChoice" class="ui blue small buttons row no-gutters">
         <div class="col-md-6">
             <div class="mr-1">
-                <button class="ui button" id="checkVin" style="font-size: 30px; width: 100%;">Check VIN Number <img
+                <button class="ui button" id="checkVin" style="font-size: 30px;">Check VIN Number <img
                         src="lemon.gif" alt="lemon" class="row" class="lemoncarimg"
                         style=" height: 90%; width: 25%; display: block; margin-left: auto; margin-right: auto;"></button>
             </div>
@@ -143,6 +149,7 @@
                     style=" height: 55%; width: 45%; display: block; margin-left: auto; margin-right: auto;"></button>
         </div>
     </div>
+    <br>
     <!-- End of user choice and of suggested comparison -->
     <!--this is the start of the form for the vin number-->
     <div>
@@ -152,10 +159,8 @@
                     <label>Check This VIN</label>
                     <!--need to put the button iside the box-->
                     <input id="vinNumber" type="text" placeholder="Make">
-                    <button id="checkOneVin" class="ui button"
-                        style=" height: 40px; width: 20px; display: block; margin-left: auto; margin-right: auto;">Check
-                        <img src="button.png"
-                            style=" height: 30px; width: 30px; display: block; margin-left: auto; margin-right: auto;"></button>
+                    <button id="checkOneVin" class="ui button" style="background-color: transparent; font-family: 'Russo One', sans-serif;">Check
+                        <img src="button.png"style=" height: 45px; width: 45px; "></button>
                 </div>
             </div>
         </div>
@@ -233,7 +238,7 @@
     </section>
     <!--this is the end of the form-->
 
-    <!--this is the chat window
+    <!--this is the chat window -->
     <div class="chat-popup" id="myForm">
         <form action="/action_page.php" class="form-container">
             <h1>Chat</h1>
@@ -245,7 +250,9 @@
             <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
         </form>
     </div>
-
+    
+    <br>
+    <!--this is the about us section -->
     <section class="aboutUs" id="about-us">
         <article class="about-us">
             <img src="one team one dream.jpg" alt="one team" class="float-left" />
@@ -263,10 +270,10 @@
             </p>
         </article>
         <br>
-        -->
+
 
         <hr style="height:1px;border-width:0;color:gray;background-color:navy">
-        
+
         <!--this is the footer-->
         <footer class="footer" id="bottom">
             <h2>Made with ❤️️ by CarsNotLemons</h2>

@@ -254,10 +254,22 @@ $(document).ready(function () {
 
 //chat js
 
-//function openForm() {
-  //  document.getElementById("myForm").style.display = "block";
- // }
-  
- // function closeForm() {
-  //  document.getElementById("myForm").style.display = "none";
- // }
+//when page open chat box will not display
+$(document).ready(function(){
+	$("#hide").click(function(){
+	  $("myForm").hide();
+	});
+	$("#show").click(function(){
+	  $("myForm").show();
+	});
+  });
+
+  //when click on chat live now window will display
+function openForm() {
+document.getElementById("myForm").style.display = "block";
+ }
+
+function closeForm() {
+document.getElementById("myForm").style.display = "none";
+}
+
