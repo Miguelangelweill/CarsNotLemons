@@ -72,7 +72,10 @@ img{
 #secondVehicle{
     width: 100%;
 }
-
+#finalSaving{
+    height: 400px;
+    margin-top: 5%;
+}
 
 .vin-compare{
     display: none;
