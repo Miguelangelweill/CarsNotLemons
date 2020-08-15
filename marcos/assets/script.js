@@ -5,6 +5,25 @@ $(document).ready(function () {
     let secondRepair;
     let secondInsurance;
     let secondFuel;
+
+    let tenorLemonApi = 'https://api.tenor.com/v1/search?q=lemon&key=11YWAZYIYDS3&limit=8'
+
+    let lemonGif;
+
+    $.get(tenorLemonApi).then(function (response) {
+        lemonGif = response.results[3].media[0].tinygif.url
+
+    })
+
+
+    let tenorCarApi = 'https://api.tenor.com/v1/search?q=car&key=11YWAZYIYDS3&limit=8'
+    let carGif;
+
+    $.get(tenorCarApi).then(function (response) {
+        console.log(response.results[1].media[0].tinygif.url)
+        carGif = response.results[1].media[0].tinygif.url
+    })
+
     //this is for resizing the button
     window.addEventListener("resize", function () {
 
