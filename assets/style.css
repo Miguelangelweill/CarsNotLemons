@@ -30,7 +30,6 @@ body {
 
 img{
     height: cover;
-
 }
 
 #UsersChoice{
@@ -44,6 +43,7 @@ img{
 #checkVin{
     margin-right: 1%;
 }
+
 #compareContainer1,#VinCheck{
     margin: 5%;
 }
