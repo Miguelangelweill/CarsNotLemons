@@ -1,0 +1,105 @@
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+
+body {
+    background: linear-gradient(rgb(136, 182, 219), white);
+    background-repeat: no-repeat;
+}
+/* navbar css */
+.nav-link{
+	margin-right: 0px;
+	float: right;
+}
+
+#logo {
+	padding-left: 0px;
+	margin-left: 0px;
+}
+
+/* jumbo image css */
+.jumbo-img{
+    display: block;
+    width: 95%;
+    height: 500px;
+    margin: 20px 35px 0px 35px;
+}
+
+
+img{
+    height: cover;
+
+}
+
+#UsersChoice{
+    text-align: center;
+    display: flex;
+    margin-left: 6%;
+    margin-right: 6%;
+    margin-top: 5%; 
+    /*  */
+}
+#checkVin{
+    margin-right: 1%;
+}
+#compareContainer1,#VinCheck{
+    margin: 5%;
+}
+#compareContainer2{
+    margin: 5%;
+    display: inline-block;
+}
+#compareForm{
+    float: right;
+    margin-right: 6%;
+    margin-top: 2%;
+    width: 45%;
+}
+#vinApiInput{
+    margin-left: 6%;
+    margin-top: 2%;
+}
+#readyCompare{
+    float: right;
+    margin-right: 4%;
+}
+#checkOneVin{
+    margin-left: 1%;
+}
+#firstVehicle,
+#secondVehicle{
+    width: 100%;
+}
+#finalSaving{
+    height: 400px;
+    margin-top: 5%;
+}
+.vin-compare{
+    display: none;
+}
+
+.logoimage{
+    height: 100px;
+}
+
+/* footer portion */
+.footer {
+	padding: 30px;
+	clear: both;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+		'Lucida Sans', Arial, sans-serif;
+	text-align: center;
+}
+.content {
+    width: 75%;
+    display: inline-block;
+    margin-left: 20px;
+}
+.icons{
+    margin-right: 3%;
+}
+p{
+    text-align: center;
+}

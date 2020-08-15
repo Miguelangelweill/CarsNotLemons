@@ -2,116 +2,238 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cars Not Lemons</title>
-    <!--this is the jquery-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!--this is the bootstrap-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
-    <link rel="stylesheet" href="./style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cars Not Lemons</title>
+
+  <!--this is the jquery-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!--this is the bootstrap-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <!-- Start of Navbar -->
-    <nav class="navbar sticky-top navbar-light">
-        <a class="navbar-brand" href="#">Our image will go here</a>
+  <!-- Start of Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
+    <img class="navbar-brand" id="logo" src="logo.gif" width="190" height="50" alt="">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#"
+            style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 20px;">Contact
+            Info | </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"
+            style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 20px; color: blanchedalmond;">Chat
+            Live Now |</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"
+            style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 20px; color: blanchedalmond;">Abou
+            Us |</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- End of NavBar -->
+  <!-- This is the main container for the cards used in our page  -->
+  <div id="mainContainer" class="row">
+    <!--This is where the compare two vehicles starts-->
+
+    <div id='compareContainer1' class="ui card four wide">
+      <div class="ui slide masked reveal image">
+        <img id="firstImageCompare1" class="visible content">
+        <img id="firstImageCompare2" class="hidden content">
+      </div>
+      <div class="content">
         <ul>
-            <a href="#bottom">
-                <li>Contact Info</li>
-            </a>
-            <a href="#bottom">
-                <li>Other</li>
-            </a>
-            <li>Contact Info</li>
-            </a>
-            <a href="#bottom">
-                <li>Other</li>
-            </a>
+          <li id="theCarEl1" class="header"></li>
+          <li id="theTrimEl1" class="meta"></li>
+          <li id="thePriceEl1" class="meta"></li>
+          <li id="theEngineEl1" class="meta"></li>
+          <li id="theCItyMlgEl1" class="meta"></li>
+          <li id="theHeighwayMlgEl1" class="meta"></li>
+          <li id="theWeightEl1" class="meta"></li>
+          <li id="theTransmissionEl1" class="meta"></li>
+          <li id="theFuelEl1" class="meta"></li>
+          <li id="theRecallEl1" class="meta"></li>
         </ul>
-    </nav>
-    </ul>
-    </nav>
-
-
-    <!-- End of NavBar -->
-    <!-- Start of the jumbo-img -->
-    <div class="row">
-        <div class="col-12">
-
-            <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="2500">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img class="jumbo-img"
-                            src="https://images.unsplash.com/photo-1590523815003-63f5eb2c189f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-                            alt="alter kitchen">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="jumbo-img"
-                            src="https://images.unsplash.com/photo-1578659258511-4a4e7dee7344?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-                            alt="alter kitchen">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="jumbo-img"
-                            src="https://images.unsplash.com/photo-1588187284155-efd91f6f15c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=60"
-                            alt="alter kitchen">
-                    </div>
-                </div>
-            </div>
+      </div>
+    </div>
+    <!--This is the container with the differences of the vehicles-->
+    <div id="finalSaving" class="ui card four wide">
+      <div class="content">
+        <div class="header">This is the car to buy </div>
+      </div>
+      <div class="content">
+        <h4 class="ui sub header">Savings</h4>
+        <div class="ui small feed">
+          <div class="summary content event">
+            <p id="fuelSavings">
+              This is the fuel cost<img src="https://img.icons8.com/emoji/48/000000/fuel-pump.png" />
+            </p>
+          </div>
+          <div class="summary content event">
+            <p id="insuranceSavings">
+              Insurance
+            </p>
+          </div>
+          <div id="maintenanceSaving" class="summary content event">
+            <p>
+              Maintenance
+            </p>
+          </div>
+          <div id="totalSaving" class="summary content event">
+            <p>
+              Total saving<i class="money bill alternate outline icon"></i>
+            </p>
+          </div>
         </div>
+      </div>
     </div>
-    <!-- The start of our comparison and auto comparison -->
-    <div id="UsersChoice" class="ui blue massive buttons">
-        <button class="ui button" id="checkVin">Check VIN Number</button>
-        <div class="or" id="compareTwo"></div>
-        <button class="ui button">Compare Two Vehicles</button>
+    <!--This is where the container with the diffences of the vehicles ends-->
+    <div id='compareContainer2' class="ui card four wide">
+      <div class="ui slide masked reveal image">
+        <img id="secondImageCompare1" class="visible content">
+        <img id="secondImageCompare2" class="hidden content">
+      </div>
+      <div class="content">
+        <ul>
+          <li id="theCarEl2" class="header"></li>
+          <li id="theTrimEl2" class="meta"></li>
+          <li id="thePriceEl2" class="meta"></li>
+          <li id="theEngineEl2" class="meta"></li>
+          <li id="theCItyMlgEl2" class="meta"></li>
+          <li id="theHeighwayMlgEl2" class="meta"></li>
+          <li id="theWeightEl2" class="meta"></li>
+          <li id="theTransmissionEl2" class="meta"></li>
+          <li id="theFuelEl2" class="meta"></li>
+          <li id="theRecallEl2" class="meta"></li>
+        </ul>
+      </div>
     </div>
+    <!--This is the card for the check Vin only-->
+    <div id='VinCheck' class="ui card six wide">
+      <div class="ui slide masked reveal image">
+        <img id="vinCheckImageCompare1" class="visible content">
+        <img id="vinCheckImageCompare2" class="hidden content">
+      </div>
+      <div class="content">
+        <ul>
+          <li id="theVinCarEl" class="header"></li>
+          <li id="theVinTrimEl" class="meta"></li>
+          <li id="theVinPriceEl" class="meta"></li>
+          <li id="theVinEngineEl" class="meta"></li>
+          <li id="theVinCItyMlgEl" class="meta"></li>
+          <li id="theVinHeighwayMlgEl" class="meta"></li>
+          <li id="theVinWeightEl" class="meta"></li>
+          <li id="theVinTransmissionEl" class="meta"></li>
+          <li id="theVinFuelEl" class="meta"></li>
+          <li id="theVinRecallEl" class="meta"></li>
+        </ul>
+      </div>
+    </div>
+    <!--This is the end of the card for the check Vin only-->
+  </div>
+  <!--This is where the cards end of the card contianer-->
 
-    <!-- End of user choice and of suggested comparison -->
-    <!-- the next two or three elements should be hidden and only come up when user makes a choice -->
-
-    <div id="vinApiInput" class="ui form">
-        <div class="inline fields">
-            <div class="six wide field">
-                <label>First Vehicle</label>
-                <input id="vinNumber" type="text" placeholder="Make">
-                <button id="checkOneVin" class="ui button">Ready to check</button>
-            </div>
-
+  <!--This is where the carousel starts-->
+  <div id="carouselContainer" class="ui grid">
+    <div id="carouselExampleSlidesOnly" class="col-12 carousel slide" data-ride="carousel" data-interval="2500">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="jumbo-img img-fluid" src="charger.jpeg"
+            alt="Image of a car garage with a Charger as the main vehicle">
         </div>
+        <div class="carousel-item">
+          <img class="jumbo-img img-fluid" src="mustang.jpeg" alt="Image of a red Mustang">
+        </div>
+        <div class="carousel-item">
+          <img class="jumbo-img img-fluid" src="mainDriver.jpeg" alt="Driver seat prespective">
+        </div>
+        <div class="carousel-item">
+          <img class="jumbo-img img-fluid" src="photo-1592800638244-08f97d1e8a1c.jpeg"
+            alt="Side image of a grey mustang">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--This is where the carousel ends-->
+
+  </div>
+  <!-- The start of our comparison and auto comparison -->
+  <div id="UsersChoice" class="ui blue massive buttons">
+    <button class="ui button" id="checkVin">Check VIN Number<img src="lemon.gif" alt="vs"
+        class="row logoimage" /></button>
+
+    <button id="compareTwo" class="ui button">Compare Two Vehicles<img src="vs.gif" alt="vs"
+        class="row logoimage" /></button>
+  </div>
+
+  <!-- End of user choice and of suggested comparison -->
+  <!--this is the start of the form for the vin number-->
+  <div id="vinApiInput" class="ui form">
+    <div class="inline fields">
+      <div class="six wide field">
+        <label>Check This VIN</label>
+        <input id="vinNumber" type="text" placeholder="Make">
+        <button id="checkOneVin" class="ui button">Ready to check</button>
+      </div>
 
     </div>
-    <div class="car-compare">
 
-        </form>
+  </div>
+  <!--this is the end of the forn for the vin number-->
+  <!--this is the start of the form for the compare two vehicles-->
+
+  <!--this is the first vehicle form-->
+  <div id="compareForm" class="ui form">
+    <div class="inline fields">
+      <div class="nine wide field">
+        <label>VIN #1</label>
+        <input id="firstVehicle" type="text" placeholder="Vehicle number one">
+      </div>
+
     </div>
-    <div class="car-compare">
-
+    <!--this is the second vehicle form-->
+    <div class="inline fields">
+      <div class="nine wide field">
+        <label>VIN #2</label>
+        <input id="secondVehicle" type="text" placeholder="Vehicle number two">
+      </div>
     </div>
-    <div class="vin-check">
-    </div>
-    <footer id="bottom">
+    <button id="readyCompare" class="ui button">Ready to compare</button>
+  </div>
 
+  <!--this is the end of the form-->
+  <!-- Start of the footer -->
+  <footer class='footer' id="bottom">
 
-        <footer id="bottom">
+    <h2>Made with ❤️️ by CarsNotLemons</h2>
+    <p>
+      &copy; 2020 Cars not Lemons, Inc.
+    </p>
 
-        </footer>
-
-        <!--this is our personal js-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-            crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-            crossorigin="anonymous"></script>
-        <script src="./marcos.js"></script>
+  </footer>
+  <!--this is our personal js-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+  <script src="./marcos.js"></script>
 </body>
 
 </html>
