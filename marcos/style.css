@@ -1,16 +1,24 @@
-/* *{
+*{
     margin: 0;
     padding: 0;
-} */
+    
+}
+
+body {
+    background: linear-gradient(rgb(136, 182, 219), white);
+    background-repeat: no-repeat;
+}
 /* navbar css */
-nav{
-    height: 70px;
-    background-color: #A1D1A3;
+.nav-link{
+	margin-right: 0px;
+	float: right;
 }
-nav li{
-    display: inline-block;
-    padding: 10px 10px;
+
+#logo {
+	padding-left: 0px;
+	margin-left: 0px;
 }
+
 /* jumbo image css */
 .jumbo-img{
     display: block;
@@ -18,9 +26,11 @@ nav li{
     height: 500px;
     margin: 20px 35px 0px 35px;
 }
+
+
 img{
-    max-height: 500px;
-    min-height: 300px;
+    height: cover;
+
 }
 
 #UsersChoice{
@@ -28,8 +38,36 @@ img{
     display: flex;
     margin-left: 6%;
     margin-right: 6%;
-    margin-top: 5%;
+    margin-top: 5%; 
 }
-#vinApiInput{
+#checkVin{
+    margin-right: 1%;
+}
+#compareContainer1,#VinCheck{
+    margin: 5%;
+}
+#compareContainer2{
+    margin: 5%;
+    display: inline-block;
+}
+.vin-compare{
     display: none;
+}
+
+.logoimage{
+    height: 100px;
+}
+
+/* footer portion */
+.footer {
+	padding: 30px;
+	clear: both;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+		'Lucida Sans', Arial, sans-serif;
+	text-align: center;
+}
+.content {
+    width: 75%;
+    display: inline-block;
+    margin-left: 20px;
 }
