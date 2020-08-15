@@ -50,17 +50,16 @@ $(document).ready(function () {
         $(".incorrectVIN").show()
         $('#VinCheck').hide();
         $('#carouselExampleSlidesOnly').show();
-      }else{
-        $(".incorrectVIN").hide()
       }
-      console.log(vinNumCheck)
-      let depreciation = response.depreciation_cost;
+        let depreciation = response.depreciation_cost;
       console.log(depreciation);
       let totalDepreciation = 0;
       for (i = 0; i < depreciation.length; i++) {
         totalDepreciation += depreciation[i]
       }
       console.log(totalDepreciation)
+      
+      
     })
 
 
@@ -184,10 +183,9 @@ $(document).ready(function () {
           $('#compareContainer1').hide();
           $('#compareContainer2').hide();
           $("#finalSaving").hide()
-        }else{
-          $(".incorrectVIN").hide()
         }
-        //here are the variables for my first vehicle
+        $(".incorrectVIN").hide()
+              //here are the variables for my first vehicle
         var firstVINimage1 = response1.photos[0].url;
         console.log(response1.photos[0].url)
         $("#firstImageCompare1").attr("src", firstVINimage1);
@@ -242,6 +240,8 @@ $(document).ready(function () {
         var firstVINrecallObject = response1.recalls.length;
         console.log("Previous Recalls: " + firstVINrecallObject + " Total Recalls");
         $("#theRecallEl1").text("Previous Recalls: " + firstVINrecallObject)
+        
+    
       });
 
       //here i start the api for the second vehicle
@@ -256,7 +256,14 @@ $(document).ready(function () {
       //This is the information for the first vehicle
       $.get(secondCarURL).then(function (response2) {
         console.log(response2);
-        //here are the variables for my second vehicle
+        if (!response1.success) {
+          $(".incorrectVIN").show()
+          $('#compareContainer1').hide();
+          $('#compareContainer2').hide();
+          $("#finalSaving").hide()
+        }else{
+          $(".incorrectVIN").hide()
+          //here are the variables for my second vehicle
         var secondVINimage1 = response2.photos[0].url;
         console.log(response2.photos[0].url)
         $("#secondImageCompare1").attr("src", secondVINimage1);
@@ -311,6 +318,8 @@ $(document).ready(function () {
         var secondVINrecallObject = response2.recalls.length;
         console.log("Previous Recalls: " + secondVINrecallObject + " Total Recalls");
         $("#theRecallEl2").text("Previous Recalls: " + secondVINrecallObject)
+        }
+        
       });
 
 
