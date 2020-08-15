@@ -51,7 +51,8 @@ $(document).ready(function () {
           $(".incorrectVIN").show()
           $('#VinCheck').hide();
           
-        }
+        }else{
+          $(".incorrectVIN").hide()
           let depreciation = response.depreciation_cost;
           console.log(depreciation);
           let totalDepreciation = 0;
@@ -69,6 +70,8 @@ $(document).ready(function () {
         let tryThis = parseInt(response.repairs_cost.slice(-1))
 
         console.log(tryThis)
+        }
+          
             // line 87 gives all market values
       })
 
@@ -204,9 +207,9 @@ $(document).ready(function () {
             $('#compareContainer2').hide();
             $("#finalSaving").hide();
             
-          }
-          
-          //here are the variables for my first vehicle
+          }else{
+            $(".incorrectVIN").hide()
+            //here are the variables for my first vehicle
           var firstVINimage1 = response1.photos[0].url;
           console.log(response1.photos[0].url)
           $("#firstImageCompare1").attr("src", firstVINimage1);
@@ -261,6 +264,9 @@ $(document).ready(function () {
           var firstVINrecallObject = response1.recalls.length;
           console.log("Previous Recalls: "+firstVINrecallObject + " Total Recalls");
           $("#theRecallEl1").text("Previous Recalls: " + firstVINrecallObject);
+          }
+          
+          
 
         });
   
@@ -284,9 +290,9 @@ $(document).ready(function () {
             $('#compareContainer2').hide();
             $("#finalSaving").hide()
             
-          }
-          
-          //here are the variables for my second vehicle
+          }else{
+            $(".incorrectVIN").hide()
+            //here are the variables for my second vehicle
           var secondVINimage1 = response2.photos[0].url;
           console.log(response2.photos[0].url)
           $("#secondImageCompare1").attr("src",secondVINimage1);
@@ -341,6 +347,9 @@ $(document).ready(function () {
           var secondVINrecallObject = response2.recalls.length;
           console.log("Previous Recalls: " + secondVINrecallObject + " Total Recalls");
           $("#theRecallEl2").text("Previous Recalls: " + secondVINrecallObject)
+          }
+          
+          
         });
   
   
