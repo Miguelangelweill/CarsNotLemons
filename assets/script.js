@@ -1,23 +1,17 @@
 $(document).ready(function () {
+  var gifAPI = "https://api.tenor.com/v1/search?q=lemon&key=11YWAZYIYDS3&limit=8";
+  var lemonGif;
+  $.get(gifAPI).then(function(gifResponse){
+   lemonGif = gifResponse.results[3].media[0].tinygif.url;
 
-    //this is for resizing the button
-    window.addEventListener("resize",function(){
-  
-      listenRezise();
-    })
-    function listenRezise(){
-      var width = window.innerWidth;
-    if(width<576){
-      $("#UsersChoice").addClass("tiny");
-      $("#UsersChoice").removeClass("massive");
-    }else if(width>576){
-      $("#UsersChoice").addClass("massive");
-      $("#UsersChoice").removeClass("tiny");
-    }
-    console.log("rezise happened")
-    }
-    listenRezise()
-    console.log("ready!");
+  })
+  var gifAPI2 = "https://api.tenor.com/v1/search?q=car&key=11YWAZYIYDS3&limit=8";
+  var carGif;
+  $.get(gifAPI2).then(function(gifResponse2){
+    carGif= gifResponse2.results[0].media[0].tinygif.url;
+  })
+   
+   
     //This is where we hide the card for the vin check only
     $("#VinCheck").hide();
     $("#vinApiInput").hide();
