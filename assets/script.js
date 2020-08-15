@@ -33,8 +33,9 @@ $(document).ready(function () {
       let userVinNumber = $("#vinNumber").val();
       $('#compareContainer1').hide();
       $('#compareContainer2').hide();
-      $("#carouselExampleSlidesOnly").hide()
-      let onlyVinCheck=$("#VinCheck").show();
+      $("#carouselExampleSlidesOnly").hide();
+      $("#finalSaving").hide();
+      let onlyVinCheck = $("#VinCheck").show();
       onlyVinCheck.addClass('one wide column');
       $("#carouselContainer").append(onlyVinCheck);
       //This is the input of the user 
@@ -45,31 +46,57 @@ $(document).ready(function () {
 
       $.get(ownershipCost).then(function(response){
           console.log(response)
+        if (!response.success) {
+          $('#carouselExampleSlidesOnly').show();
+          $(".incorrectVIN").show()
+          $('#VinCheck').hide();
+          
+        }
           let depreciation = response.depreciation_cost;
           console.log(depreciation);
           let totalDepreciation = 0;
+
           for(i = 0; i<depreciation.length;i++){
           totalDepreciation += depreciation[i]
           }
           console.log(totalDepreciation)
+        // Last year's maintenance cost
+        console.log(response.maintenance_cost.slice(-1))
+        // Last year's Insurance
+        console.log(response.insurance_cost.slice(-1))
+        // Last year's repair cost
+        console.log(parseInt(response.repairs_cost.slice(-1)))
+        let tryThis = parseInt(response.repairs_cost.slice(-1))
+
+        console.log(tryThis)
+            // line 87 gives all market values
       })
 
 
     //   Market Value AJAX
       let marketValue = 'http://marketvalue.vinaudit.com/getmarketvalue.php?key=0UCAOK5F1GEGDMD&vin='+userVinNumber+'&format=json&period=90&mileage=average'
 
-      $.get(marketValue).then(function(response){
-          console.log(response)
-          let meanPrice = response.mean;
-          console.log(meanPrice)
-          thousands_separators(meanPrice)
-          function thousands_separators(num)
-  {
-    //   Market Value operator for comma
-    var num_parts = num.toString().split(".");
-    num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    console.log(num_parts.join("."))
-  }
+      $.get(marketValue).then(function (response) {
+        console.log(response)
+        let meanPrice = response.mean;
+        console.log(meanPrice)
+        // Market Value giving all three 
+        let belowPrice = response.prices;
+        console.log(belowPrice)
+        thousands_separators(belowPrice);
+        //
+        let abovePrice = response.prices[2];
+        console.log(abovePrice)
+        thousands_separators(abovePrice);
+        //
+        thousands_separators(meanPrice)
+        function thousands_separators(num) {
+          //   Market Value operator for comma
+          var num_parts = num.toString().split(".");
+          num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+          console.log(num_parts.join("."))
+        }
+
       })
   
       //This is the api for the first Vin only check starts
@@ -125,23 +152,19 @@ $(document).ready(function () {
         let ownershipCost = 'http://ownershipcost.vinaudit.com/getownershipcost.php?vin=' + userVinNumber + '&key=0UCAOK5F1GEGDMD&state=WA'
         $.get(ownershipCost).then(function (response) {
           console.log(response)
-          var fuelCostLibrary = response.fuel_cost;
-          for(var i=0; i<fuelCostLibrary.length;i++){
-            var fuelCostList = $("<ul>");
-            fuelCostList.attr("id","fuelCostVinCheck");
-            var yearlyFuel =$("<li>");
-            yearlyFuel.text(fuelCostLibrary[i]);
-            fuelCostList.append(yearlyFuel);
-            console.log(yearlyFuel)
-          }
+          let fuelCostLibrary = response.fuel_cost.length - response.fuel_cost.length - 1;
+          console.log(fuelCostLibrary)
+
         })
       });
     });
     //This is Miguels inforation and his functions
     //hide this untill clicked
-    $("#compareForm").hide();
-    $("#compareContainer1").hide()
-    $("#compareContainer2").hide()
+  $("#compareForm").hide();
+  $("#compareContainer1").hide()
+  $("#finalSaving").hide()
+  $("#compareContainer2").hide()
+  $(".incorrectVIN").hide()
     //This is the click on the first compare
     $("#compareTwo").click(function () {
       $("#compareForm").show();
@@ -152,10 +175,12 @@ $(document).ready(function () {
         $("#carouselExampleSlidesOnly").hide()
         var firstContainerCompare=$("#compareContainer1").show()
         firstContainerCompare.addClass("six wide column");
+        var finalSaving = $("#finalSaving").show();
+        finalSaving.addClass("four wide column");
         var secondContainerCompare=$("#compareContainer2").show()
         secondContainerCompare.addClass("six wide column");
         
-        $("#carouselContainer").append(firstContainerCompare, secondContainerCompare)
+        $("#carouselContainer").append(firstContainerCompare, finalSaving, secondContainerCompare)
         
         var firstVehicleVIN = $("#firstVehicle").val();
         var secondVehicleVIN = $("#secondVehicle").val();
@@ -171,6 +196,16 @@ $(document).ready(function () {
         //This is the information for the first vehicle
         $.get(firstCarURL).then(function (response1) {
           console.log(response1);
+          //The prompt incase the vin is an invalid number
+          if (!response1.success) {
+            $('#carouselExampleSlidesOnly').show();
+            $(".incorrectVIN").show()
+            $('#compareContainer1').hide();
+            $('#compareContainer2').hide();
+            $("#finalSaving").hide();
+            
+          }
+          
           //here are the variables for my first vehicle
           var firstVINimage1 = response1.photos[0].url;
           console.log(response1.photos[0].url)
@@ -225,7 +260,8 @@ $(document).ready(function () {
   
           var firstVINrecallObject = response1.recalls.length;
           console.log("Previous Recalls: "+firstVINrecallObject + " Total Recalls");
-          $("#theRecallEl1").text("Previous Recalls: " + firstVINrecallObject)
+          $("#theRecallEl1").text("Previous Recalls: " + firstVINrecallObject);
+
         });
   
         //here i start the api for the second vehicle
@@ -240,6 +276,16 @@ $(document).ready(function () {
         //This is the information for the first vehicle
         $.get(secondCarURL).then(function (response2) {
           console.log(response2);
+          //This is if the VIN number is incorrect
+          if (!response2.success) {
+            $('#carouselExampleSlidesOnly').show();
+            $(".incorrectVIN").show()
+            $('#compareContainer1').hide();
+            $('#compareContainer2').hide();
+            $("#finalSaving").hide()
+            
+          }
+          
           //here are the variables for my second vehicle
           var secondVINimage1 = response2.photos[0].url;
           console.log(response2.photos[0].url)
