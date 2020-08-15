@@ -48,11 +48,13 @@ $(document).ready(function () {
           console.log(response)
         if (!response.success) {
           $('#carouselExampleSlidesOnly').show();
-          $(".incorrectVIN").show()
+          $("#incorrectVIN1").show()
+          
           $('#VinCheck').hide();
           
         }else{
-          $(".incorrectVIN").hide()
+          $("#incorrectVIN1").hide()
+          
           let depreciation = response.depreciation_cost;
           console.log(depreciation);
           let totalDepreciation = 0;
@@ -167,7 +169,8 @@ $(document).ready(function () {
   $("#compareContainer1").hide()
   $("#finalSaving").hide()
   $("#compareContainer2").hide()
-  $(".incorrectVIN").hide()
+  $("#incorrectVIN1").hide()
+  $("#incorrectVIN2").hide()
     //This is the click on the first compare
     $("#compareTwo").click(function () {
       $("#compareForm").show();
@@ -202,13 +205,15 @@ $(document).ready(function () {
           //The prompt incase the vin is an invalid number
           if (!response1.success) {
             $('#carouselExampleSlidesOnly').show();
-            $(".incorrectVIN").show()
+            
+            $("#incorrectVIN2").show()
             $('#compareContainer1').hide();
             $('#compareContainer2').hide();
             $("#finalSaving").hide();
             
           }else{
-            $(".incorrectVIN").hide()
+            
+            $("#incorrectVIN2").hide()
             //here are the variables for my first vehicle
           var firstVINimage1 = response1.photos[0].url;
           console.log(response1.photos[0].url)
@@ -285,13 +290,15 @@ $(document).ready(function () {
           //This is if the VIN number is incorrect
           if (!response2.success) {
             $('#carouselExampleSlidesOnly').show();
-            $(".incorrectVIN").show()
+            
+            $("#incorrectVIN2").show()
             $('#compareContainer1').hide();
             $('#compareContainer2').hide();
             $("#finalSaving").hide()
             
           }else{
-            $(".incorrectVIN").hide()
+            
+            $("#incorrectVIN2").hide()
             //here are the variables for my second vehicle
           var secondVINimage1 = response2.photos[0].url;
           console.log(response2.photos[0].url)
@@ -352,7 +359,7 @@ $(document).ready(function () {
           
         });
   
-  
+       
       });
     });
     
