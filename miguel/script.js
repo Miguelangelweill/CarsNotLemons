@@ -261,7 +261,7 @@ $(document).ready(function () {
           $('#compareContainer1').hide();
           $('#compareContainer2').hide();
           $("#finalSaving").hide()
-        }else{
+        }
           $(".incorrectVIN").hide()
           //here are the variables for my second vehicle
         var secondVINimage1 = response2.photos[0].url;
@@ -318,7 +318,7 @@ $(document).ready(function () {
         var secondVINrecallObject = response2.recalls.length;
         console.log("Previous Recalls: " + secondVINrecallObject + " Total Recalls");
         $("#theRecallEl2").text("Previous Recalls: " + secondVINrecallObject)
-        }
+        
         
       });
 
