@@ -5,6 +5,7 @@ $(document).ready(function () {
   let secondRepair;
   let secondInsurance;
   let secondFuel;
+  let totalSavings;
 
   let tenorLemonApi = 'https://api.tenor.com/v1/search?q=lemon&key=11YWAZYIYDS3&limit=8'
 
@@ -84,32 +85,6 @@ $(document).ready(function () {
       // line 87 gives all market values
     })
 
-
-    //   Market Value AJAX
-    let marketValue = 'http://marketvalue.vinaudit.com/getmarketvalue.php?key=0UCAOK5F1GEGDMD&vin=' + userVinNumber + '&format=json&period=90&mileage=average'
-
-    $.get(marketValue).then(function (response) {
-      console.log(response)
-      let meanPrice = response.mean;
-      console.log(meanPrice)
-      // Market Value giving all three 
-      let belowPrice = response.prices;
-      console.log(belowPrice)
-      thousands_separators(belowPrice);
-      //
-      let abovePrice = response.prices[2];
-      console.log(abovePrice)
-      thousands_separators(abovePrice);
-      //
-      thousands_separators(meanPrice)
-      function thousands_separators(num) {
-        //   Market Value operator for comma
-        var num_parts = num.toString().split(".");
-        num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        console.log(num_parts.join("."))
-      }
-
-    })
 
     //This is the api for the first Vin only check starts
     let objectVin =
@@ -198,7 +173,6 @@ $(document).ready(function () {
       var firstVehicleVIN = $("#firstVehicle").val();
       var secondVehicleVIN = $("#secondVehicle").val();
 
-      console.log(firstVehicleVIN + secondVehicleVIN);
       //here i start the api for the first vehicle
       var firstCarURL =
         "https://specifications.vinaudit.com/v3/specifications?key=0UCAOK5F1GEGDMD&format=json&include=attributes,equipment,colors,recalls,warranties,photos&vin=" +
@@ -223,58 +197,42 @@ $(document).ready(function () {
           $("#incorrectVIN2").hide()
           //here are the variables for my first vehicle
           var firstVINimage1 = response1.photos[0].url;
-          console.log(response1.photos[0].url)
           $("#firstImageCompare1").attr("src", firstVINimage1);
 
           var firstVINimage2 = response1.photos[1].url;
-          console.log(response1.photos[0].url)
           $("#firstImageCompare2").attr("src", firstVINimage2);
 
           var firstVINmake = response1.attributes.make;
-          console.log("Make: " + firstVINmake);
-
           var firstVINmodel = response1.attributes.model;
-          console.log("Model: " + firstVINmodel);
-
           var firstVINyear = response1.attributes.year;
-          console.log("Year: " + firstVINyear);
           $("#theCarEl1").text(firstVINmake + " " + firstVINmodel + " " + firstVINyear);
 
           var firstVINtrim = response1.attributes.trim;
-          console.log("Trim: " + firstVINtrim);
           $("#theTrimEl1").text("Trim: " + firstVINtrim);
 
           var firstVINprice =
             response1.attributes.manufacturer_suggested_retail_price;
-          console.log("Price: " + firstVINprice);
           $("#thePriceEl1").text("Price: " + firstVINprice)
 
           var firstVINengine = response1.attributes.engine;
-          console.log("engine: " + firstVINengine);
           $("#theEngineEl1").text("engine: " + firstVINengine)
 
           var firstVINcityMpg = response1.attributes.city_mileage;
-          console.log("City mileage: " + firstVINcityMpg + " City");
           $("#theCItyMlgEl1").text("City mileage: " + firstVINcityMpg)
 
           var firstVINhighwayMpg = response1.attributes.highway_mileage;
-          console.log("Highway mileage: " + firstVINhighwayMpg + " Highway");
           $("#theHeighwayMlgEl1").text("Highway mileage: " + firstVINhighwayMpg)
 
           var firstVINweight = response1.attributes.curb_weight;
-          console.log("Weight: " + firstVINweight);
           $("#theWeightEl1").text("Weight: " + firstVINweight)
 
           var firstVINtransmission = response1.attributes.transmission;
-          console.log("Transmission: " + firstVINtransmission);
           $("#theTransmissionEl1").text("Transmission: " + firstVINtransmission);
 
           var firstVINfuel = response1.attributes.fuel_type;
-          console.log("Type of Fuel: " + firstVINfuel);
           $("#theFuelEl1").text("Type of Fuel: " + firstVINfuel)
 
           var firstVINrecallObject = response1.recalls.length;
-          console.log("Previous Recalls: " + firstVINrecallObject + " Total Recalls");
           $("#theRecallEl1").text("Previous Recalls: " + firstVINrecallObject);
 
           let carOneOwnershipCost = 'http://ownershipcost.vinaudit.com/getownershipcost.php?vin=' + firstVehicleVIN + '&key=0UCAOK5F1GEGDMD&state=WA'
@@ -295,13 +253,25 @@ $(document).ready(function () {
             console.log(totalDepreciation)
             // Last year's fuel cost
             firstFuel = parseInt(response.maintenance_cost.slice(-1))
-            $('#fuelSavings').append(firstFuel)
+            firstFuel = firstFuel-secondFuel;
+            firstFuel = Math.abs(firstFuel);
+            console.log(firstFuel)
+            $('#fuelSavings').append(" $" +firstFuel)
             // Last year's Insurance
             firstInsurance = parseInt(response.insurance_cost.slice(-1))
-            $('#insuranceSavings').append(firstInsurance)
+            firstInsurance = firstInsurance-secondInsurance;
+            firstInsurance = Math.abs(firstInsurance)
+            console.log(firstInsurance)
+            $('#insuranceSavings').append(" $" +firstInsurance)
             // Last year's repair cost
             firstRepair = parseInt(response.repairs_cost.slice(-1))
-            $('#maintenanceSaving').append(firstRepair)
+            firstRepair = firstRepair-secondRepair;
+            firstRepair = Math.abs(firstRepair)
+            console.log(firstRepair)
+            $('#maintenanceSaving').append(" $"+firstRepair)
+            
+            totalSavings = firstFuel+firstInsurance+firstRepair;
+            $('#totalSaving').append(" $"+totalSavings)
 
           })
         }
@@ -336,58 +306,42 @@ $(document).ready(function () {
           $("#incorrectVIN2").hide()
           //here are the variables for my second vehicle
           var secondVINimage1 = response2.photos[0].url;
-          console.log(response2.photos[0].url)
           $("#secondImageCompare1").attr("src", secondVINimage1);
 
           var secondVINimage2 = response2.photos[1].url;
-          console.log(response2.photos[0].url)
           $("#secondImageCompare2").attr("src", secondVINimage2);
 
           var secondVINmake = response2.attributes.make;
-          console.log("Make: " + secondVINmake);
-
           var secondVINmodel = response2.attributes.model;
-          console.log("Model: " + secondVINmodel);
-
           var secondVINyear = response2.attributes.year;
-          console.log("Year: " + secondVINyear);
           $("#theCarEl2").text(secondVINmake + " " + secondVINmodel + " " + secondVINyear);
 
           var secondVINtrim = response2.attributes.trim;
-          console.log("Trim: " + secondVINtrim);
           $("#theTrimEl2").text("Trim: " + secondVINtrim);
 
           var secondVINprice =
             response2.attributes.manufacturer_suggested_retail_price;
-          console.log("Price: " + secondVINprice);
           $("#thePriceEl2").text("Price: " + secondVINprice)
 
           var secondVINengine = response2.attributes.engine;
-          console.log("engine: " + secondVINengine);
           $("#theEngineEl2").text("engine: " + secondVINengine)
 
           var secondVINcityMpg = response2.attributes.city_mileage;
-          console.log("City mileage: " + secondVINcityMpg + " City");
           $("#theCItyMlgEl2").text("City mileage: " + secondVINcityMpg)
 
           var secondVINhighwayMpg = response2.attributes.highway_mileage;
-          console.log("Highway mileage: " + secondVINhighwayMpg + " Highway");
           $("#theHeighwayMlgEl2").text("Highway mileage: " + secondVINhighwayMpg)
 
           var secondVINweight = response2.attributes.curb_weight;
-          console.log("Weight: " + secondVINweight);
           $("#theWeightEl2").text("Weight: " + secondVINweight)
 
           var secondVINtransmission = response2.attributes.transmission;
-          console.log("Transmission: " + secondVINtransmission);
-          $("#theTransmissionEl2").text("Transmission: " + secondVINtransmission);
+          $("#theTransmissionEl2").text("Transmission: " + secondVINtransmission)
 
           var secondVINfuel = response2.attributes.fuel_type;
-          console.log("Type of Fuel: " + secondVINfuel);
           $("#theFuelEl2").text("Type of Fuel: " + secondVINfuel)
 
           var secondVINrecallObject = response2.recalls.length;
-          console.log("Previous Recalls: " + secondVINrecallObject + " Total Recalls");
           $("#theRecallEl2").text("Previous Recalls: " + secondVINrecallObject)
         }
       });
@@ -395,24 +349,19 @@ $(document).ready(function () {
 
 
       $.get(secondCarOwnershipCost).then(function (response) {
-        console.log(response)
-        // if (!response.success) {
-        //     alert('please put a valid Vin Number');
-        //     $('#VinCheck').hide();
-        //     $('#carouselExampleSlidesOnly').show();
-        // }
-
-
+        console.log(response);
         // Last year's fuel cost
         secondFuel = parseInt(response.maintenance_cost.slice(-1))
-        
-        $('#fuelSavings').append(secondFuel)
+        console.log("fuel cost per year: "+secondFuel)
+        // $('#fuelSavings').append(secondFuel)
         // Last year's Insurance
         secondInsurance = parseInt(response.insurance_cost.slice(-1))
-        $('#insuranceSavings').append(secondInsurance)
+        console.log(secondInsurance)
+        // $('#insuranceSavings').append(secondInsurance)
         // Last year's repair cost
         secondRepair = parseInt(response.repairs_cost.slice(-1))
-        $('#maintenanceSaving').append(secondRepair)
+        console.log(secondRepair)
+        // $('#maintenanceSaving').append(secondRepair)
 
         totalMaintenance = secondFuel + secondInsurance + secondRepair - firstFuel - firstInsurance - firstRepair
         console.log(totalMaintenance)
