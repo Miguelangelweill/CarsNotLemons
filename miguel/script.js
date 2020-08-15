@@ -402,17 +402,7 @@ $(document).ready(function () {
         //     $('#carouselExampleSlidesOnly').show();
         // }
 
-        var depreciation = response.depreciation_cost;
-        console.log(depreciation);
 
-        var totalDepreciation = 0;
-
-        for (i = 0; i < depreciation.length; i++) {
-          totalDepreciation += depreciation[i]
-        }
-        //These items need to append or go in to a div for the single car data to be displayed
-        // this is total depreciation need to find a way to merge both the total price AJAX and this one 
-        console.log(totalDepreciation)
         // Last year's fuel cost
         secondFuel = parseInt(response.maintenance_cost.slice(-1))
         
