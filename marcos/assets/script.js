@@ -52,11 +52,11 @@ $(document).ready(function () {
 
         $.get(ownershipCost).then(function (response) {
             console.log(response)
-            if (!response.success) {
-                alert('please put a valid Vin Number');
-                $('#VinCheck').hide();
-                $('#carouselExampleSlidesOnly').show();
-            }
+            // if (!response.success) {
+            //     alert('please put a valid Vin Number');
+            //     $('#VinCheck').hide();
+            //     $('#carouselExampleSlidesOnly').show();
+            // }
 
             var depreciation = response.depreciation_cost;
             console.log(depreciation);
@@ -208,13 +208,13 @@ $(document).ready(function () {
             //This is the information for the first vehicle
             $.get(firstCarURL).then(function (response1) {
                 console.log(response1);
-                if (!response1.success) {
-                    alert('please put a valid Vin Number');
-                    $('#compareContainer1').hide();
-                    $('#compareContainer2').hide();
-                    $('#finalSaving').hide();
-                    $('#carouselExampleSlidesOnly').show();
-                }
+                // if (!response1.success) {
+                //     alert('please put a valid Vin Number');
+                //     $('#compareContainer1').hide();
+                //     $('#compareContainer2').hide();
+                //     $('#finalSaving').hide();
+                //     $('#carouselExampleSlidesOnly').show();
+                // }
                 //here are the variables for my first vehicle
                 var firstVINimage1 = response1.photos[0].url;
                 console.log(response1.photos[0].url)
@@ -276,11 +276,11 @@ $(document).ready(function () {
 
                 $.get(carOneOwnershipCost).then(function (response) {
                     console.log(response)
-                    if (!response.success) {
-                        alert('please put a valid Vin Number');
-                        $('#VinCheck').hide();
-                        $('#carouselExampleSlidesOnly').show();
-                    }
+                    // if (!response.success) {
+                    //     alert('please put a valid Vin Number');
+                    //     $('#VinCheck').hide();
+                    //     $('#carouselExampleSlidesOnly').show();
+                    // }
         
                     var depreciation = response.depreciation_cost;
                     console.log(depreciation);
@@ -380,11 +380,11 @@ $(document).ready(function () {
 
             $.get(secondCarOwnershipCost).then(function (response) {
                 console.log(response)
-                if (!response.success) {
-                    alert('please put a valid Vin Number');
-                    $('#VinCheck').hide();
-                    $('#carouselExampleSlidesOnly').show();
-                }
+                // if (!response.success) {
+                //     alert('please put a valid Vin Number');
+                //     $('#VinCheck').hide();
+                //     $('#carouselExampleSlidesOnly').show();
+                // }
     
                 var depreciation = response.depreciation_cost;
                 console.log(depreciation);
@@ -410,7 +410,7 @@ $(document).ready(function () {
                 totalMaintenance = secondFuel + secondInsurance + secondRepair - firstFuel - firstInsurance - firstRepair
                 console.log(totalMaintenance)
             })
-            
+
 
         });
     });
