@@ -1,5 +1,10 @@
 $(document).ready(function () {
-
+    let firstFuel;
+    let firstInsurance;
+    let firstRepair;
+    let secondRepair;
+    let secondInsurance;
+    let secondFuel;
     //this is for resizing the button
     window.addEventListener("resize", function () {
 
@@ -47,11 +52,11 @@ $(document).ready(function () {
 
         $.get(ownershipCost).then(function (response) {
             console.log(response)
-            if (!response.success) {
-                alert('please put a valid Vin Number');
-                $('#VinCheck').hide();
-                $('#carouselExampleSlidesOnly').show();
-            }
+            // if (!response.success) {
+            //     alert('please put a valid Vin Number');
+            //     $('#VinCheck').hide();
+            //     $('#carouselExampleSlidesOnly').show();
+            // }
 
             var depreciation = response.depreciation_cost;
             console.log(depreciation);
@@ -203,13 +208,13 @@ $(document).ready(function () {
             //This is the information for the first vehicle
             $.get(firstCarURL).then(function (response1) {
                 console.log(response1);
-                if (!response1.success) {
-                    alert('please put a valid Vin Number');
-                    $('#compareContainer1').hide();
-                    $('#compareContainer2').hide();
-                    $('#finalSaving').hide();
-                    $('#carouselExampleSlidesOnly').show();
-                }
+                // if (!response1.success) {
+                //     alert('please put a valid Vin Number');
+                //     $('#compareContainer1').hide();
+                //     $('#compareContainer2').hide();
+                //     $('#finalSaving').hide();
+                //     $('#carouselExampleSlidesOnly').show();
+                // }
                 //here are the variables for my first vehicle
                 var firstVINimage1 = response1.photos[0].url;
                 console.log(response1.photos[0].url)
@@ -265,6 +270,40 @@ $(document).ready(function () {
                 var firstVINrecallObject = response1.recalls.length;
                 console.log("Previous Recalls: " + firstVINrecallObject + " Total Recalls");
                 $("#theRecallEl1").text("Previous Recalls: " + firstVINrecallObject)
+
+                let carOneOwnershipCost = 'http://ownershipcost.vinaudit.com/getownershipcost.php?vin=' + firstVehicleVIN + '&key=0UCAOK5F1GEGDMD&state=WA'
+
+
+                $.get(carOneOwnershipCost).then(function (response) {
+                    console.log(response)
+                    // if (!response.success) {
+                    //     alert('please put a valid Vin Number');
+                    //     $('#VinCheck').hide();
+                    //     $('#carouselExampleSlidesOnly').show();
+                    // }
+        
+                    var depreciation = response.depreciation_cost;
+                    console.log(depreciation);
+        
+                    var totalDepreciation = 0;
+        
+                    for (i = 0; i < depreciation.length; i++) {
+                        totalDepreciation += depreciation[i]
+                    }
+                    //These items need to append or go in to a div for the single car data to be displayed
+                    // this is total depreciation need to find a way to merge both the total price AJAX and this one 
+                    console.log(totalDepreciation)
+                    // Last year's fuel cost
+                    firstFuel = parseInt(response.maintenance_cost.slice(-1))
+                    $('#fuelSavings').append(firstFuel)
+                    // Last year's Insurance
+                    firstInsurance = parseInt(response.insurance_cost.slice(-1))
+                    $('#insuranceSavings').append(firstInsurance)
+                    // Last year's repair cost
+                    firstRepair = parseInt(response.repairs_cost.slice(-1))
+                    $('#maintenanceSaving').append(firstRepair)
+        
+                })
             });
 
             //here i start the api for the second vehicle
@@ -335,6 +374,42 @@ $(document).ready(function () {
                 console.log("Previous Recalls: " + secondVINrecallObject + " Total Recalls");
                 $("#theRecallEl2").text("Previous Recalls: " + secondVINrecallObject)
             });
+
+            let secondCarOwnershipCost = 'http://ownershipcost.vinaudit.com/getownershipcost.php?vin=' + secondVehicleVIN + '&key=0UCAOK5F1GEGDMD&state=WA'
+
+
+            $.get(secondCarOwnershipCost).then(function (response) {
+                console.log(response)
+                // if (!response.success) {
+                //     alert('please put a valid Vin Number');
+                //     $('#VinCheck').hide();
+                //     $('#carouselExampleSlidesOnly').show();
+                // }
+    
+                var depreciation = response.depreciation_cost;
+                console.log(depreciation);
+    
+                var totalDepreciation = 0;
+    
+                for (i = 0; i < depreciation.length; i++) {
+                    totalDepreciation += depreciation[i]
+                }
+                //These items need to append or go in to a div for the single car data to be displayed
+                // this is total depreciation need to find a way to merge both the total price AJAX and this one 
+                console.log(totalDepreciation)
+                // Last year's fuel cost
+                secondFuel = parseInt(response.maintenance_cost.slice(-1))
+                $('#fuelSavings').append(secondFuel)
+                // Last year's Insurance
+                secondInsurance = parseInt(response.insurance_cost.slice(-1))
+                $('#insuranceSavings').append(secondInsurance)
+                // Last year's repair cost
+                secondRepair = parseInt(response.repairs_cost.slice(-1))
+                $('#maintenanceSaving').append(secondRepair)
+
+                totalMaintenance = secondFuel + secondInsurance + secondRepair - firstFuel - firstInsurance - firstRepair
+                console.log(totalMaintenance)
+            })
 
 
         });
