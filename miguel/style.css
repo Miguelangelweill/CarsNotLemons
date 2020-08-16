@@ -1,118 +1,205 @@
-*{
-    margin: 0;
-    padding: 0;
-    
+* {
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background: linear-gradient(rgb(136, 182, 219), white);
-    background-repeat: no-repeat;
+ background: linear-gradient(rgb(136, 182, 219), white);
+  background-repeat: no-repeat;
 }
 /* navbar css */
-.nav-link{
-	margin-right: 0px;
-	float: right;
+.nav-link {
+  margin-right: 0px;
+  float: right;
+}
+.navbar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 5;
 }
 
 #logo {
-	padding-left: 0px;
-	margin-left: 0px;
+  padding-left: 0px;
+  margin-left: 0px;
 }
 
 /* jumbo image css */
-.jumbo-img{
-    display: block;
-    width: 95%;
-    height: 500px;
-    margin: 20px 35px 0px 35px;
+.jumbo-img {
+  display: block;
+  width: 95%;
+  height: 500px;
+  margin: 20px 35px 0px 35px;
 }
 
-
-img{
-    height: cover;
-
+img {
+  height: cover;
 }
-
-#UsersChoice{
-    text-align: center;
-    display: flex;
-    margin-left: 6%;
-    margin-right: 6%;
-    margin-top: 5%; 
-    /*  */
+#mainContainer{
+    margin-top: 10%;
+}
+#carouselContainer {
+  width: 100%;
+}
+#UsersChoice {
+  text-align: center;
+  display: flex;
+  margin-left: 6%;
+  margin-right: 6%;
+  margin-top: 5%;
+  /*  */
 }
 #checkVin{
-    margin-right: 1%;
+  margin-right: 1%;
+  margin-left: 1%;
+  margin-bottom: 1%;
 }
-#vinImage{
-    height: 90%;
-    width: 25%;
-    margin-left: auto;
-    margin-right: auto;
+#compareContainer1,
+#VinCheck {
+  margin: 5%;
 }
-#vinImage2{
-    height: 55%;
-    width: 45%; 
-    margin-left: auto;
-    margin-right: auto;
+#compareContainer2 {
+  margin: 5%;
+  display: inline-block;
 }
-#compareContainer1,#VinCheck{
-    margin: 5%;
+#compareForm {
+  float: right;
+  margin-right: 6%;
+  margin-top: 2%;
+  width: 45%;
 }
-#compareContainer2{
-    margin: 5%;
-    display: inline-block;
+#vinApiInput {
+  margin-left: 6%;
+  margin-top: 2%;
 }
-#compareForm{
-    float: right;
-    margin-right: 6%;
-    margin-top: 2%;
-    width: 45%;
+#readyCompare {
+  float: right;
+  margin-right: 4%;
 }
-#vinApiInput{
-    margin-left: 6%;
-    margin-top: 2%;
+.buttonImage {
+  height: 45px;
+  width: 45px;
 }
-#readyCompare{
-    float: right;
-    margin-right: 4%;
-}
-#checkOneVin{
-    margin-left: 1%;
+#checkOneVin {
+  margin-left: 1%;
 }
 #firstVehicle,
-#secondVehicle{
-    width: 100%;
+#secondVehicle {
+  width: 100%;
 }
-#finalSaving{
-    height: 400px;
-    margin-top: 5%;
+#finalSaving {
+  height: 400px;
+  margin-top: 5%;
+  word-wrap: break-word;
 }
-.vin-compare{
-    display: none;
-    
+#finalSavingsResult {
+  word-wrap: break-word;
+  display: inline-block;
+}
+.vin-compare {
+  display: none;
 }
 
-.logoimage{
-    height: 100px;
+.logoimage {
+  height: 100px;
 }
 
 /* footer portion */
 .footer {
-	padding: 30px;
-	clear: both;
-	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-		'Lucida Sans', Arial, sans-serif;
-	text-align: center;
+  padding: 30px;
+  clear: both;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  text-align: center;
 }
 .content {
-    width: 75%;
-    display: inline-block;
-    margin-left: 20px;
+  width: 75%;
+  display: inline-block;
+  margin-left: 20px;
 }
-.icons{
-    margin-right: 3%;
+.icons {
+  margin-right: 3%;
 }
-p{
-    text-align: center;
+p {
+  text-align: center;
+}
+@media (max-width: 768px) {
+  #compareForm {
+    margin-left: 6%;
+    margin-right: 6%;
+    margin-top: 2%;
+    width: 90%;
+  }
+  #finalSaving {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  .jumbo-img {
+    display: block;
+    width: 95%;
+    height: 280px;
+    margin: 20px 35px 0px 35px;
+  }
+}
+/* This is the css for the loading screen */
+.loader {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  border: 4px solid #Fff;
+  top: 50%;
+  animation: loader 2s infinite ease;
+}
+
+.loader-inner {
+  vertical-align: top;
+  display: inline-block;
+  width: 100%;
+  background-color: #fff;
+  animation: loader-inner 2s infinite ease-in;
+}
+
+@keyframes loader {
+  0% {
+    transform: rotate(0deg);
+  }
+  
+  25% {
+    transform: rotate(180deg);
+  }
+  
+  50% {
+    transform: rotate(180deg);
+  }
+  
+  75% {
+    transform: rotate(360deg);
+  }
+  
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loader-inner {
+  0% {
+    height: 0%;
+  }
+  
+  25% {
+    height: 0%;
+  }
+  
+  50% {
+    height: 100%;
+  }
+  
+  75% {
+    height: 100%;
+  }
+  
+  100% {
+    height: 0%;
+  }
 }
