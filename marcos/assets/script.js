@@ -6,52 +6,75 @@ $(document).ready(function () {
   let secondInsurance;
   let secondFuel;
 
-
+  let mostExpensive = [];
   let firstTotal;
   let secondTotal;
 
   
   function getFirstTotal(){
     console.log(firstTotal)
+    console.log(secondTotal)
     mostExpensive.push(firstTotal)
     console.log(mostExpensive)
     if(mostExpensive.length == 2){
-      let lowestValue =  firstTotal + secondTotal
-      console.log(lowestValue)
+      if(firstTotal>secondTotal){
+        let carSaving = firstTotal - secondTotal
+       $('#yearlyDifference').html(`Car B saves you $${carSaving} more then car A`)
+      }else{
+        let carSaving = secondTotal - firstTotal
+        $('#yearlyDifference').html(`Car A saves you $${carSaving} more then car B`)
+      }
     }
   }
   function getSecondTotal(){
+    console.log(firstTotal)
     console.log(secondTotal)
     mostExpensive.push(secondTotal)
     console.log(mostExpensive)
     if(mostExpensive.length == 2){
-      let lowestValue = firstTotal + secondTotal
-      console.log(lowestValue)
+      if(secondTotal>firstTotal){
+        let carSaving = secondTotal - firstTotal
+        $('#yearlyDifference').html(`Car A saves you $${carSaving} more then car B`)
+      }else{
+        let carSaving = firstTotal - secondTotal
+        $('#yearlyDifference').html(`Car B saves you $${carSaving} more then car A`)
+      }
     }
   }
 
   
-  let mostExpensive = [];
 
 
+// AJAX Lemon Gif
   let tenorLemonApi = 'https://api.tenor.com/v1/search?q=lemon&key=11YWAZYIYDS3&limit=8'
 
-  let lemonGif;
+  let lemonGif = '';
 
   $.get(tenorLemonApi).then(function (response) {
     lemonGif = response.results[3].media[0].tinygif.url
-
+    getLemongGif(lemonGif)
   })
+  
+function getLemongGif(){
+  console.log(lemonGif)
+}
 
-
+// AJAX Car gif 
   let tenorCarApi = 'https://api.tenor.com/v1/search?q=car&key=11YWAZYIYDS3&limit=8'
-  let carGif;
+  let carGif = '';
 
   $.get(tenorCarApi).then(function (response) {
-    console.log(response.results[1].media[0].tinygif.url)
-    carGif = response.results[1].media[0].tinygif.url
+    carGif = response.results[1].media[0].tinygif.url;
+    getCarGif(carGif)
   })
 
+  function getCarGif(){
+    console.log(carGif)
+    carGif.replace(carGif)
+    console.log(carGif)
+  }
+
+console.log(getCarGif())
 
   //This is where we hide the card for the vin check only
   $("#VinCheck").hide();
