@@ -5,9 +5,33 @@ $(document).ready(function () {
   let secondRepair;
   let secondInsurance;
   let secondFuel;
-  let firstCarTotal;
-  let secondCarTotal;
-  let mostExpensive;
+
+
+  let firstTotal;
+  let secondTotal;
+
+  
+  function getFirstTotal(){
+    console.log(firstTotal)
+    mostExpensive.push(firstTotal)
+    console.log(mostExpensive)
+    if(mostExpensive.length == 2){
+      let lowestValue =  firstTotal + secondTotal
+      console.log(lowestValue)
+    }
+  }
+  function getSecondTotal(){
+    console.log(secondTotal)
+    mostExpensive.push(secondTotal)
+    console.log(mostExpensive)
+    if(mostExpensive.length == 2){
+      let lowestValue = firstTotal + secondTotal
+      console.log(lowestValue)
+    }
+  }
+
+  
+  let mostExpensive = [];
 
 
   let tenorLemonApi = 'https://api.tenor.com/v1/search?q=lemon&key=11YWAZYIYDS3&limit=8'
@@ -243,31 +267,35 @@ $(document).ready(function () {
 
           $.get(carOneOwnershipCost).then(function (response) {
             console.log(response)
-            var depreciation = response.depreciation_cost;
-            console.log(depreciation);
+            // var depreciation = response.depreciation_cost;
+            // console.log(depreciation);
 
-            var totalDepreciation = 0;
+            // var totalDepreciation = 0;
 
-            for (i = 0; i < depreciation.length; i++) {
-              totalDepreciation += depreciation[i]
-            }
+            // for (i = 0; i < depreciation.length; i++) {
+            //   totalDepreciation += depreciation[i]
+            // }
             //These items need to append or go in to a div for the single car data to be displayed
             // this is total depreciation need to find a way to merge both the total price AJAX and this one 
-            console.log(totalDepreciation)
+  
             //  -------- All for the first vehicle ----------
             // Last year's fuel cost
-            firstFuel = response.fuel_cost[response.fuel_cost.length-1]
-            $('#firstVehicleFuel').append(" $" +firstFuel + ' cost')
+            firstFuel = response.fuel_cost[response.fuel_cost.length - 1]
+            $('#firstVehicleFuel').html(`$${firstFuel}`)
             // Last year's Insurance
-            firstInsurance = response.insurance_cost[response.insurance_cost.length-1]
-            $('#firstVehicleInsurance').append(" $" +firstInsurance + ' cost')
+            firstInsurance = response.insurance_cost[response.insurance_cost.length - 1]
+            $('#firstVehicleInsurance').html(`$${firstInsurance}`)
             // Last year's repair cost
-            firstRepair = response.repairs_cost[response.repairs_cost.length-1]
-            $('#firstVehicleMaintenance').append(" $"+ firstRepair + ' cost')
-            
-            firstCarTotal = firstFuel+firstInsurance+firstRepair;
-            $('#firstCarTotal').append(" $" + firstCarTotal + ' cost')
-            mostExpensive.push(firstCarTotal)
+            firstRepair = response.repairs_cost[response.repairs_cost.length - 1]
+            $('#firstVehicleMaintenance').html(`$${firstRepair}`)
+
+            firstTotal = firstFuel + firstInsurance + firstRepair;
+            $('#firstCarTotal').html(`$${firstTotal}`)
+            console.log(firstTotal)
+            getFirstTotal(firstTotal)
+
+
+
           })
         }
       });
@@ -281,7 +309,7 @@ $(document).ready(function () {
       //duane vin JTHBA1D27G5004260
       //marcos vin 1vwcm7a34fc006570
       console.log(secondCarURL);
-      //This is the information for the first vehicle
+      //This is the information for the second vehicle
       $.get(secondCarURL).then(function (response2) {
         console.log(response2);
         //This is if the VIN number is incorrect
@@ -343,39 +371,30 @@ $(document).ready(function () {
       $.get(secondCarOwnershipCost).then(function (response) {
         console.log(response);
 
-         //  -------- All for the second vehicle ----------
+        //  -------- All for the second vehicle ----------
         // Last year's fuel cost
-        secondFuel = response.fuel_cost[response.fuel_cost.length-1]
-        $('#secondVehicleFuel').append(secondFuel)
-        // $('#fuelSavings').append(secondFuel)
+        secondFuel = response.fuel_cost[response.fuel_cost.length - 1]
+        $('#secondVehicleFuel').html(`$${secondFuel}`)
         // Last year's Insurance
-        secondInsurance = response.insurance_cost[response.insurance_cost.length-1]
-        $('#secondVehicleInsurance').append(`$${secondInsurance} cost`)
-        // $('#insuranceSavings').append(secondInsurance)
+        secondInsurance = response.insurance_cost[response.insurance_cost.length - 1]
+        $('#secondVehicleInsurance').html(`$${secondInsurance}`)
         // Last year's repair cost
-        secondRepair = response.repairs_cost[response.repairs_cost.length-1]
-        $('#secondVehicleMaintenance').append(`$${secondRepair} cost` )
-        // $('#maintenanceSaving').append(secondRepair)
+        secondRepair = response.repairs_cost[response.repairs_cost.length - 1]
+        $('#secondVehicleMaintenance').html(`$${secondRepair}`)
 
-                    
-        secondCarTotal = secondFuel + secondInsurance + secondRepair;
-        $('#secondCarTotal').append(" $" + secondCarTotal + ' cost')
-        mostExpensive.push(secondCarTotal)
-        console.log(firstCarTotal +''+ secondCarTotal)
+
+        secondTotal = secondFuel + secondInsurance + secondRepair;
+        $('#secondCarTotal').html(`$${secondTotal}`)
+        console.log(secondTotal)
+        // console.log(mostExpensive)
+
+        console.log(secondTotal)
+
+        getSecondTotal(secondTotal)
+
       })
-      console.log(firstCarTotal +''+ secondCarTotal)
     });
-    console.log(firstCarTotal +''+ secondCarTotal)
   });
 
-  console.log(firstCarTotal +''+ secondCarTotal)
-
-  // mostExpensive.push(firstCarTotal)
-  // console.log(mostExpensive)
-  // mostExpensive.push(secondCarTotal)
-  // mostExpensive = math.max(mostExpensive)
- console.log(mostExpensive)
-
- 
 });
 
