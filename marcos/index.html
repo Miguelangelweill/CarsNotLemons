@@ -1,3 +1,5 @@
+
+<!--This is the master Html-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +14,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./assets/style.css">
 </head>
 
 <body>
@@ -77,26 +79,36 @@
       </div>
       <div class="content">
         <h4 class="ui sub header">Savings</h4>
-        <div class="ui small feed">
+        <div class="ui large feed">
           <div class="summary content event">
-            <p id="fuelSavings">
-              This is the fuel cost<img src="https://img.icons8.com/emoji/48/000000/fuel-pump.png" />
-            </p>
+            <p id="firstVehicleFuel"></p>
+            <img class="icons" src="https://img.icons8.com/emoji/30/000000/fuel-pump.png" />
+            <p id="fuelSavings">Fuel cost: </p>
+            <p id="secondVehicleFuel"></p>
           </div>
           <div class="summary content event">
-            <p id="insuranceSavings">
-              Insurance
-            </p>
+            <p id="firstVehicleInsurance"></p>
+            <img class="icons" src="https://img.icons8.com/offices/30/000000/vehicle-security.png" />
+            <p id="insuranceSavings">Insurance: </p>
+            <p id="secondVehicleInsurance"></p>
           </div>
           <div id="maintenanceSaving" class="summary content event">
-            <p>
-              Maintenance
-            </p>
+            <div id="firstVehicleMaintenance"></div>
+            <img class="icons" src="https://img.icons8.com/dusk/30/000000/service.png" />
+            <p>Maintenance: </p>
+            <p id="secondVehicleMaintenance"></p>
           </div>
           <div id="totalSaving" class="summary content event">
-            <p>
-              Total saving<i class="money bill alternate outline icon"></i>
-            </p>
+            <p id="firstCarTotal"></p>
+            <img class="icons" src="https://img.icons8.com/material-outlined/30/000000/bonds.png" />
+            <p>Yearly cost: </p>
+            <p id="secondCarTotal"></p>
+          </div>
+          <div>
+            <img id='carOrLemonA' src="" alt="">
+            <br>
+            <p id="yearlyDifference"></p>
+            <img id='carOrLemonB' src="" alt="">
           </div>
         </div>
       </div>
@@ -172,22 +184,33 @@
 
   </div>
   <!-- The start of our comparison and auto comparison -->
-  <div id="UsersChoice" class="ui blue massive buttons">
-    <button class="ui button" id="checkVin">Check VIN Number<img src="lemon.gif" alt="vs"
-        class="row logoimage" /></button>
-
-    <button id="compareTwo" class="ui button">Compare Two Vehicles<img src="vs.gif" alt="vs"
-        class="row logoimage" /></button>
+  <div id="UsersChoice" class="ui blue small buttons row no-gutters">
+    <div class="col-md-6">
+      <div class="mr-1">
+        <button class="ui button" id="checkVin" style="font-size: 30px;">Check VIN Number <img
+            src="lemon.gif" alt="lemon" class="row" class="lemoncarimg"
+            style=" height: 90%; width: 25%; display: block; margin-left: auto; margin-right: auto;"></button>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <button id="compareTwo" class="ui button" style="font-size: 30px; width: 100%;">Compare Two Vehicles <img
+          src="vs.gif" alt="vs" class="row" class="twocarsimg"
+          style=" height: 90%; width: 43%; display: block; margin-left: auto; margin-right: auto;"></button>
+    </div>
   </div>
-
+  <br>
   <!-- End of user choice and of suggested comparison -->
   <!--this is the start of the form for the vin number-->
   <div id="vinApiInput" class="ui form">
     <div class="inline fields">
       <div class="six wide field">
         <label>Check This VIN</label>
-        <input id="vinNumber" type="text" placeholder="Make">
-        <button id="checkOneVin" class="ui button">Ready to check</button>
+        <input id="vinNumber" type="text" placeholder="VIN number">
+        <button style="background: none;" id="checkOneVin" class="mini ui button"><img src="button.png"
+            style=" height: 45px; width: 45px; "></button>
+        <div id="incorrectVIN1" class=" ui left pointing red basic label">
+          Please enter a valid VIN number
+        </div>
       </div>
 
     </div>
@@ -199,7 +222,7 @@
   <!--this is the first vehicle form-->
   <div id="compareForm" class="ui form">
     <div class="inline fields">
-      <div class="nine wide field">
+      <div class="field sixteen wide">
         <label>VIN #1</label>
         <input id="firstVehicle" type="text" placeholder="Vehicle number one">
       </div>
@@ -207,12 +230,16 @@
     </div>
     <!--this is the second vehicle form-->
     <div class="inline fields">
-      <div class="nine wide field">
+      <div class="field sixteen wide">
         <label>VIN #2</label>
         <input id="secondVehicle" type="text" placeholder="Vehicle number two">
       </div>
     </div>
-    <button id="readyCompare" class="ui button">Ready to compare</button>
+    <button style="background: none;" id="readyCompare" class="  ui button"><img src="button.png"
+        style=" height: 45px; width: 45px; "></button>
+    <div id="incorrectVIN2" class=" ui  pointing red basic label">
+      Please enter a valid VIN number
+    </div>
   </div>
 
   <!--this is the end of the form-->
@@ -233,7 +260,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
     integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
     crossorigin="anonymous"></script>
-  <script src="./marcos.js"></script>
+  <script src="./assets/script.js"></script>
 </body>
 
 </html>

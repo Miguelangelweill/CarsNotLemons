@@ -1,23 +1,17 @@
 $(document).ready(function () {
+  var gifAPI = "https://api.tenor.com/v1/search?q=lemon&key=11YWAZYIYDS3&limit=8";
+  var lemonGif;
+  $.get(gifAPI).then(function(gifResponse){
+   lemonGif = gifResponse.results[3].media[0].tinygif.url;
 
-    //this is for resizing the button
-    window.addEventListener("resize",function(){
-  
-      listenRezise();
-    })
-    function listenRezise(){
-      var width = window.innerWidth;
-    if(width<576){
-      $("#UsersChoice").addClass("tiny");
-      $("#UsersChoice").removeClass("massive");
-    }else if(width>576){
-      $("#UsersChoice").addClass("massive");
-      $("#UsersChoice").removeClass("tiny");
-    }
-    console.log("rezise happened")
-    }
-    listenRezise()
-    console.log("ready!");
+  })
+  var gifAPI2 = "https://api.tenor.com/v1/search?q=car&key=11YWAZYIYDS3&limit=8";
+  var carGif;
+  $.get(gifAPI2).then(function(gifResponse2){
+    carGif= gifResponse2.results[0].media[0].tinygif.url;
+  })
+   
+   
     //This is where we hide the card for the vin check only
     $("#VinCheck").hide();
     $("#vinApiInput").hide();
@@ -48,11 +42,13 @@ $(document).ready(function () {
           console.log(response)
         if (!response.success) {
           $('#carouselExampleSlidesOnly').show();
-          $(".incorrectVIN").show()
+          $("#incorrectVIN1").show()
+          
           $('#VinCheck').hide();
           
         }else{
-          $(".incorrectVIN").hide()
+          $("#incorrectVIN1").hide()
+          
           let depreciation = response.depreciation_cost;
           console.log(depreciation);
           let totalDepreciation = 0;
@@ -167,7 +163,8 @@ $(document).ready(function () {
   $("#compareContainer1").hide()
   $("#finalSaving").hide()
   $("#compareContainer2").hide()
-  $(".incorrectVIN").hide()
+  $("#incorrectVIN1").hide()
+  $("#incorrectVIN2").hide()
     //This is the click on the first compare
     $("#compareTwo").click(function () {
       $("#compareForm").show();
@@ -202,13 +199,15 @@ $(document).ready(function () {
           //The prompt incase the vin is an invalid number
           if (!response1.success) {
             $('#carouselExampleSlidesOnly').show();
-            $(".incorrectVIN").show()
+            
+            $("#incorrectVIN2").show()
             $('#compareContainer1').hide();
             $('#compareContainer2').hide();
             $("#finalSaving").hide();
             
           }else{
-            $(".incorrectVIN").hide()
+            
+            $("#incorrectVIN2").hide()
             //here are the variables for my first vehicle
           var firstVINimage1 = response1.photos[0].url;
           console.log(response1.photos[0].url)
@@ -285,13 +284,15 @@ $(document).ready(function () {
           //This is if the VIN number is incorrect
           if (!response2.success) {
             $('#carouselExampleSlidesOnly').show();
-            $(".incorrectVIN").show()
+            
+            $("#incorrectVIN2").show()
             $('#compareContainer1').hide();
             $('#compareContainer2').hide();
             $("#finalSaving").hide()
             
           }else{
-            $(".incorrectVIN").hide()
+            
+            $("#incorrectVIN2").hide()
             //here are the variables for my second vehicle
           var secondVINimage1 = response2.photos[0].url;
           console.log(response2.photos[0].url)
@@ -352,7 +353,7 @@ $(document).ready(function () {
           
         });
   
-  
+       
       });
     });
     
