@@ -20,25 +20,29 @@
 <body>
     <!-- Start of Navbar -->
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: navy;">
-        <img class="navbar-brand" id="logo" src="logo.gif" width="190" height="50" alt="carsnotlemonslogo">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
+        <img class="navbar-brand" id="logo" src="logo.gif" width="190" height="50" alt="">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li><a class="nav-link" href="#contact-info"
-                        style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 20px;"><span
-                            class="glyphicon glyphicon-user"></span> Contact Info |</a></li>
-                <li><a class="nav-link" href="#myForm"
-                        style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 20px;"><span
-                            class="glyphicon glyphicon-user"></span> Chat
-                        Live Now |</a></li>
-                <li><a class="nav-link" href="#about-us"
-                        style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 20px;"><span
-                            class="glyphicon glyphicon-user"></span> About
-                        Us |</a></li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#contact-info" id="contact-link"
+                        style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 20px;">Contact
+                        Info | </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="chat-Live" href="#"
+                        style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 20px; color: blanchedalmond;">Chat
+                        Live Now |</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about-us" id="about-click"
+                        style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 20px; color: blanchedalmond;">About
+                        Us |</a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -138,8 +142,8 @@
     <div id="UsersChoice" class="ui blue small buttons row no-gutters">
         <div class="col-md-6">
             <div class="mr-1">
-                <button class="ui button" id="checkVin" style="font-size: 30px;">Check VIN Number <img
-                        src="lemon.gif" alt="lemon" class="row" class="lemoncarimg"
+                <button class="ui button" id="checkVin" style="font-size: 30px;">Check VIN Number <img src="lemon.gif"
+                        alt="lemon" class="row" class="lemoncarimg"
                         style=" height: 90%; width: 25%; display: block; margin-left: auto; margin-right: auto;"></button>
             </div>
         </div>
@@ -159,8 +163,9 @@
                     <label>Check This VIN</label>
                     <!--need to put the button iside the box-->
                     <input id="vinNumber" type="text" placeholder="Make">
-                    <button id="checkOneVin" class="ui button" style="background-color: transparent; font-family: 'Russo One', sans-serif;">Check
-                        <img src="button.png"style=" height: 45px; width: 45px; "></button>
+                    <button id="checkOneVin" class="ui button"
+                        style="background-color: transparent; font-family: 'Russo One', sans-serif;">Check
+                        <img src="button.png" style=" height: 45px; width: 45px; "></button>
                 </div>
             </div>
         </div>
@@ -187,7 +192,7 @@
         <button id="readyCompare" class="ui button"><img src="button.png" style=" height: 45px; width: 45px; "></button>
     </div>
 
-    <hr style="height:2px;border-width:0;color:gray;background-color:navy">
+
 
 
     <!--these are the links from navbar-->
@@ -233,8 +238,6 @@
 
         </ul>
 
-
-
     </section>
     <!--this is the end of the form-->
 
@@ -250,7 +253,7 @@
             <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
         </form>
     </div>
-    
+
     <br>
     <!--this is the about us section -->
     <section class="aboutUs" id="about-us">
@@ -258,15 +261,18 @@
             <img src="one team one dream.jpg" alt="one team" class="float-left" />
             <h2>ABOUT US</h2>
             <p>
-                "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
-                rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-                explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
-                consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui
-                dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora
-                incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum
-                exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem
-                vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum
-                qui dolorem eum fugiat quo voluptas nulla pariatur?"
+                Welcome to Cars Not Lemons, your number one source for all things [product]. We're dedicated to
+                providing you the very best of [product], with an emphasis on [store characteristic 1], [store
+                characteristic 2], [store characteristic 3].
+
+                Founded in [year] by [founder name], Cars Not Lemons has come a long way from its beginnings in
+                [starting location]. When [founder name] first started out, [his/her/their] passion for [brand message -
+                e.g. "eco-friendly cleaning products"] drove them to start their own business.
+
+
+                We hope you enjoy our products as much as we enjoy offering them to you. If you have any questions or
+                comments, please don't hesitate to contact us.
+
             </p>
         </article>
         <br>

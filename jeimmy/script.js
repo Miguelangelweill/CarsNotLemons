@@ -255,21 +255,52 @@ $(document).ready(function () {
 //chat js
 
 //when page open chat box will not display
-$(document).ready(function(){
-	$("#hide").click(function(){
-	  $("myForm").hide();
+$(document).ready(function () {
+	$('#hide').click(function () {
+		$('#myForm').hide();
 	});
-	$("#show").click(function(){
-	  $("myForm").show();
+	$('#chat-Live').click(function () {
+		$('#myForm').show();
 	});
-  });
+});
 
-  //when click on chat live now window will display
+//when click on chat live now window will display
 function openForm() {
-document.getElementById("myForm").style.display = "block";
- }
-
-function closeForm() {
-document.getElementById("myForm").style.display = "none";
+	document.getElementById('myForm').style.display = 'block';
 }
 
+function closeForm() {
+	document.getElementById('myForm').style.display = 'none';
+}
+
+//when page open contact will display
+$(document).ready(function () {
+	$('#hide').click(function () {
+		$('#contact-info').hide();
+	});
+	$('#contact-link').click(function () {
+		$('#contact-info').show();
+	});
+});
+
+function openLink() {
+	document.getElementByID('contact-link').onclick = function () {
+		document.getElementById('contact-info').style.display = 'block';
+	};
+}
+
+//when page open about us will display
+$(document).ready(function () {
+	$('#hide').click(function () {
+		$('#about-us').hide();
+	});
+	$('#contact-link').click(function () {
+		$('#about-click').show();
+	});
+});
+
+function openLink() {
+	document.getElementByID('contact-link').onclick = function () {
+		document.getElementById('about-us').style.display = 'block';
+	};
+}
