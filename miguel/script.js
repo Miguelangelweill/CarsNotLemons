@@ -5,14 +5,70 @@ $(document).ready(function () {
   let secondRepair;
   let secondInsurance;
   let secondFuel;
-  let firstCarTotal;
-  let secondCarTotal;
-  let mostExpensive;
+  let firstTotal;
+  let secondTotal;
+  let mostExpensive = [];
+  let lemonGif;
+  let carGif;
+  $('#containerAimage').hide();
+  $('#containerBimage').hide();
+  function getFirstTotal() {
+    console.log(firstTotal);
+    console.log(secondTotal);
+    mostExpensive.push(firstTotal);
+    console.log(mostExpensive);
+    if (mostExpensive.length == 2) {
+      if (firstTotal > secondTotal) {
+        let carSaving = firstTotal - secondTotal;
+        $("#yearlyDifference").text(
+          `Car B saves you $${carSaving} , car A is a lemon`
+        );
+        $("#containerAimage").attr("src",lemonGif);
+        $("#containerAimage").show();
+        $("#containerBimage").attr("src", carGif);
+        $("#containerBimage").show();
+      } else {
+        let carSaving = secondTotal - firstTotal;
+        $("#yearlyDifference").text(
+          `Car A saves you $${carSaving} car B is a lemon`
+        );
+        $("#containerAimage").attr("src", carGif);
+        $("#containerAimage").show();
+        $("#containerBimage").attr("src", lemonGif);
+        $("#containerBimage").show();
+      }
+    }
+  }
+  function getSecondTotal() {
+    console.log(firstTotal);
+    console.log(secondTotal);
+    mostExpensive.push(secondTotal);
+    console.log(mostExpensive);
+    if (mostExpensive.length == 2) {
+      if (secondTotal > firstTotal) {
+        let carSaving = secondTotal - firstTotal;
+        $("#yearlyDifference").text(
+          `Car A saves you $${carSaving} car B is a lemon`
+        );
+        $("#containerAimage").attr("src", carGif);
+        $("#containerAimage").show();
+        $("#containerBimage").attr("src", lemonGif);
+        $("#containerBimage").show();
+      } else {
+        let carSaving = firstTotal - secondTotal;
+        $("#yearlyDifference").text(
+          `Car B saves you $${carSaving} car A is a lemon`
+        );
+        $("#containerAimage").attr("src", lemonGif);
+        $("#containerAimage").show();
+        $("#containerBimage").attr("src", carGif);
+        $("#containerBimage").show();
+      }
+    }
+  }
 
   let tenorLemonApi =
     "https://api.tenor.com/v1/search?q=lemon&key=11YWAZYIYDS3&limit=8";
-
-  let lemonGif;
 
   $.get(tenorLemonApi).then(function (response) {
     lemonGif = response.results[3].media[0].tinygif.url;
@@ -20,7 +76,6 @@ $(document).ready(function () {
 
   let tenorCarApi =
     "https://api.tenor.com/v1/search?q=car&key=11YWAZYIYDS3&limit=8";
-  let carGif;
 
   $.get(tenorCarApi).then(function (response) {
     console.log(response.results[1].media[0].tinygif.url);
@@ -31,29 +86,34 @@ $(document).ready(function () {
   var containerResize1 = $("#compareContainer1");
   var containerResize2 = $("#compareContainer2");
   var containerResize3 = $("#finalSaving");
+  var checkVinResize = $("#VinCheck");
 
   $(window).resize(function () {
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 450) {
       containerResize1.removeClass("four wide");
       containerResize2.removeClass("four wide");
       containerResize3.removeClass("four wide");
+      checkVinResize.removeClass("four wide");
       containerResize1.addClass("sixteen wide");
       containerResize2.addClass("sixteen wide");
       containerResize3.addClass("sixteen wide");
+      checkVinResize.addClass("sixteen wide");
     } else {
       containerResize1.removeClass("sixteen wide");
       containerResize2.removeClass("sixteen wide");
       containerResize3.removeClass("sixteen wide");
+      checkVinResize.removeClass("sixteen wide");
       containerResize1.addClass("four wide");
       containerResize2.addClass("four wide");
       containerResize3.addClass("four wide");
+      checkVinResize.addClass("four wide");
     }
   });
 
   //This is where we hide the card for the vin check only
   $("#VinCheck").hide();
   $("#vinApiInput").hide();
-  $("#loaderId").hide()
+  
   //This is the click event on the check only VIN
   $("#checkVin").on("click", function (e) {
     $("#compareForm").hide();
@@ -64,7 +124,7 @@ $(document).ready(function () {
   //This is marcos onclick on the check vin and his informaition
   $("#checkOneVin").on("click", function (e) {
     let userVinNumber = $("#vinNumber").val();
-    $("#loaderId").show()
+    
     $("#compareContainer1").hide();
     $("#compareContainer2").hide();
     $("#carouselExampleSlidesOnly").hide();
@@ -86,10 +146,10 @@ $(document).ready(function () {
       if (!response.success) {
         $("#carouselExampleSlidesOnly").show();
         $("#incorrectVIN1").show();
-        $("#loaderId").hide()
+        
         $("#VinCheck").hide();
       } else {
-        $("#loaderId").hide()
+        
         $("#incorrectVIN1").hide();
 
         let depreciation = response.depreciation_cost;
@@ -186,13 +246,14 @@ $(document).ready(function () {
   $("#compareContainer2").hide();
   $("#incorrectVIN1").hide();
   $("#incorrectVIN2").hide();
+  
   //This is the click on the first compare
   $("#compareTwo").click(function () {
     $("#compareForm").show();
     $("#vinApiInput").hide();
     //this is the click on the ready compare
     $("#readyCompare").click(function () {
-      $("#loaderId").show()
+      
       $("#VinCheck").hide();
       $("#carouselExampleSlidesOnly").hide();
       var firstContainerCompare = $("#compareContainer1").show();
@@ -223,14 +284,14 @@ $(document).ready(function () {
         console.log(response1);
         //The prompt incase the vin is an invalid number
         if (!response1.success) {
+          
           $("#carouselExampleSlidesOnly").show();
-          $("#loaderId").hide()
           $("#incorrectVIN2").show();
           $("#compareContainer1").hide();
           $("#compareContainer2").hide();
           $("#finalSaving").hide();
         } else {
-          $("#loaderId").hide()
+          
           $("#incorrectVIN2").hide();
           //here are the variables for my first vehicle
           var firstVINimage1 = response1.photos[0].url;
@@ -285,33 +346,25 @@ $(document).ready(function () {
 
           $.get(carOneOwnershipCost).then(function (response) {
             console.log(response);
-            var depreciation = response.depreciation_cost;
-            console.log(depreciation);
-
-            var totalDepreciation = 0;
-
-            for (i = 0; i < depreciation.length; i++) {
-              totalDepreciation += depreciation[i];
-            }
             //These items need to append or go in to a div for the single car data to be displayed
             // this is total depreciation need to find a way to merge both the total price AJAX and this one
-            console.log(totalDepreciation);
             //  -------- All for the first vehicle ----------
             // Last year's fuel cost
             firstFuel = response.fuel_cost[response.fuel_cost.length - 1];
-            $("#firstVehicleFuel").text(" $" + firstFuel + " cost");
+            $("#firstVehicleFuel").html(`$${firstFuel}`);
             // Last year's Insurance
             firstInsurance =
               response.insurance_cost[response.insurance_cost.length - 1];
-            $("#firstVehicleInsurance").text(" $" + firstInsurance + " cost");
+            $("#firstVehicleInsurance").html(`$${firstInsurance}`);
             // Last year's repair cost
             firstRepair =
               response.repairs_cost[response.repairs_cost.length - 1];
-            $("#firstVehicleMaintenance").text(" $" + firstRepair + " cost");
+            $("#firstVehicleMaintenance").html(`$${firstRepair}`);
 
-            firstCarTotal = firstFuel + firstInsurance + firstRepair;
-            $("#firstCarTotal").text(" $" + firstCarTotal + " cost");
-            mostExpensive.push(firstCarTotal);
+            firstTotal = firstFuel + firstInsurance + firstRepair;
+            $("#firstCarTotal").html(`$${firstTotal}`);
+            console.log(firstTotal);
+            getFirstTotal(firstTotal);
           });
         }
       });
@@ -331,7 +384,6 @@ $(document).ready(function () {
         //This is if the VIN number is incorrect
         if (!response2.success) {
           $("#carouselExampleSlidesOnly").show();
-
           $("#incorrectVIN2").show();
           $("#compareContainer1").hide();
           $("#compareContainer2").hide();
@@ -396,33 +448,24 @@ $(document).ready(function () {
         //  -------- All for the second vehicle ----------
         // Last year's fuel cost
         secondFuel = response.fuel_cost[response.fuel_cost.length - 1];
-        $("#secondVehicleFuel").html(secondFuel);
-        // $('#fuelSavings').html(secondFuel)
+        $("#secondVehicleFuel").html(`$${secondFuel}`);
         // Last year's Insurance
         secondInsurance =
           response.insurance_cost[response.insurance_cost.length - 1];
-        $("#secondVehicleInsurance").html(`$${secondInsurance} cost`);
-        // $('#insuranceSavings').html(secondInsurance)
+        $("#secondVehicleInsurance").html(`$${secondInsurance}`);
         // Last year's repair cost
         secondRepair = response.repairs_cost[response.repairs_cost.length - 1];
-        $("#secondVehicleMaintenance").html(`$${secondRepair} cost`);
-        // $('#maintenanceSaving').html(secondRepair)
+        $("#secondVehicleMaintenance").html(`$${secondRepair}`);
 
-        secondCarTotal = secondFuel + secondInsurance + secondRepair;
-        $("#secondCarTotal").html(" $" + secondCarTotal + " cost");
-        mostExpensive.push(secondCarTotal);
-        console.log(firstCarTotal + "" + secondCarTotal);
+        secondTotal = secondFuel + secondInsurance + secondRepair;
+        $("#secondCarTotal").html(`$${secondTotal}`);
+        console.log(secondTotal);
+        // console.log(mostExpensive)
+
+        console.log(secondTotal);
+
+        getSecondTotal(secondTotal);
       });
-      console.log(firstCarTotal + "" + secondCarTotal);
     });
-    console.log(firstCarTotal + "" + secondCarTotal);
   });
-
-  console.log(firstCarTotal + "" + secondCarTotal);
-
-  // mostExpensive.push(firstCarTotal)
-  // console.log(mostExpensive)
-  // mostExpensive.push(secondCarTotal)
-  // mostExpensive = math.max(mostExpensive)
-  console.log(mostExpensive);
 });

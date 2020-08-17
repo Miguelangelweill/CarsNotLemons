@@ -54,9 +54,15 @@ img {
   margin-left: 1%;
   margin-bottom: 1%;
 }
-#compareContainer1,
-#VinCheck {
+#compareContainer1 {
   margin: 5%;
+}
+#containerAimage,
+#containerBimage{
+  float: right;
+}
+#VinCheck{
+  margin: 5% 25% 0% 30%;
 }
 #compareContainer2 {
   margin: 5%;
@@ -88,13 +94,13 @@ img {
   width: 100%;
 }
 #finalSaving {
-  height: 400px;
-  margin-top: 5%;
-  word-wrap: break-word;
+  height: 450px;
+  margin-top: 10%;
+  background-color: white;
+  text-align: center;
 }
-#finalSavingsResult {
-  word-wrap: break-word;
-  display: inline-block;
+#containerAimageHandler{
+  text-align: center;
 }
 .vin-compare {
   display: none;
@@ -118,12 +124,14 @@ img {
   margin-left: 20px;
 }
 .icons {
-  margin-right: 3%;
+  margin-right: 7%;
+  margin-left: 7%;
+  margin-bottom: 3%;
 }
 p {
   text-align: center;
 }
-@media (max-width: 768px) {
+@media (max-width: 450px) {
   #compareForm {
     margin-left: 6%;
     margin-right: 6%;
@@ -140,66 +148,7 @@ p {
     height: 280px;
     margin: 20px 35px 0px 35px;
   }
+  #VinCheck{
+  margin: 5% 0% 0% 5%;
 }
-/* This is the css for the loading screen */
-.loader {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  position: relative;
-  border: 4px solid #Fff;
-  top: 50%;
-  animation: loader 2s infinite ease;
-}
-
-.loader-inner {
-  vertical-align: top;
-  display: inline-block;
-  width: 100%;
-  background-color: #fff;
-  animation: loader-inner 2s infinite ease-in;
-}
-
-@keyframes loader {
-  0% {
-    transform: rotate(0deg);
-  }
-  
-  25% {
-    transform: rotate(180deg);
-  }
-  
-  50% {
-    transform: rotate(180deg);
-  }
-  
-  75% {
-    transform: rotate(360deg);
-  }
-  
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes loader-inner {
-  0% {
-    height: 0%;
-  }
-  
-  25% {
-    height: 0%;
-  }
-  
-  50% {
-    height: 100%;
-  }
-  
-  75% {
-    height: 100%;
-  }
-  
-  100% {
-    height: 0%;
-  }
 }
