@@ -275,11 +275,8 @@ function closeForm() {
 
 //when page open contact will display
 $(document).ready(function () {
-	$('#hide').click(function () {
-		$('#contact-info').hide();
-	});
-	$('#contact-link').click(function () {
-		$('#contact-info').show();
+	$('#about-click').click(function () {
+		$('#about-us').css('display', 'block');
 	});
 });
 
@@ -291,11 +288,8 @@ function openLink() {
 
 //when page open about us will display
 $(document).ready(function () {
-	$('#hide').click(function () {
-		$('#about-us').hide();
-	});
 	$('#contact-link').click(function () {
-		$('#about-click').show();
+		$('.contactInfo').css('display', 'block')
 	});
 });
 
