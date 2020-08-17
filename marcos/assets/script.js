@@ -10,71 +10,99 @@ $(document).ready(function () {
   let firstTotal;
   let secondTotal;
 
-  
-  function getFirstTotal(){
+
+  function getFirstTotal() {
+
     console.log(firstTotal)
     console.log(secondTotal)
     mostExpensive.push(firstTotal)
     console.log(mostExpensive)
-    if(mostExpensive.length == 2){
-      if(firstTotal>secondTotal){
+    console.log(carGif)
+    console.log(lemonGif)
+    console.log(JSON.stringify(lemonGif))
+    if (mostExpensive.length == 2) {
+      if (firstTotal > secondTotal) {
         let carSaving = firstTotal - secondTotal
-       $('#yearlyDifference').html(`Car B saves you $${carSaving} more then car A`)
-      }else{
+        $('#yearlyDifference').html(`Car B saves you $${carSaving} more then car A`)
+        // lemonOrCar()
+        console.log('did this run')
+        $('#carOrLemonA').attr('src', carGif)
+        $('#carOrLemonB').attr('src', lemonGif)
+      } else if (secondTotal > firstTotal) {
         let carSaving = secondTotal - firstTotal
         $('#yearlyDifference').html(`Car A saves you $${carSaving} more then car B`)
+        // carOrLemon()
+        console.log('or did this run')
+        console.log(carOrLemon())
+        $('#carOrLemonA').attr('src', lemonGif)
+        $('#carOrLemonB').attr('src', carGif)
       }
     }
+    $('#carOrLemonA').attr('src', '')
+    $('#carOrLemonB').attr('src', '')
+    secondTotal = 0;
+    firstTotal = 0;
+    mostExpensive = [];
   }
-  function getSecondTotal(){
+
+  function lemonOrCar(){
+    console.log(carGif)
+    console.log(lemonGif)
+  }
+  function carOrLemon(){
+    console.log(carGif)
+    console.log(lemonGif)
+
+  }
+
+  function getSecondTotal() {
     console.log(firstTotal)
     console.log(secondTotal)
     mostExpensive.push(secondTotal)
     console.log(mostExpensive)
-    if(mostExpensive.length == 2){
-      if(secondTotal>firstTotal){
+    if (mostExpensive.length == 2) {
+      if (secondTotal > firstTotal) {
         let carSaving = secondTotal - firstTotal
         $('#yearlyDifference').html(`Car A saves you $${carSaving} more then car B`)
-      }else{
+      } else {
         let carSaving = firstTotal - secondTotal
         $('#yearlyDifference').html(`Car B saves you $${carSaving} more then car A`)
       }
     }
+
   }
 
-  
 
 
-// AJAX Lemon Gif
+
+  // AJAX Lemon Gif
   let tenorLemonApi = 'https://api.tenor.com/v1/search?q=lemon&key=11YWAZYIYDS3&limit=8'
 
-  let lemonGif = '';
 
   $.get(tenorLemonApi).then(function (response) {
     lemonGif = response.results[3].media[0].tinygif.url
     getLemongGif(lemonGif)
   })
-  
-function getLemongGif(){
-  console.log(lemonGif)
-}
 
-// AJAX Car gif 
+  let lemonGif;
+  function getLemongGif() {
+    carOrLemon(lemonGif)
+    lemonOrCar(lemonGif)
+  }
+
+  // AJAX Car gif 
   let tenorCarApi = 'https://api.tenor.com/v1/search?q=car&key=11YWAZYIYDS3&limit=8'
   let carGif = '';
 
   $.get(tenorCarApi).then(function (response) {
     carGif = response.results[1].media[0].tinygif.url;
     getCarGif(carGif)
-  })
+    })
 
-  function getCarGif(){
-    console.log(carGif)
-    carGif.replace(carGif)
-    console.log(carGif)
+  function getCarGif() {
+    carOrLemon(carGif)
+    lemonOrCar(carGif)
   }
-
-console.log(getCarGif())
 
   //This is where we hide the card for the vin check only
   $("#VinCheck").hide();
@@ -300,7 +328,7 @@ console.log(getCarGif())
             // }
             //These items need to append or go in to a div for the single car data to be displayed
             // this is total depreciation need to find a way to merge both the total price AJAX and this one 
-  
+
             //  -------- All for the first vehicle ----------
             // Last year's fuel cost
             firstFuel = response.fuel_cost[response.fuel_cost.length - 1]
