@@ -1,5 +1,4 @@
-
-<!--This is the master Html-->
+<!--This is Miguels html-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,40 +17,41 @@
 </head>
 
 <body>
+
   <!-- Start of Navbar -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
-    <img class="navbar-brand" id="logo" src="logo.gif" width="190" height="50" alt="">
+    <img class="navbar-brand" id="logo" src="./assets/images/logo.gif" width="190" height="50" alt="">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    <!-- Jeimmys addition to the navbar -->
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="#"
+          <a class="nav-link" href="#contact-info" id="contact-link"
             style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 20px;">Contact
             Info | </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"
+          <a class="nav-link" id="chat-Live" href="#"
             style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 20px; color: blanchedalmond;">Chat
             Live Now |</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"
-            style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 20px; color: blanchedalmond;">Abou
+          <a class="nav-link" href="#about-us" id="about-click"
+            style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size: 20px; color: blanchedalmond;">About
             Us |</a>
         </li>
       </ul>
     </div>
   </nav>
-
-
   <!-- End of NavBar -->
+
   <!-- This is the main container for the cards used in our page  -->
   <div id="mainContainer" class="row">
-    <!--This is where the compare two vehicles starts-->
 
+    <!--This is where the compare two vehicles starts-->
     <div id='compareContainer1' class="ui card four wide">
       <div class="ui slide masked reveal image">
         <img id="firstImageCompare1" class="visible content">
@@ -70,49 +70,44 @@
           <li id="theFuelEl1" class="meta"></li>
           <li id="theRecallEl1" class="meta"></li>
         </ul>
+        <img id="containerAimage" class="ui small circular image fluid">
       </div>
     </div>
     <!--This is the container with the differences of the vehicles-->
-    <div id="finalSaving" class="ui card four wide">
-      <div class="content">
-        <div class="header">This is the car to buy </div>
+    <span id="finalSaving" class="ui card five wide column">
+
+      <div class="ui sixteen wide">
+        <span>Car <b>A</b></span><img class="icons"
+          src="https://img.icons8.com/plasticine/40/000000/car.png" /><span>Car <b>B</b></span>
       </div>
-      <div class="content">
-        <h4 class="ui sub header">Savings</h4>
-        <div class="ui large feed">
-          <div class="summary content event">
-            <p id="firstVehicleFuel"></p>
-            <img class="icons" src="https://img.icons8.com/emoji/30/000000/fuel-pump.png" />
-            <p id="fuelSavings">Fuel cost: </p>
-            <p id="secondVehicleFuel"></p>
-          </div>
-          <div class="summary content event">
-            <p id="firstVehicleInsurance"></p>
-            <img class="icons" src="https://img.icons8.com/offices/30/000000/vehicle-security.png" />
-            <p id="insuranceSavings">Insurance: </p>
-            <p id="secondVehicleInsurance"></p>
-          </div>
-          <div id="maintenanceSaving" class="summary content event">
-            <div id="firstVehicleMaintenance"></div>
-            <img class="icons" src="https://img.icons8.com/dusk/30/000000/service.png" />
-            <p>Maintenance: </p>
-            <p id="secondVehicleMaintenance"></p>
-          </div>
-          <div id="totalSaving" class="summary content event">
-            <p id="firstCarTotal"></p>
-            <img class="icons" src="https://img.icons8.com/material-outlined/30/000000/bonds.png" />
-            <p>Yearly cost: </p>
-            <p id="secondCarTotal"></p>
-          </div>
-          <div>
-            <img id='carOrLemonA' src="" alt="">
-            <br>
-            <p id="yearlyDifference"></p>
-            <img id='carOrLemonB' src="" alt="">
-          </div>
-        </div>
+
+      <div class="ui sixteen wide">
+        <span id="firstVehicleFuel"></span><img class="icons"
+          src="https://img.icons8.com/emoji/40/000000/fuel-pump.png" /><span id="secondVehicleFuel"></span>
       </div>
-    </div>
+
+      <div class="ui sixteen wide">
+        <span id="firstVehicleInsurance"></span> <img class="icons"
+          src="https://img.icons8.com/dusk/40/000000/car-rental.png" /><span id="secondVehicleInsurance"></span>
+      </div>
+
+      <div class="ui sixteen wide">
+        <span id="firstVehicleMaintenance"></span><img class="icons"
+          src="https://img.icons8.com/color/40/000000/full-tool-storage-box-.png" /><span
+          id="secondVehicleMaintenance"></span>
+      </div>
+
+      <div class="ui sixteen wide">
+        <span id="firstCarTotal"></span> <img class="icons"
+          src="https://img.icons8.com/material-outlined/40/000000/bonds.png" /><span id="secondCarTotal"></span>
+      </div>
+
+      <div class="ui sixteen wide">
+        <img class="icons" src="https://img.icons8.com/dusk/40/000000/safe-in.png" /><span id="yearlyDifference"></span>
+      </div>
+
+      <div class="ui "></div>
+    </span>
     <!--This is where the container with the diffences of the vehicles ends-->
     <div id='compareContainer2' class="ui card four wide">
       <div class="ui slide masked reveal image">
@@ -132,6 +127,7 @@
           <li id="theFuelEl2" class="meta"></li>
           <li id="theRecallEl2" class="meta"></li>
         </ul>
+        <img id="containerBimage" class="ui small circular image fluid">
       </div>
     </div>
     <!--This is the card for the check Vin only-->
@@ -156,25 +152,26 @@
       </div>
     </div>
     <!--This is the end of the card for the check Vin only-->
+
   </div>
-  <!--This is where the cards end of the card contianer-->
+  <!--This is the end of the card contianer-->
 
   <!--This is where the carousel starts-->
   <div id="carouselContainer" class="ui grid">
     <div id="carouselExampleSlidesOnly" class="col-12 carousel slide" data-ride="carousel" data-interval="2500">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="jumbo-img img-fluid" src="charger.jpeg"
+          <img class="jumbo-img img-fluid" src="./assets/images/charger.jpeg"
             alt="Image of a car garage with a Charger as the main vehicle">
         </div>
         <div class="carousel-item">
-          <img class="jumbo-img img-fluid" src="mustang.jpeg" alt="Image of a red Mustang">
+          <img class="jumbo-img img-fluid" src="./assets/images/mustang.jpeg" alt="Image of a red Mustang">
         </div>
         <div class="carousel-item">
-          <img class="jumbo-img img-fluid" src="mainDriver.jpeg" alt="Driver seat prespective">
+          <img class="jumbo-img img-fluid" src="./assets/images/mainDriver.jpeg" alt="Driver seat prespective">
         </div>
         <div class="carousel-item">
-          <img class="jumbo-img img-fluid" src="photo-1592800638244-08f97d1e8a1c.jpeg"
+          <img class="jumbo-img img-fluid" src="./assets/images/photo-1592800638244-08f97d1e8a1c.jpeg"
             alt="Side image of a grey mustang">
         </div>
       </div>
@@ -183,31 +180,32 @@
   <!--This is where the carousel ends-->
 
   </div>
-  <!-- The start of our comparison and auto comparison -->
+  <!-- The start of our user choice and suggested auto comparison -->
   <div id="UsersChoice" class="ui blue small buttons row no-gutters">
     <div class="col-md-6">
       <div class="mr-1">
-        <button class="ui button" id="checkVin" style="font-size: 30px;">Check VIN Number <img
-            src="lemon.gif" alt="lemon" class="row" class="lemoncarimg"
-            style=" height: 90%; width: 25%; display: block; margin-left: auto; margin-right: auto;"></button>
+        <button class="ui button" id="checkVin" >Check VIN Number <img
+            src="./assets/images/lemon.gif" alt="lemon" class="row lemoncarimg"
+            ></button>
       </div>
     </div>
     <div class="col-md-6">
-      <button id="compareTwo" class="ui button" style="font-size: 30px; width: 100%;">Compare Two Vehicles <img
-          src="vs.gif" alt="vs" class="row" class="twocarsimg"
-          style=" height: 90%; width: 43%; display: block; margin-left: auto; margin-right: auto;"></button>
+      <button id="compareTwo" class="ui button" >Compare Two Vehicles <img
+          src="./assets/images/vs.gif" alt="vs" class="row twocarsimg"
+         ></button>
     </div>
   </div>
   <br>
   <!-- End of user choice and of suggested comparison -->
+
   <!--this is the start of the form for the vin number-->
   <div id="vinApiInput" class="ui form">
     <div class="inline fields">
       <div class="six wide field">
         <label>Check This VIN</label>
         <input id="vinNumber" type="text" placeholder="VIN number">
-        <button style="background: none;" id="checkOneVin" class="mini ui button"><img src="button.png"
-            style=" height: 45px; width: 45px; "></button>
+        <button style="background: none;" id="checkOneVin" class="mini ui button"><img src="./assets/images/button.png"
+            class="buttonImage"></button>
         <div id="incorrectVIN1" class=" ui left pointing red basic label">
           Please enter a valid VIN number
         </div>
@@ -216,7 +214,7 @@
     </div>
 
   </div>
-  <!--this is the end of the forn for the vin number-->
+  <!--this is the end of the form for the vin number-->
   <!--this is the start of the form for the compare two vehicles-->
 
   <!--this is the first vehicle form-->
@@ -235,32 +233,107 @@
         <input id="secondVehicle" type="text" placeholder="Vehicle number two">
       </div>
     </div>
-    <button style="background: none;" id="readyCompare" class="  ui button"><img src="button.png"
-        style=" height: 45px; width: 45px; "></button>
+    <button style="background: none;" id="readyCompare" class="  ui button"><img class="buttonImage"
+        src="./assets/images/button.png"></button>
     <div id="incorrectVIN2" class=" ui  pointing red basic label">
       Please enter a valid VIN number
     </div>
   </div>
 
   <!--this is the end of the form-->
-  <!-- Start of the footer -->
-  <footer class='footer' id="bottom">
+  <!--these are jeimmys links from navbar-->
+  <section id="contact-info" class="contactInfo">
+    <ul >
+      <div class="row space">
+        <div class="column">
+          <li>
+            <img src="https://ca.slack-edge.com/T01540F8NMQ-U015U88QG8Z-eeb2b03f5dda-512" alt="Project Manager"
+              width="50px" height="50px">
+            <h4>Project Manager</h4>
+            <p><a href="mailto:miguelangel.weill@gmail.com">Send email</a></p>
+          </li>
+        </div>
+        <br>
+        <div class="column">
+          <li>
+            <img src="./assets/images/IMG_1098 (1).jpg" alt="Back End Developer"
+              width="50px" height="50px">
+            <h4>Back End Developer</h4>
+            <p><a href="mailto:miamarine84@yahoo.com">Send email</a></p>
+          </li>
+        </div>
+        <br>
+        <div class="column">
+          <li>
+            <img src="https://ca.slack-edge.com/T01540F8NMQ-U015SE2JQEQ-e1090ca8cbb4-512" alt="Front End Developer"
+              width="50px" height="50px">
+            <h4>Front End Developer</h4>
+            <p><a href="mailto:duanem33@gmail.com">Send email</a></p>
+          </li>
+        </div>
+        <br>
+        <div class="column">
+          <li>
+            <img src="https://ca.slack-edge.com/T01540F8NMQ-U015B6PV7P0-82803a433c00-512" alt="Front End Developer"
+              width="50px" height="50px">
+            <h4>Front End Developer</h4>
+            <p><a href="mailto:jpah.deign@gmail.com">Send email</a></p>
+          </li>
+        </div>
+      </div>
 
-    <h2>Made with ❤️️ by CarsNotLemons</h2>
-    <p>
-      &copy; 2020 Cars not Lemons, Inc.
-    </p>
+    </ul>
 
-  </footer>
-  <!--this is our personal js-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-    crossorigin="anonymous"></script>
-  <script src="./assets/script.js"></script>
+  </section>
+  <!-- end of links from navbar -->
+  <!--this is the chat window -->
+  <div class="chat-popup" id="myForm">
+    <form action="/action_page.php" class="form-container">
+      <h1>Chat</h1>
+
+      <label for="msg"><b>Message</b></label>
+      <textarea placeholder="Type message.." name="msg" required></textarea>
+
+      <button type="submit" class="btn">Send</button>
+      <button type="button" class="btn cancel" id="closeChat">Close</button>
+    </form>
+  </div>
+
+  <br>
+  <!-- End of chat window -->
+  <!--this is the about us section -->
+  <section class="aboutUs" id="about-us">
+    <article class="about-us">
+      <img src="./assets/images/one team one dream.jpg" alt="one team" class="float-left" />
+      <h2>ABOUT US</h2>
+      <p>
+        Welcome to Cars Not Lemons, your number one source to purchase your right vehicle. We're dedicated to
+        providing you the very best of description on any vehicle you want to get information, with an emphasis on comparison as milleage, what will be the cost on insurance, fuel and more.
+        We hope you enjoy our page as much as we enjoy offering this option to you. If you have any questions or
+        comments, please don't hesitate to contact us.
+      </p>
+    </article>
+    <br>
+  </section>
+    <!-- End of about us section -->
+    <!-- Start of the footer -->
+    <footer class='footer' id="bottom">
+
+      <h2>Made with ❤️️ by CarsNotLemons</h2>
+      <p>
+        &copy; 2020 Cars not Lemons, Inc.
+      </p>
+
+    </footer>
+    <!--this is our personal js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"></script>
+    <script src="./assets/script.js"></script>
 </body>
 
 </html>
