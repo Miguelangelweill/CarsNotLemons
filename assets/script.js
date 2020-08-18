@@ -68,14 +68,14 @@ $(document).ready(function () {
   }
 
   let tenorLemonApi =
-    "http://api.tenor.com/v1/search?q=lemon&key=11YWAZYIYDS3&limit=8";
+    "https://api.tenor.com/v1/search?q=lemon&key=11YWAZYIYDS3&limit=8";
 
   $.get(tenorLemonApi).then(function (response) {
     lemonGif = response.results[3].media[0].tinygif.url;
   });
 
   let tenorCarApi =
-    "http://api.tenor.com/v1/search?q=car&key=11YWAZYIYDS3&limit=8";
+    "https://api.tenor.com/v1/search?q=car&key=11YWAZYIYDS3&limit=8";
 
   $.get(tenorCarApi).then(function (response) {
     console.log(response.results[1].media[0].tinygif.url);
@@ -140,7 +140,7 @@ $(document).ready(function () {
     e.preventDefault();
     // OwnershipCost AJAX
     let ownershipCost =
-      "http://ownershipcost.vinaudit.com/getownershipcost.php?vin=" +
+      "https://ownershipcost.vinaudit.com/getownershipcost.php?vin=" +
       userVinNumber +
       "&key=0UCAOK5F1GEGDMD&state=WA";
 
@@ -179,7 +179,7 @@ $(document).ready(function () {
 
     //This is the api for the first Vin only check starts
     let objectVin =
-      "http://specifications.vinaudit.com/v3/specifications?key=0UCAOK5F1GEGDMD&format=json&include=attributes,equipment,colors,recalls,warranties,photos&vin=" +
+      "https://specifications.vinaudit.com/v3/specifications?key=0UCAOK5F1GEGDMD&format=json&include=attributes,equipment,colors,recalls,warranties,photos&vin=" +
       userVinNumber +
       "";
 
@@ -230,7 +230,7 @@ $(document).ready(function () {
 
       //This is the api for the fuel cost
       let ownershipCost =
-        "http://ownershipcost.vinaudit.com/getownershipcost.php?vin=" +
+        "https://ownershipcost.vinaudit.com/getownershipcost.php?vin=" +
         userVinNumber +
         "&key=0UCAOK5F1GEGDMD&state=WA";
       $.get(ownershipCost).then(function (response) {
@@ -280,7 +280,7 @@ $(document).ready(function () {
 
       //here i start the api for the first vehicle
       var firstCarURL =
-        "http://specifications.vinaudit.com/v3/specifications?key=0UCAOK5F1GEGDMD&format=json&include=attributes,equipment,colors,recalls,warranties,photos&vin=" +
+        "https://specifications.vinaudit.com/v3/specifications?key=0UCAOK5F1GEGDMD&format=json&include=attributes,equipment,colors,recalls,warranties,photos&vin=" +
         firstVehicleVIN +
         "";
 
@@ -346,7 +346,7 @@ $(document).ready(function () {
           $("#theRecallEl1").text("Previous Recalls: " + firstVINrecallObject);
 
           let carOneOwnershipCost =
-            "http://ownershipcost.vinaudit.com/getownershipcost.php?vin=" +
+            "https://ownershipcost.vinaudit.com/getownershipcost.php?vin=" +
             firstVehicleVIN +
             "&key=0UCAOK5F1GEGDMD&state=WA";
 
@@ -377,7 +377,7 @@ $(document).ready(function () {
 
       //here i start the api for the second vehicle
       var secondCarURL =
-        "http://specifications.vinaudit.com/v3/specifications?key=0UCAOK5F1GEGDMD&format=json&include=attributes,equipment,colors,recalls,warranties,photos&vin=" +
+        "https://specifications.vinaudit.com/v3/specifications?key=0UCAOK5F1GEGDMD&format=json&include=attributes,equipment,colors,recalls,warranties,photos&vin=" +
         secondVehicleVIN +
         "";
 
@@ -444,7 +444,7 @@ $(document).ready(function () {
         }
       });
       let secondCarOwnershipCost =
-        "http://ownershipcost.vinaudit.com/getownershipcost.php?vin=" +
+        "https://ownershipcost.vinaudit.com/getownershipcost.php?vin=" +
         secondVehicleVIN +
         "&key=0UCAOK5F1GEGDMD&state=WA";
 
