@@ -89,7 +89,7 @@ $(document).ready(function () {
   var checkVinResize = $("#VinCheck");
 
   $(window).resize(function () {
-    if (window.innerWidth <= 450) {
+    if (window.innerWidth <= 768) {
       containerResize1.removeClass("four wide");
       containerResize2.removeClass("four wide");
       containerResize3.removeClass("four wide");
