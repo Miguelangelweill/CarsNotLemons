@@ -140,7 +140,7 @@ $(document).ready(function () {
     e.preventDefault();
     // OwnershipCost AJAX
     let ownershipCost =
-      "http://ownershipcost.vinaudit.com/getownershipcost.php?vin=" +
+      "https://ownershipcost.vinaudit.com/getownershipcost.php?vin=" +
       userVinNumber +
       "&key=0UCAOK5F1GEGDMD&state=WA";
 
@@ -230,7 +230,7 @@ $(document).ready(function () {
 
       //This is the api for the fuel cost
       let ownershipCost =
-        "http://ownershipcost.vinaudit.com/getownershipcost.php?vin=" +
+        "https://ownershipcost.vinaudit.com/getownershipcost.php?vin=" +
         userVinNumber +
         "&key=0UCAOK5F1GEGDMD&state=WA";
       $.get(ownershipCost).then(function (response) {
@@ -346,7 +346,7 @@ $(document).ready(function () {
           $("#theRecallEl1").text("Previous Recalls: " + firstVINrecallObject);
 
           let carOneOwnershipCost =
-            "http://ownershipcost.vinaudit.com/getownershipcost.php?vin=" +
+            "https://ownershipcost.vinaudit.com/getownershipcost.php?vin=" +
             firstVehicleVIN +
             "&key=0UCAOK5F1GEGDMD&state=WA";
 
@@ -444,7 +444,7 @@ $(document).ready(function () {
         }
       });
       let secondCarOwnershipCost =
-        "http://ownershipcost.vinaudit.com/getownershipcost.php?vin=" +
+        "https://ownershipcost.vinaudit.com/getownershipcost.php?vin=" +
         secondVehicleVIN +
         "&key=0UCAOK5F1GEGDMD&state=WA";
 
