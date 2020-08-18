@@ -131,7 +131,7 @@ img {
 p {
   text-align: center;
 }
-@media (max-width: 450px) {
+@media (max-width: 768px) {
   #compareForm {
     margin-left: 6%;
     margin-right: 6%;
