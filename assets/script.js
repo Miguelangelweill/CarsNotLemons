@@ -68,14 +68,14 @@ $(document).ready(function () {
   }
 
   let tenorLemonApi =
-    "https://api.tenor.com/v1/search?q=lemon&key=11YWAZYIYDS3&limit=8";
+    "http://api.tenor.com/v1/search?q=lemon&key=11YWAZYIYDS3&limit=8";
 
   $.get(tenorLemonApi).then(function (response) {
     lemonGif = response.results[3].media[0].tinygif.url;
   });
 
   let tenorCarApi =
-    "https://api.tenor.com/v1/search?q=car&key=11YWAZYIYDS3&limit=8";
+    "http://api.tenor.com/v1/search?q=car&key=11YWAZYIYDS3&limit=8";
 
   $.get(tenorCarApi).then(function (response) {
     console.log(response.results[1].media[0].tinygif.url);
@@ -179,7 +179,7 @@ $(document).ready(function () {
 
     //This is the api for the first Vin only check starts
     let objectVin =
-      "https://specifications.vinaudit.com/v3/specifications?key=0UCAOK5F1GEGDMD&format=json&include=attributes,equipment,colors,recalls,warranties,photos&vin=" +
+      "http://specifications.vinaudit.com/v3/specifications?key=0UCAOK5F1GEGDMD&format=json&include=attributes,equipment,colors,recalls,warranties,photos&vin=" +
       userVinNumber +
       "";
 
@@ -280,7 +280,7 @@ $(document).ready(function () {
 
       //here i start the api for the first vehicle
       var firstCarURL =
-        "https://specifications.vinaudit.com/v3/specifications?key=0UCAOK5F1GEGDMD&format=json&include=attributes,equipment,colors,recalls,warranties,photos&vin=" +
+        "http://specifications.vinaudit.com/v3/specifications?key=0UCAOK5F1GEGDMD&format=json&include=attributes,equipment,colors,recalls,warranties,photos&vin=" +
         firstVehicleVIN +
         "";
 
@@ -377,7 +377,7 @@ $(document).ready(function () {
 
       //here i start the api for the second vehicle
       var secondCarURL =
-        "https://specifications.vinaudit.com/v3/specifications?key=0UCAOK5F1GEGDMD&format=json&include=attributes,equipment,colors,recalls,warranties,photos&vin=" +
+        "http://specifications.vinaudit.com/v3/specifications?key=0UCAOK5F1GEGDMD&format=json&include=attributes,equipment,colors,recalls,warranties,photos&vin=" +
         secondVehicleVIN +
         "";
 
