@@ -1,302 +1,300 @@
 * {
-    margin: 0;
-    padding: 0;
-  }
-  
-  body {
-   background: linear-gradient(rgb(136, 182, 219), white);
-    background-repeat: no-repeat;
-  }
-  /* navbar css */
-  .nav-link {
-    margin-right: 0px;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+ background: linear-gradient(rgb(136, 182, 219), white);
+  background-repeat: no-repeat;
+}
+/* navbar css */
+.nav-link {
+  margin-right: 0px;
+  float: right;
+}
+ul .navbar-nav{
     float: right;
-  }
-  ul .navbar-nav{
-      float: right;
-      margin-right: 0%;
-  }
-  .navbar{
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 5;
-  }
-  #navbarNav{
-      justify-content: flex-end;
-  }
-  
-  #logo {
-    padding-left: 0px;
-    margin-left: 0px;
-  }
-  
-  /* jumbo image css */
-  .jumbo-img {
-    display: block;
-    width: 95%;
-    height: 500px;
-    margin: 20px 35px 0px 35px;
-  }
-  
-  img {
-    height: cover;
-  }
-  #mainContainer{
-      margin-top: 10%;
-  }
-  #carouselContainer {
+    margin-right: 0%;
+}
+.navbar{
+    position: fixed;
+    top: 0;
     width: 100%;
-  }
-  #UsersChoice {
-    text-align: center;
-    display: flex;
-    margin-left: 6%;
-    margin-right: 6%;
+    z-index: 5;
+}
+#navbarNav{
+    justify-content: flex-end;
+}
+
+#logo {
+  padding-left: 0px;
+  margin-left: 0px;
+}
+
+/* jumbo image css */
+.jumbo-img {
+  display: block;
+  width: 95%;
+  height: 500px;
+  margin: auto;
+}
+
+img {
+  height: cover;
+}
+#mainContainer{
     margin-top: 5%;
+}
+#carouselContainer {
+  width: 90%; 
+  margin: auto;
+}
+#UsersChoice {
+  text-align: center;
+  display: flex;
+  margin-left: 6%;
+  margin-right: 6%;
+  margin-top: 5%;
 
-    /*  */
-  }
-  .twocarsimg,
-  .lemoncarimg{
-      width: 30%;
-      margin: auto;
-  }
+  /*  */
+}
+.twocarsimg,
+.lemoncarimg{
+    width: 30%;
+    margin: auto;
+}
+#checkVin{
+  margin-right: 1%;
+  margin-left: 1%;
+  margin-bottom: 1%;
+}
+#compareContainer1 {
+  margin: 5%;
+}
+#containerAimage,
+#containerBimage{
+  float: right;
+}
+#VinCheck{
+  margin: 5% 25% 0% 30%;
+}
+#compareContainer2 {
+  margin: 5%;
+  display: inline-block;
+}
+#compareForm {
+  float: right;
+  margin-right: 6%;
+  margin-top: 2%;
+  width: 45%;
+}
+#vinApiInput {
+  margin-left: 6%;
+  margin-top: 2%;
+}
+#readyCompare {
+  float: right;
+  margin-right: 4%;
+}
+.buttonImage {
+  height: 45px;
+  width: 45px;
+}
+#checkOneVin {
+  margin-left: 1%;
+}
+#firstVehicle,
+#secondVehicle {
+  width: 100%;
+}
+#finalSaving {
+  height: 450px;
+  margin-top: 10%;
+  background-color: white;
+  text-align: center;
+}
+#containerAimageHandler{
+  text-align: center;
+}
+.vin-compare {
+  display: none;
+}
 
-  
-  #checkVin{
-    margin-right: 1%;
-    margin-left: 1%;
-    margin-bottom: 1%;
-  }
-  #compareContainer1 {
-    margin: 5%;
-  }
-  #containerAimage,
-  #containerBimage{
-    float: right;
-  }
-  #VinCheck{
-    margin: 5% 25% 0% 30%;
-  }
-  #compareContainer2 {
-    margin: 5%;
-    display: inline-block;
-  }
+.logoimage {
+  height: 100px;
+}
+
+/* footer portion */
+.footer {
+  padding: 30px;
+  clear: both;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  text-align: center;
+}
+.content {
+  width: 75%;
+  display: inline-block;
+  margin-left: 20px;
+}
+.icons {
+  margin-right: 7%;
+  margin-left: 7%;
+  margin-bottom: 3%;
+}
+p {
+  font-size: 24px;
+}
+
+.contactInfo {
+  display: none;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    border: 3px solid navy;
+    padding: 20px;
+}
+
+#contact-info{
+  align-content: center;
+    padding-left: 18%;
+}
+
+.space{
+    column-gap: 40px;
+}
+
+h4{
+    font-family: 'Baloo Tamma 2', cursive;
+    color: navy;
+}
+
+/* Button used to open the chat form - fixed at the bottom of the page */
+
+
+.chat-popup{
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: white;
+  z-index: 4;
+}
+
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+/* The popup chat - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width textarea */
+.form-container textarea {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+  resize: none;
+  min-height: 200px;
+}
+
+/* When the textarea gets focus, do something */
+.form-container textarea:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+/*About us section*/
+.float-left {
+    float: left;
+    margin-right: 25px;
+}
+
+#about-us{
+    margin-bottom: 20px;
+    padding: 50px;
+    height: 280px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: rgb(3, 3, 51);
+    color: #ffffff;
+    display: none;
+}
+
+#about-us h2{
+    margin-bottom: 20px;
+    font-size: 36px;
+}
+
+#about-us img{
+    max-height: 150px;
+    float: left;
+}
+
+@media screen and (max-width: 450px) {
   #compareForm {
-    float: right;
+    margin-left: 6%;
     margin-right: 6%;
     margin-top: 2%;
-    width: 45%;
-  }
-  #vinApiInput {
-    margin-left: 6%;
-    margin-top: 2%;
-  }
-  #readyCompare {
-    float: right;
-    margin-right: 4%;
-  }
-  .buttonImage {
-    height: 45px;
-    width: 45px;
-  }
-  #checkOneVin {
-    margin-left: 1%;
-  }
-  #firstVehicle,
-  #secondVehicle {
-    width: 100%;
+    width: 90%;
   }
   #finalSaving {
-    height: 450px;
-    margin-top: 10%;
-    background-color: white;
-    text-align: center;
-  }
-  #containerAimageHandler{
-    text-align: center;
-  }
-  .vin-compare {
-    display: none;
-  }
-  
-  .logoimage {
-    height: 100px;
-  }
-  
-  /* footer portion */
-  .footer {
-    padding: 30px;
-    clear: both;
-    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-      "Lucida Sans", Arial, sans-serif;
-    text-align: center;
-  }
-  .content {
-    width: 75%;
-    display: inline-block;
-    margin-left: 20px;
-  }
-  .icons {
-    margin-right: 7%;
-    margin-left: 7%;
-    margin-bottom: 3%;
-  }
-  p {
-    font-size: 24px;
-  }
-  
-.contactInfo {
-    display: none;
-      margin-left: auto;
-      margin-right: auto;
-      width: 80%;
-      border: 3px solid navy;
-      padding: 20px;
-  }
-  
-  #contact-info{
-    align-content: center;
-      padding-left: 18%;
-  }
-  
-  .space{
-      column-gap: 40px;
-  }
-  
-  h4{
-      font-family: 'Baloo Tamma 2', cursive;
-      color: navy;
-  }
-  
-  /* Button used to open the chat form - fixed at the bottom of the page */
-  
-
-  .chat-popup{
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: white;
-    z-index: 4;
-  }
-  
-  .open-button {
-    background-color: #555;
-    color: white;
-    padding: 16px 20px;
-    border: none;
-    cursor: pointer;
-    opacity: 0.8;
-    position: fixed;
-    bottom: 23px;
-    right: 28px;
-    width: 280px;
-  }
-  
-  /* The popup chat - hidden by default */
-  .form-popup {
-    display: none;
-    position: fixed;
-    bottom: 0;
-    right: 15px;
-    border: 3px solid #f1f1f1;
-    z-index: 9;
-  }
-  
-  /* Add styles to the form container */
-  .form-container {
-    max-width: 300px;
-    padding: 10px;
-    background-color: white;
-  }
-  
-  /* Full-width textarea */
-  .form-container textarea {
-    width: 100%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    border: none;
-    background: #f1f1f1;
-    resize: none;
-    min-height: 200px;
-  }
-  
-  /* When the textarea gets focus, do something */
-  .form-container textarea:focus {
-    background-color: #ddd;
-    outline: none;
-  }
-  
-  /* Set a style for the submit/login button */
-  .form-container .btn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 16px 20px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    margin-bottom:10px;
-    opacity: 0.8;
-  }
-  
-  /* Add a red background color to the cancel button */
-  .form-container .cancel {
-    background-color: red;
-  }
-  
-  /* Add some hover effects to buttons */
-  .form-container .btn:hover, .open-button:hover {
-    opacity: 1;
+    margin-left: 5%;
+    margin-right: 5%;
   }
 
-  /*About us section*/
-  .float-left {
-      float: left;
-      margin-right: 25px;
+  .jumbo-img {
+    display: block;
+    width: 90%;
+    height: 280px;
+    margin:auto;
   }
-  
-  #about-us{
-      margin-bottom: 20px;
-      padding: 50px;
-      height: 280px;
-      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-      background-color: rgb(3, 3, 51);
-      color: #ffffff;
-      display: none;
-  }
-  
-  #about-us h2{
-      margin-bottom: 20px;
-      font-size: 36px;
-  }
-  
-  #about-us img{
-      max-height: 150px;
-      float: left;
-  }
-  
-  @media (max-width: 450px) {
-    #compareForm {
-      margin-left: 6%;
-      margin-right: 6%;
-      margin-top: 2%;
-      width: 90%;
-    }
-    #finalSaving {
-      margin-left: 5%;
-      margin-right: 5%;
-    }
-
-    .jumbo-img {
-      display: block;
-      width: 95%;
-      height: 280px;
-      margin: 20px 35px 0px 35px;
-    }
-    #VinCheck{
-    margin: 5% 0% 0% 5%;
-  }
-  }
-  
+  #VinCheck{
+  margin: 5% 0% 0% 5%;
+}
+}
