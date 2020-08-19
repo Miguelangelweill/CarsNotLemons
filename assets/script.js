@@ -210,7 +210,7 @@ $(document).ready(function () {
       $("#theVinPriceEl").text("Price: " + checkVINprice);
 
       var checkVINengine = response.attributes.engine;
-      $("#theVinEngineEl").text("engine: " + checkVINengine);
+      $("#theVinEngineEl").text("Engine: " + checkVINengine);
 
       var checkVINcityMpg = response.attributes.city_mileage;
       $("#theVinCItyMlgEl").text("City mileage: " + checkVINcityMpg);
@@ -313,7 +313,7 @@ $(document).ready(function () {
           $("#thePriceEl1").text("Price: " + firstVINprice);
 
           var firstVINengine = response1.attributes.engine;
-          $("#theEngineEl1").text("engine: " + firstVINengine);
+          $("#theEngineEl1").text("Engine: " + firstVINengine);
 
           var firstVINcityMpg = response1.attributes.city_mileage;
           $("#theCItyMlgEl1").text("City mileage: " + firstVINcityMpg);
@@ -401,9 +401,6 @@ $(document).ready(function () {
         "https://specifications.vinaudit.com/v3/specifications?key=0UCAOK5F1GEGDMD&format=json&include=attributes,equipment,colors,recalls,warranties,photos&vin=" +
         secondVehicleVIN +
         "";
-
-      //duane vin JTHBA1D27G5004260
-      //marcos vin 1vwcm7a34fc006570
       console.log(secondCarURL);
       //This is the information for the first vehicle
       $.get(secondCarURL).then(function (response2) {
@@ -439,7 +436,7 @@ $(document).ready(function () {
           $("#thePriceEl2").text("Price: " + secondVINprice);
 
           var secondVINengine = response2.attributes.engine;
-          $("#theEngineEl2").text("engine: " + secondVINengine);
+          $("#theEngineEl2").text("Engine: " + secondVINengine);
 
           var secondVINcityMpg = response2.attributes.city_mileage;
           $("#theCItyMlgEl2").text("City mileage: " + secondVINcityMpg);
