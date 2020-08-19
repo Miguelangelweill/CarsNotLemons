@@ -5,111 +5,121 @@ $(document).ready(function () {
   let secondRepair;
   let secondInsurance;
   let secondFuel;
-
-  let mostExpensive = [];
   let firstTotal;
   let secondTotal;
-
-
+  let mostExpensive = [];
+  let lemonGif;
+  let carGif;
+  $('#containerAimage').hide();
+  $('#containerBimage').hide();
   function getFirstTotal() {
-
-    console.log(firstTotal)
-    console.log(secondTotal)
-    mostExpensive.push(firstTotal)
-    console.log(mostExpensive)
-    console.log(carGif)
-    console.log(lemonGif)
-    console.log(JSON.stringify(lemonGif))
+    console.log(firstTotal);
+    console.log(secondTotal);
+    mostExpensive.push(firstTotal);
+    console.log(mostExpensive);
     if (mostExpensive.length == 2) {
       if (firstTotal > secondTotal) {
-        let carSaving = firstTotal - secondTotal
-        $('#yearlyDifference').html(`Car B saves you $${carSaving} more then car A`)
-        // lemonOrCar()
-        console.log('did this run')
-        $('#carOrLemonA').attr('src', carGif)
-        $('#carOrLemonB').attr('src', lemonGif)
-      } else if (secondTotal > firstTotal) {
-        let carSaving = secondTotal - firstTotal
-        $('#yearlyDifference').html(`Car A saves you $${carSaving} more then car B`)
-        // carOrLemon()
-        console.log('or did this run')
-        console.log(carOrLemon())
-        $('#carOrLemonA').attr('src', lemonGif)
-        $('#carOrLemonB').attr('src', carGif)
+        let carSaving = firstTotal - secondTotal;
+        $("#yearlyDifference").text(
+          `Car B saves you $${carSaving} , car A is a lemon`
+        );
+        $("#containerAimage").attr("src",lemonGif);
+        $("#containerAimage").show();
+        $("#containerBimage").attr("src", carGif);
+        $("#containerBimage").show();
+      } else {
+        let carSaving = secondTotal - firstTotal;
+        $("#yearlyDifference").text(
+          `Car A saves you $${carSaving} car B is a lemon`
+        );
+        $("#containerAimage").attr("src", carGif);
+        $("#containerAimage").show();
+        $("#containerBimage").attr("src", lemonGif);
+        $("#containerBimage").show();
       }
     }
-    $('#carOrLemonA').attr('src', '')
-    $('#carOrLemonB').attr('src', '')
-    secondTotal = 0;
-    firstTotal = 0;
-    mostExpensive = [];
   }
-
-  function lemonOrCar(){
-    console.log(carGif)
-    console.log(lemonGif)
-  }
-  function carOrLemon(){
-    console.log(carGif)
-    console.log(lemonGif)
-
-  }
-
   function getSecondTotal() {
-    console.log(firstTotal)
-    console.log(secondTotal)
-    mostExpensive.push(secondTotal)
-    console.log(mostExpensive)
+    console.log(firstTotal);
+    console.log(secondTotal);
+    mostExpensive.push(secondTotal);
+    console.log(mostExpensive);
     if (mostExpensive.length == 2) {
       if (secondTotal > firstTotal) {
-        let carSaving = secondTotal - firstTotal
-        $('#yearlyDifference').html(`Car A saves you $${carSaving} more then car B`)
+        let carSaving = secondTotal - firstTotal;
+        $("#yearlyDifference").text(
+          `Car A saves you $${carSaving} car B is a lemon`
+        );
+        $("#containerAimage").attr("src", carGif);
+        $("#containerAimage").show();
+        $("#containerBimage").attr("src", lemonGif);
+        $("#containerBimage").show();
       } else {
-        let carSaving = firstTotal - secondTotal
-        $('#yearlyDifference').html(`Car B saves you $${carSaving} more then car A`)
+        let carSaving = firstTotal - secondTotal;
+        $("#yearlyDifference").text(
+          `Car B saves you $${carSaving} car A is a lemon`
+        );
+        $("#containerAimage").attr("src", lemonGif);
+        $("#containerAimage").show();
+        $("#containerBimage").attr("src", carGif);
+        $("#containerBimage").show();
       }
     }
-
   }
 
-
-
-
-  // AJAX Lemon Gif
-  let tenorLemonApi = 'https://api.tenor.com/v1/search?q=lemon&key=11YWAZYIYDS3&limit=8'
-
+  let tenorLemonApi =
+    "https://api.tenor.com/v1/search?q=lemon&key=11YWAZYIYDS3&limit=8";
 
   $.get(tenorLemonApi).then(function (response) {
-    lemonGif = response.results[3].media[0].tinygif.url
-    getLemongGif(lemonGif)
-  })
+    lemonGif = response.results[3].media[0].tinygif.url;
+  });
 
-  let lemonGif;
-  function getLemongGif() {
-    carOrLemon(lemonGif)
-    lemonOrCar(lemonGif)
-  }
-
-  // AJAX Car gif 
-  let tenorCarApi = 'https://api.tenor.com/v1/search?q=car&key=11YWAZYIYDS3&limit=8'
-  let carGif = '';
+  let tenorCarApi =
+    "https://api.tenor.com/v1/search?q=car&key=11YWAZYIYDS3&limit=8";
 
   $.get(tenorCarApi).then(function (response) {
+    console.log(response.results[1].media[0].tinygif.url);
     carGif = response.results[1].media[0].tinygif.url;
-    getCarGif(carGif)
-    })
+  });
 
-  function getCarGif() {
-    carOrLemon(carGif)
-    lemonOrCar(carGif)
-  }
+  //This is where i listen for the resize of the screen to change some classes
+  var containerResize1 = $("#compareContainer1");
+  var containerResize2 = $("#compareContainer2");
+  var containerResize3 = $("#finalSaving");
+  var checkVinResize = $("#VinCheck");
+
+  $(window).resize(function () {
+    if (window.innerWidth <= 450) {
+      containerResize1.removeClass("four wide");
+      containerResize2.removeClass("four wide");
+      containerResize3.removeClass("four wide");
+      checkVinResize.removeClass("four wide");
+      containerResize1.addClass("sixteen wide");
+      containerResize2.addClass("sixteen wide");
+      containerResize3.addClass("sixteen wide");
+      checkVinResize.addClass("sixteen wide");
+    } else {
+      containerResize1.removeClass("sixteen wide");
+      containerResize2.removeClass("sixteen wide");
+      containerResize3.removeClass("sixteen wide");
+      checkVinResize.removeClass("sixteen wide");
+      containerResize1.addClass("four wide");
+      containerResize2.addClass("four wide");
+      containerResize3.addClass("four wide");
+      checkVinResize.addClass("four wide");
+    }
+  });
 
   //This is where we hide the card for the vin check only
   $("#VinCheck").hide();
   $("#vinApiInput").hide();
+  
   //This is the click event on the check only VIN
   $("#checkVin").on("click", function (e) {
-    $('#compareForm').hide();
+    $('#about-us').hide();
+    $('#contact-info').hide();
+    $('#myForm').hide();
+    $("#compareForm").hide();
     e.preventDefault();
     $("#vinApiInput").show();
     $("#vinApiInput").css("display", "block");
@@ -117,52 +127,55 @@ $(document).ready(function () {
   //This is marcos onclick on the check vin and his informaition
   $("#checkOneVin").on("click", function (e) {
     let userVinNumber = $("#vinNumber").val();
-    $('#compareContainer1').hide();
-    $('#compareContainer2').hide();
+    
+    $("#compareContainer1").hide();
+    $("#compareContainer2").hide();
     $("#carouselExampleSlidesOnly").hide();
     $("#finalSaving").hide();
     let onlyVinCheck = $("#VinCheck").show();
-    onlyVinCheck.addClass('one wide column');
+    onlyVinCheck.addClass("one wide column");
     $("#carouselContainer").append(onlyVinCheck);
-    //This is the input of the user 
+    //This is the input of the user
 
     e.preventDefault();
     // OwnershipCost AJAX
-    let ownershipCost = 'http://ownershipcost.vinaudit.com/getownershipcost.php?vin=' + userVinNumber + '&key=0UCAOK5F1GEGDMD&state=WA'
+    let ownershipCost =
+      "https://ownershipcost.vinaudit.com/getownershipcost.php?vin=" +
+      userVinNumber +
+      "&key=0UCAOK5F1GEGDMD&state=WA";
 
     $.get(ownershipCost).then(function (response) {
-      console.log(response)
+      console.log(response);
       if (!response.success) {
-        $('#carouselExampleSlidesOnly').show();
-        $("#incorrectVIN1").show()
-
-        $('#VinCheck').hide();
-
+        $("#carouselExampleSlidesOnly").show();
+        $("#incorrectVIN1").show();
+        
+        $("#VinCheck").hide();
       } else {
-        $("#incorrectVIN1").hide()
+        
+        $("#incorrectVIN1").hide();
 
         let depreciation = response.depreciation_cost;
         console.log(depreciation);
         let totalDepreciation = 0;
 
         for (i = 0; i < depreciation.length; i++) {
-          totalDepreciation += depreciation[i]
+          totalDepreciation += depreciation[i];
         }
-        console.log(totalDepreciation)
+        console.log(totalDepreciation);
         // Last year's maintenance cost
-        console.log(response.maintenance_cost.slice(-1))
+        console.log(response.maintenance_cost.slice(-1));
         // Last year's Insurance
-        console.log(response.insurance_cost.slice(-1))
+        console.log(response.insurance_cost.slice(-1));
         // Last year's repair cost
-        console.log(parseInt(response.repairs_cost.slice(-1)))
-        let tryThis = parseInt(response.repairs_cost.slice(-1))
+        console.log(parseInt(response.repairs_cost.slice(-1)));
+        let tryThis = parseInt(response.repairs_cost.slice(-1));
 
-        console.log(tryThis)
+        console.log(tryThis);
       }
 
       // line 87 gives all market values
-    })
-
+    });
 
     //This is the api for the first Vin only check starts
     let objectVin =
@@ -183,70 +196,84 @@ $(document).ready(function () {
       var checkVINmodel = response.attributes.model;
 
       var checkVINyear = response.attributes.year;
-      $("#theVinCarEl").text(checkVINmake + " " + checkVINmodel + " " + checkVINyear);
+      $("#theVinCarEl").text(
+        checkVINmake + " " + checkVINmodel + " " + checkVINyear
+      );
 
       var checkVINtrim = response.attributes.trim;
       $("#theVinTrimEl").text("Trim: " + checkVINtrim);
 
       var checkVINprice =
         response.attributes.manufacturer_suggested_retail_price;
-      $("#theVinPriceEl").text("Price: " + checkVINprice)
+      $("#theVinPriceEl").text("Price: " + checkVINprice);
 
       var checkVINengine = response.attributes.engine;
-      $("#theVinEngineEl").text("engine: " + checkVINengine)
+      $("#theVinEngineEl").text("engine: " + checkVINengine);
 
       var checkVINcityMpg = response.attributes.city_mileage;
-      $("#theVinCItyMlgEl").text("City mileage: " + checkVINcityMpg)
+      $("#theVinCItyMlgEl").text("City mileage: " + checkVINcityMpg);
 
       var checkVINhighwayMpg = response.attributes.highway_mileage;
-      $("#theVinHeighwayMlgEl").text("Highway mileage: " + checkVINhighwayMpg)
+      $("#theVinHeighwayMlgEl").text("Highway mileage: " + checkVINhighwayMpg);
 
       var checkVINweight = response.attributes.curb_weight;
-      $("#theVinWeightEl").text("Weight: " + checkVINweight)
+      $("#theVinWeightEl").text("Weight: " + checkVINweight);
 
       var checkVINtransmission = response.attributes.transmission;
       $("#theVinTransmissionEl").text("Transmission: " + checkVINtransmission);
 
       var checkVINfuel = response.attributes.fuel_type;
-      $("#theVinFuelEl").text("Type of Fuel: " + checkVINfuel)
+      $("#theVinFuelEl").text("Type of Fuel: " + checkVINfuel);
 
       var checkVINrecallObject = response.recalls.length;
       $("#theVinRecallEl").text("Previous Recalls: " + checkVINrecallObject);
 
-      //This is the api for the fuel cost 
-      let ownershipCost = 'http://ownershipcost.vinaudit.com/getownershipcost.php?vin=' + userVinNumber + '&key=0UCAOK5F1GEGDMD&state=WA'
+      //This is the api for the fuel cost
+      let ownershipCost =
+        "https://ownershipcost.vinaudit.com/getownershipcost.php?vin=" +
+        userVinNumber +
+        "&key=0UCAOK5F1GEGDMD&state=WA";
       $.get(ownershipCost).then(function (response) {
-        console.log(response)
-        let fuelCostLibrary = response.fuel_cost.length - response.fuel_cost.length - 1;
-        console.log(fuelCostLibrary)
-
-      })
+        console.log(response);
+        let fuelCostLibrary =
+          response.fuel_cost.length - response.fuel_cost.length - 1;
+        console.log(fuelCostLibrary);
+      });
     });
   });
   //This is Miguels inforation and his functions
   //hide this untill clicked
   $("#compareForm").hide();
-  $("#compareContainer1").hide()
-  $("#finalSaving").hide()
-  $("#compareContainer2").hide()
-  $("#incorrectVIN1").hide()
-  $("#incorrectVIN2").hide()
+  $("#compareContainer1").hide();
+  $("#finalSaving").hide();
+  $("#compareContainer2").hide();
+  $("#incorrectVIN1").hide();
+  $("#incorrectVIN2").hide();
+  
   //This is the click on the first compare
   $("#compareTwo").click(function () {
+    $('#about-us').hide();
+    $('#contact-info').hide();
+    $('#myForm').hide();
     $("#compareForm").show();
-    $('#vinApiInput').hide();
+    $("#vinApiInput").hide();
     //this is the click on the ready compare
     $("#readyCompare").click(function () {
-      $('#VinCheck').hide();
-      $("#carouselExampleSlidesOnly").hide()
-      var firstContainerCompare = $("#compareContainer1").show()
+      
+      $("#VinCheck").hide();
+      $("#carouselExampleSlidesOnly").hide();
+      var firstContainerCompare = $("#compareContainer1").show();
       firstContainerCompare.addClass("six wide column");
       var finalSaving = $("#finalSaving").show();
       finalSaving.addClass("four wide column");
-      var secondContainerCompare = $("#compareContainer2").show()
+      var secondContainerCompare = $("#compareContainer2").show();
       secondContainerCompare.addClass("six wide column");
 
-      $("#carouselContainer").append(firstContainerCompare, finalSaving, secondContainerCompare)
+      $("#carouselContainer").append(
+        firstContainerCompare,
+        finalSaving,
+        secondContainerCompare
+      );
 
       var firstVehicleVIN = $("#firstVehicle").val();
       var secondVehicleVIN = $("#secondVehicle").val();
@@ -263,16 +290,15 @@ $(document).ready(function () {
         console.log(response1);
         //The prompt incase the vin is an invalid number
         if (!response1.success) {
-          $('#carouselExampleSlidesOnly').show();
-
-          $("#incorrectVIN2").show()
-          $('#compareContainer1').hide();
-          $('#compareContainer2').hide();
+          
+          $("#carouselExampleSlidesOnly").show();
+          $("#incorrectVIN2").show();
+          $("#compareContainer1").hide();
+          $("#compareContainer2").hide();
           $("#finalSaving").hide();
-
         } else {
-
-          $("#incorrectVIN2").hide()
+          
+          $("#incorrectVIN2").hide();
           //here are the variables for my first vehicle
           var firstVINimage1 = response1.photos[0].url;
           $("#firstImageCompare1").attr("src", firstVINimage1);
@@ -283,71 +309,69 @@ $(document).ready(function () {
           var firstVINmake = response1.attributes.make;
           var firstVINmodel = response1.attributes.model;
           var firstVINyear = response1.attributes.year;
-          $("#theCarEl1").text(firstVINmake + " " + firstVINmodel + " " + firstVINyear);
+          $("#theCarEl1").text(
+            firstVINmake + " " + firstVINmodel + " " + firstVINyear
+          );
 
           var firstVINtrim = response1.attributes.trim;
           $("#theTrimEl1").text("Trim: " + firstVINtrim);
 
           var firstVINprice =
             response1.attributes.manufacturer_suggested_retail_price;
-          $("#thePriceEl1").text("Price: " + firstVINprice)
+          $("#thePriceEl1").text("Price: " + firstVINprice);
 
           var firstVINengine = response1.attributes.engine;
-          $("#theEngineEl1").text("engine: " + firstVINengine)
+          $("#theEngineEl1").text("engine: " + firstVINengine);
 
           var firstVINcityMpg = response1.attributes.city_mileage;
-          $("#theCItyMlgEl1").text("City mileage: " + firstVINcityMpg)
+          $("#theCItyMlgEl1").text("City mileage: " + firstVINcityMpg);
 
           var firstVINhighwayMpg = response1.attributes.highway_mileage;
-          $("#theHeighwayMlgEl1").text("Highway mileage: " + firstVINhighwayMpg)
+          $("#theHeighwayMlgEl1").text(
+            "Highway mileage: " + firstVINhighwayMpg
+          );
 
           var firstVINweight = response1.attributes.curb_weight;
-          $("#theWeightEl1").text("Weight: " + firstVINweight)
+          $("#theWeightEl1").text("Weight: " + firstVINweight);
 
           var firstVINtransmission = response1.attributes.transmission;
-          $("#theTransmissionEl1").text("Transmission: " + firstVINtransmission);
+          $("#theTransmissionEl1").text(
+            "Transmission: " + firstVINtransmission
+          );
 
           var firstVINfuel = response1.attributes.fuel_type;
-          $("#theFuelEl1").text("Type of Fuel: " + firstVINfuel)
+          $("#theFuelEl1").text("Type of Fuel: " + firstVINfuel);
 
           var firstVINrecallObject = response1.recalls.length;
           $("#theRecallEl1").text("Previous Recalls: " + firstVINrecallObject);
 
-          let carOneOwnershipCost = 'http://ownershipcost.vinaudit.com/getownershipcost.php?vin=' + firstVehicleVIN + '&key=0UCAOK5F1GEGDMD&state=WA'
-
+          let carOneOwnershipCost =
+            "https://ownershipcost.vinaudit.com/getownershipcost.php?vin=" +
+            firstVehicleVIN +
+            "&key=0UCAOK5F1GEGDMD&state=WA";
 
           $.get(carOneOwnershipCost).then(function (response) {
-            console.log(response)
-            // var depreciation = response.depreciation_cost;
-            // console.log(depreciation);
-
-            // var totalDepreciation = 0;
-
-            // for (i = 0; i < depreciation.length; i++) {
-            //   totalDepreciation += depreciation[i]
-            // }
+            console.log(response);
             //These items need to append or go in to a div for the single car data to be displayed
-            // this is total depreciation need to find a way to merge both the total price AJAX and this one 
-
+            // this is total depreciation need to find a way to merge both the total price AJAX and this one
             //  -------- All for the first vehicle ----------
             // Last year's fuel cost
-            firstFuel = response.fuel_cost[response.fuel_cost.length - 1]
-            $('#firstVehicleFuel').html(`$${firstFuel}`)
+            firstFuel = response.fuel_cost[response.fuel_cost.length - 1];
+            $("#firstVehicleFuel").html(`$${firstFuel}`);
             // Last year's Insurance
-            firstInsurance = response.insurance_cost[response.insurance_cost.length - 1]
-            $('#firstVehicleInsurance').html(`$${firstInsurance}`)
+            firstInsurance =
+              response.insurance_cost[response.insurance_cost.length - 1];
+            $("#firstVehicleInsurance").html(`$${firstInsurance}`);
             // Last year's repair cost
-            firstRepair = response.repairs_cost[response.repairs_cost.length - 1]
-            $('#firstVehicleMaintenance').html(`$${firstRepair}`)
+            firstRepair =
+              response.repairs_cost[response.repairs_cost.length - 1];
+            $("#firstVehicleMaintenance").html(`$${firstRepair}`);
 
             firstTotal = firstFuel + firstInsurance + firstRepair;
-            $('#firstCarTotal').html(`$${firstTotal}`)
-            console.log(firstTotal)
-            getFirstTotal(firstTotal)
-
-
-
-          })
+            $("#firstCarTotal").html(`$${firstTotal}`);
+            console.log(firstTotal);
+            getFirstTotal(firstTotal);
+          });
         }
       });
 
@@ -360,21 +384,18 @@ $(document).ready(function () {
       //duane vin JTHBA1D27G5004260
       //marcos vin 1vwcm7a34fc006570
       console.log(secondCarURL);
-      //This is the information for the second vehicle
+      //This is the information for the first vehicle
       $.get(secondCarURL).then(function (response2) {
         console.log(response2);
         //This is if the VIN number is incorrect
         if (!response2.success) {
-          $('#carouselExampleSlidesOnly').show();
-
-          $("#incorrectVIN2").show()
-          $('#compareContainer1').hide();
-          $('#compareContainer2').hide();
-          $("#finalSaving").hide()
-
+          $("#carouselExampleSlidesOnly").show();
+          $("#incorrectVIN2").show();
+          $("#compareContainer1").hide();
+          $("#compareContainer2").hide();
+          $("#finalSaving").hide();
         } else {
-
-          $("#incorrectVIN2").hide()
+          $("#incorrectVIN2").hide();
           //here are the variables for my second vehicle
           var secondVINimage1 = response2.photos[0].url;
           $("#secondImageCompare1").attr("src", secondVINimage1);
@@ -385,67 +406,103 @@ $(document).ready(function () {
           var secondVINmake = response2.attributes.make;
           var secondVINmodel = response2.attributes.model;
           var secondVINyear = response2.attributes.year;
-          $("#theCarEl2").text(secondVINmake + " " + secondVINmodel + " " + secondVINyear);
+          $("#theCarEl2").text(
+            secondVINmake + " " + secondVINmodel + " " + secondVINyear
+          );
 
           var secondVINtrim = response2.attributes.trim;
           $("#theTrimEl2").text("Trim: " + secondVINtrim);
 
           var secondVINprice =
             response2.attributes.manufacturer_suggested_retail_price;
-          $("#thePriceEl2").text("Price: " + secondVINprice)
+          $("#thePriceEl2").text("Price: " + secondVINprice);
 
           var secondVINengine = response2.attributes.engine;
-          $("#theEngineEl2").text("engine: " + secondVINengine)
+          $("#theEngineEl2").text("engine: " + secondVINengine);
 
           var secondVINcityMpg = response2.attributes.city_mileage;
-          $("#theCItyMlgEl2").text("City mileage: " + secondVINcityMpg)
+          $("#theCItyMlgEl2").text("City mileage: " + secondVINcityMpg);
 
           var secondVINhighwayMpg = response2.attributes.highway_mileage;
-          $("#theHeighwayMlgEl2").text("Highway mileage: " + secondVINhighwayMpg)
+          $("#theHeighwayMlgEl2").text(
+            "Highway mileage: " + secondVINhighwayMpg
+          );
 
           var secondVINweight = response2.attributes.curb_weight;
-          $("#theWeightEl2").text("Weight: " + secondVINweight)
+          $("#theWeightEl2").text("Weight: " + secondVINweight);
 
           var secondVINtransmission = response2.attributes.transmission;
-          $("#theTransmissionEl2").text("Transmission: " + secondVINtransmission)
+          $("#theTransmissionEl2").text(
+            "Transmission: " + secondVINtransmission
+          );
 
           var secondVINfuel = response2.attributes.fuel_type;
-          $("#theFuelEl2").text("Type of Fuel: " + secondVINfuel)
+          $("#theFuelEl2").text("Type of Fuel: " + secondVINfuel);
 
           var secondVINrecallObject = response2.recalls.length;
-          $("#theRecallEl2").text("Previous Recalls: " + secondVINrecallObject)
+          $("#theRecallEl2").text("Previous Recalls: " + secondVINrecallObject);
         }
       });
-      let secondCarOwnershipCost = 'http://ownershipcost.vinaudit.com/getownershipcost.php?vin=' + secondVehicleVIN + '&key=0UCAOK5F1GEGDMD&state=WA'
-
+      let secondCarOwnershipCost =
+        "https://ownershipcost.vinaudit.com/getownershipcost.php?vin=" +
+        secondVehicleVIN +
+        "&key=0UCAOK5F1GEGDMD&state=WA";
 
       $.get(secondCarOwnershipCost).then(function (response) {
         console.log(response);
 
         //  -------- All for the second vehicle ----------
         // Last year's fuel cost
-        secondFuel = response.fuel_cost[response.fuel_cost.length - 1]
-        $('#secondVehicleFuel').html(`$${secondFuel}`)
+        secondFuel = response.fuel_cost[response.fuel_cost.length - 1];
+        $("#secondVehicleFuel").html(`$${secondFuel}`);
         // Last year's Insurance
-        secondInsurance = response.insurance_cost[response.insurance_cost.length - 1]
-        $('#secondVehicleInsurance').html(`$${secondInsurance}`)
+        secondInsurance =
+          response.insurance_cost[response.insurance_cost.length - 1];
+        $("#secondVehicleInsurance").html(`$${secondInsurance}`);
         // Last year's repair cost
-        secondRepair = response.repairs_cost[response.repairs_cost.length - 1]
-        $('#secondVehicleMaintenance').html(`$${secondRepair}`)
-
+        secondRepair = response.repairs_cost[response.repairs_cost.length - 1];
+        $("#secondVehicleMaintenance").html(`$${secondRepair}`);
 
         secondTotal = secondFuel + secondInsurance + secondRepair;
-        $('#secondCarTotal').html(`$${secondTotal}`)
-        console.log(secondTotal)
+        $("#secondCarTotal").html(`$${secondTotal}`);
+        console.log(secondTotal);
         // console.log(mostExpensive)
 
-        console.log(secondTotal)
+        console.log(secondTotal);
 
-        getSecondTotal(secondTotal)
-
-      })
+        getSecondTotal(secondTotal);
+      });
     });
   });
 
-});
 
+
+  //when click on chat live now window will display
+
+  $('#chat-Live').click(function(){
+    $('#myForm').css('display','block')
+    $('.contactInfo').hide();
+    $('#about-us').hide();
+    $('#vinApiInput').hide();
+    $('#compareForm').hide();
+  })
+	$('#closeChat').click(function(){ 
+    $('#myForm').css('display','none')
+  })
+  $('#contact-link').click(function(){
+    $('.contactInfo').css('display', 'block')
+    $('#myForm').hide();
+    $('#about-us').hide();
+    $('#vinApiInput').hide();
+    $('#compareForm').hide();
+  })
+  $('#about-click').click(function(){
+    $('#about-us').css('display', 'block')
+    $('.contactInfo').hide();
+    $('#myForm').hide();
+    $('#vinApiInput').hide();
+    $('#compareForm').hide();
+  })
+
+
+});
