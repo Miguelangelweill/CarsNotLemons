@@ -1,4 +1,4 @@
-<!--This is Miguels html-->
+<!--This is the Master html-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,10 +49,10 @@
   <!-- End of NavBar -->
 
   <!-- This is the main container for the cards used in our page  -->
-  <div id="mainContainer" class="row">
+  <div id="mainContainer" class="ui centered grid">
 
     <!--This is where the compare two vehicles starts-->
-    <div id='compareContainer1' class="ui card four wide">
+    <div id='compareContainer1' class="ui card four wide column">
       <div class="ui slide masked reveal image">
         <img id="firstImageCompare1" class="visible content">
         <img id="firstImageCompare2" class="hidden content">
@@ -74,7 +74,7 @@
       </div>
     </div>
     <!--This is the container with the differences of the vehicles-->
-    <span id="finalSaving" class="ui card five wide column">
+    <span id="finalSaving" class="ui card four wide column">
 
       <div class="ui sixteen wide">
         <span>Car <b>A</b></span><img class="icons"
@@ -109,7 +109,7 @@
       <div class="ui "></div>
     </span>
     <!--This is where the container with the diffences of the vehicles ends-->
-    <div id='compareContainer2' class="ui card four wide">
+    <div id='compareContainer2' class="ui card four wide column">
       <div class="ui slide masked reveal image">
         <img id="secondImageCompare1" class="visible content">
         <img id="secondImageCompare2" class="hidden content">
@@ -179,20 +179,17 @@
   </div>
   <!--This is where the carousel ends-->
 
-  </div>
   <!-- The start of our user choice and suggested auto comparison -->
   <div id="UsersChoice" class="ui blue small buttons row no-gutters">
     <div class="col-md-6">
       <div class="mr-1">
-        <button class="ui button" id="checkVin" >Check VIN Number <img
-            src="./assets/images/lemon.gif" alt="lemon" class="row lemoncarimg"
-            ></button>
+        <button class="ui button" id="checkVin">Check VIN Number <img src="./assets/images/lemon.gif" alt="lemon"
+            class="row lemoncarimg"></button>
       </div>
     </div>
     <div class="col-md-6">
-      <button id="compareTwo" class="ui button" >Compare Two Vehicles <img
-          src="./assets/images/vs.gif" alt="vs" class="row twocarsimg"
-         ></button>
+      <button id="compareTwo" class="ui button">Compare Two Vehicles <img src="./assets/images/vs.gif" alt="vs"
+          class="row twocarsimg"></button>
     </div>
   </div>
   <br>
@@ -243,7 +240,7 @@
   <!--this is the end of the form-->
   <!--these are jeimmys links from navbar-->
   <section id="contact-info" class="contactInfo">
-    <ul >
+    <ul>
       <div class="row space">
         <div class="column">
           <li>
@@ -256,8 +253,7 @@
         <br>
         <div class="column">
           <li>
-            <img src="./assets/images/IMG_1098 (1).jpg" alt="Back End Developer"
-              width="50px" height="50px">
+            <img src="./assets/images/IMG_1098 (1).jpg" alt="Back End Developer" width="50px" height="50px">
             <h4>Back End Developer</h4>
             <p><a href="mailto:miamarine84@yahoo.com">Send email</a></p>
           </li>
@@ -308,32 +304,33 @@
       <h2>ABOUT US</h2>
       <p>
         Welcome to Cars Not Lemons, your number one source to purchase your right vehicle. We're dedicated to
-        providing you the very best of description on any vehicle you want to get information, with an emphasis on comparison as milleage, what will be the cost on insurance, fuel and more.
+        providing you the very best of description on any vehicle you want to get information, with an emphasis on
+        comparison as milleage, what will be the cost on insurance, fuel and more.
         We hope you enjoy our page as much as we enjoy offering this option to you. If you have any questions or
         comments, please don't hesitate to contact us.
       </p>
     </article>
     <br>
   </section>
-    <!-- End of about us section -->
-    <!-- Start of the footer -->
-    <footer class='footer' id="bottom">
+  <!-- End of about us section -->
+  <!-- Start of the footer -->
+  <footer class='footer' id="bottom">
 
-      <h2>Made with ❤️️ by CarsNotLemons</h2>
-      <p>
-        &copy; 2020 Cars not Lemons, Inc.
-      </p>
+    <h2>Made with ❤️️ by CarsNotLemons</h2>
+    <p>
+      &copy; 2020 Cars not Lemons, Inc.
+    </p>
 
-    </footer>
-    <!--this is our personal js-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-      crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-      crossorigin="anonymous"></script>
-    <script src="./assets/script.js"></script>
+  </footer>
+  <!--this is our personal js-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+  <script src="./assets/script.js"></script>
 </body>
 
 </html>
