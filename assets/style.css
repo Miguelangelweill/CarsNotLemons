@@ -36,23 +36,24 @@
     display: block;
     width: 95%;
     height: 500px;
-    margin: 20px 35px 0px 35px;
+    margin: auto;
   }
   
   img {
     height: cover;
   }
   #mainContainer{
-      margin-top: 10%;
+      margin-top: 5%;
   }
   #carouselContainer {
-    width: 100%;
+    width: 90%; 
+    margin: auto;
   }
   #UsersChoice {
     text-align: center;
     display: flex;
-    margin-left: 6%;
-    margin-right: 6%;
+    margin-left: 10%;
+    margin-right: 10%;
     margin-top: 5%;
 
     /*  */
@@ -62,8 +63,6 @@
       width: 30%;
       margin: auto;
   }
-
-  
   #checkVin{
     margin-right: 1%;
     margin-left: 1%;
@@ -277,7 +276,7 @@
       float: left;
   }
   
-  @media (max-width: 450px) {
+  @media screen and (max-width: 450px) {
     #compareForm {
       margin-left: 6%;
       margin-right: 6%;
@@ -291,9 +290,9 @@
 
     .jumbo-img {
       display: block;
-      width: 95%;
+      width: 90%;
       height: 280px;
-      margin: 20px 35px 0px 35px;
+      margin:auto;
     }
     #VinCheck{
     margin: 5% 0% 0% 5%;

@@ -25,6 +25,7 @@
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    <!-- Jeimmys addition to the navbar -->
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item active">
@@ -48,10 +49,10 @@
   <!-- End of NavBar -->
 
   <!-- This is the main container for the cards used in our page  -->
-  <div id="mainContainer" class="row">
+  <div id="mainContainer" class="ui centered grid">
 
     <!--This is where the compare two vehicles starts-->
-    <div id='compareContainer1' class="ui card four wide">
+    <div id='compareContainer1' class="ui card four wide column">
       <div class="ui slide masked reveal image">
         <img id="firstImageCompare1" class="visible content">
         <img id="firstImageCompare2" class="hidden content">
@@ -69,40 +70,46 @@
           <li id="theFuelEl1" class="meta"></li>
           <li id="theRecallEl1" class="meta"></li>
         </ul>
-          <img id="containerAimage" class="ui small circular image fluid">
+        <img id="containerAimage" class="ui small circular image fluid">
       </div>
     </div>
     <!--This is the container with the differences of the vehicles-->
-    <span id="finalSaving" class="ui card five wide column">
+    <span id="finalSaving" class="ui card four wide column">
 
       <div class="ui sixteen wide">
-        <span>Car <b>A</b></span><img class="icons" src="https://img.icons8.com/plasticine/40/000000/car.png" /><span>Car <b>B</b></span>
+        <span>Car <b>A</b></span><img class="icons"
+          src="https://img.icons8.com/plasticine/40/000000/car.png" /><span>Car <b>B</b></span>
       </div>
 
       <div class="ui sixteen wide">
-        <span id="firstVehicleFuel"></span><img class="icons" src="https://img.icons8.com/emoji/40/000000/fuel-pump.png" /><span id="secondVehicleFuel"></span>
+        <span id="firstVehicleFuel"></span><img class="icons"
+          src="https://img.icons8.com/emoji/40/000000/fuel-pump.png" /><span id="secondVehicleFuel"></span>
       </div>
 
       <div class="ui sixteen wide">
-        <span id="firstVehicleInsurance"></span> <img class="icons" src="https://img.icons8.com/dusk/40/000000/car-rental.png" /><span id="secondVehicleInsurance"></span>
+        <span id="firstVehicleInsurance"></span> <img class="icons"
+          src="https://img.icons8.com/dusk/40/000000/car-rental.png" /><span id="secondVehicleInsurance"></span>
       </div>
 
       <div class="ui sixteen wide">
-        <span id="firstVehicleMaintenance"></span><img class="icons" src="https://img.icons8.com/color/40/000000/full-tool-storage-box-.png" /><span id="secondVehicleMaintenance"></span>
+        <span id="firstVehicleMaintenance"></span><img class="icons"
+          src="https://img.icons8.com/color/40/000000/full-tool-storage-box-.png" /><span
+          id="secondVehicleMaintenance"></span>
       </div>
 
       <div class="ui sixteen wide">
-        <span id="firstCarTotal"></span> <img class="icons" src="https://img.icons8.com/material-outlined/40/000000/bonds.png" /><span id="secondCarTotal"></span>
+        <span id="firstCarTotal"></span> <img class="icons"
+          src="https://img.icons8.com/material-outlined/40/000000/bonds.png" /><span id="secondCarTotal"></span>
       </div>
 
       <div class="ui sixteen wide">
-      <img  class="icons" src="https://img.icons8.com/dusk/40/000000/safe-in.png" /><span id="yearlyDifference"></span>
+        <img class="icons" src="https://img.icons8.com/dusk/40/000000/safe-in.png" /><span id="yearlyDifference"></span>
       </div>
 
       <div class="ui "></div>
     </span>
     <!--This is where the container with the diffences of the vehicles ends-->
-    <div id='compareContainer2' class="ui card four wide">
+    <div id='compareContainer2' class="ui card four wide column">
       <div class="ui slide masked reveal image">
         <img id="secondImageCompare1" class="visible content">
         <img id="secondImageCompare2" class="hidden content">
@@ -172,20 +179,17 @@
   </div>
   <!--This is where the carousel ends-->
 
-  </div>
   <!-- The start of our user choice and suggested auto comparison -->
   <div id="UsersChoice" class="ui blue small buttons row no-gutters">
     <div class="col-md-6">
       <div class="mr-1">
-        <button class="ui button" id="checkVin" style="font-size: 30px;">Check VIN Number <img src="lemon.gif"
-            alt="lemon" class="row" class="lemoncarimg"
-            style=" height: 90%; width: 25%; display: block; margin-left: auto; margin-right: auto;"></button>
+        <button class="ui button" id="checkVin">Check VIN Number <img src="lemon.gif" alt="lemon"
+            class="row lemoncarimg"></button>
       </div>
     </div>
     <div class="col-md-6">
-      <button id="compareTwo" class="ui button" style="font-size: 30px;">Compare Two Vehicles <img
-          src="vs.gif" alt="vs" class="row" class="twocarsimg"
-          style=" height: 90%; width: 43%; display: block; margin-left: auto; margin-right: auto;"></button>
+      <button id="compareTwo" class="ui button">Compare Two Vehicles <img src="vs.gif" alt="vs"
+          class="row twocarsimg"></button>
     </div>
   </div>
   <br>
@@ -226,13 +230,89 @@
         <input id="secondVehicle" type="text" placeholder="Vehicle number two">
       </div>
     </div>
-    <button style="background: none;" id="readyCompare" class="  ui button"><img class="buttonImage" src="button.png"></button>
+    <button style="background: none;" id="readyCompare" class="  ui button"><img class="buttonImage"
+        src="button.png"></button>
     <div id="incorrectVIN2" class=" ui  pointing red basic label">
       Please enter a valid VIN number
     </div>
   </div>
 
   <!--this is the end of the form-->
+  <!--these are jeimmys links from navbar-->
+  <section id="contact-info" class="contactInfo">
+    <ul>
+      <div class="row space">
+        <div class="column">
+          <li>
+            <img src="https://ca.slack-edge.com/T01540F8NMQ-U015U88QG8Z-eeb2b03f5dda-512" alt="Project Manager"
+              width="50px" height="50px">
+            <h4>Project Manager</h4>
+            <p><a href="mailto:miguelangel.weill@gmail.com">Send email</a></p>
+          </li>
+        </div>
+        <br>
+        <div class="column">
+          <li>
+            <img src="IMG_1098 (1).jpg" alt="Back End Developer" width="50px" height="50px">
+            <h4>Back End Developer</h4>
+            <p><a href="mailto:miamarine84@yahoo.com">Send email</a></p>
+          </li>
+        </div>
+        <br>
+        <div class="column">
+          <li>
+            <img src="https://ca.slack-edge.com/T01540F8NMQ-U015SE2JQEQ-e1090ca8cbb4-512" alt="Front End Developer"
+              width="50px" height="50px">
+            <h4>Front End Developer</h4>
+            <p><a href="mailto:duanem33@gmail.com">Send email</a></p>
+          </li>
+        </div>
+        <br>
+        <div class="column">
+          <li>
+            <img src="https://ca.slack-edge.com/T01540F8NMQ-U015B6PV7P0-82803a433c00-512" alt="Front End Developer"
+              width="50px" height="50px">
+            <h4>Front End Developer</h4>
+            <p><a href="mailto:jpah.deign@gmail.com">Send email</a></p>
+          </li>
+        </div>
+      </div>
+
+    </ul>
+
+  </section>
+  <!-- end of links from navbar -->
+  <!--this is the chat window -->
+  <div class="chat-popup" id="myForm">
+    <form action="/action_page.php" class="form-container">
+      <h1>Chat</h1>
+
+      <label for="msg"><b>Message</b></label>
+      <textarea placeholder="Type message.." name="msg" required></textarea>
+
+      <button type="submit" class="btn">Send</button>
+      <button type="button" class="btn cancel" id="closeChat">Close</button>
+    </form>
+  </div>
+
+  <br>
+  <!-- End of chat window -->
+  <!--this is the about us section -->
+  <section class="aboutUs" id="about-us">
+    <article class="about-us">
+      <img src="one team one dream.jpg" alt="one team" class="float-left" />
+      <h2>ABOUT US</h2>
+      <p>
+        Welcome to Cars Not Lemons, your number one source to purchase your right vehicle. We're dedicated to
+        providing you the very best of description on any vehicle you want to get information, with an emphasis on
+        comparison as milleage, what will be the cost on insurance, fuel and more.
+        We hope you enjoy our page as much as we enjoy offering this option to you. If you have any questions or
+        comments, please don't hesitate to contact us.
+      </p>
+    </article>
+    <br>
+  </section>
+  <!-- End of about us section -->
   <!-- Start of the footer -->
   <footer class='footer' id="bottom">
 
